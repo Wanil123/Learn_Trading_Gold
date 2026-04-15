@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8 — Stratégie Gold complète | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Accueil</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 08</div>
+  <h1>Stratégie Gold complète</h1>
+  <p class="subtitle">London/NY Liquidity Sweep + FVG Retest — plan de trade end-to-end sur XAUUSD</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">🎯 Objectif de ce module</div>
+    <p>Tu vas apprendre une stratégie <strong>concrète, reproductible, avec des règles explicites</strong> appliquée au Gold (XAUUSD). Ce n'est pas LA stratégie parfaite — elle n'existe pas. C'est un exemple pédagogique solide que tu dois <strong>backtester, ajuster et t'approprier</strong>. Le but : te montrer comment assembler les briques des modules précédents en un plan cohérent.</p>
+  </div>
+
+  <h2>La stratégie en une phrase</h2>
+  <p>On attend un <strong>liquidity sweep</strong> d'un high/low significatif pendant une killzone (London ou NY), on valide par un <strong>CHoCH/MSS</strong> sur timeframe inférieur, et on entre sur le <strong>retest du FVG</strong> créé par le déplacement, dans la zone d'OTE.</p>
+
+  <h2>1. Bias directionnel — Daily et H4</h2>
+  <p>Avant toute chose : tu dois avoir un biais clair sur la direction du marché. Sans biais, pas de trade.</p>
+  <ul>
+    <li><strong>D1</strong> : structure en HH/HL (uptrend) ou LH/LL (downtrend) ? Note la zone de liquidité majeure (dernier high/low D1).</li>
+    <li><strong>H4</strong> : même analyse. C'est le timeframe de biais opérationnel.</li>
+    <li><strong>DXY H4</strong> : le Dollar Index. Gold et DXY sont <em>négativement corrélés</em> (~-0.7 à -0.85). Si tu es long Gold, tu veux un DXY baissier.</li>
+    <li><strong>US10Y</strong> (rendement 10 ans US) : également corrélé négativement avec le Gold. Rendement qui monte = Gold sous pression.</li>
+  </ul>
+  <p><strong>Règle absolue :</strong> tu ne prends QUE des trades dans le sens du biais H4. Pas de contre-trend.</p>
+
+  <h2>2. Préparation de session — avant London Open (07:00 UTC)</h2>
+  <ol>
+    <li>Marque les <strong>highs et lows asiatiques</strong> (session 23:00–07:00 UTC) sur ton chart.</li>
+    <li>Marque les <strong>highs/lows H4 et D1</strong> non mitigés = zones de liquidité majeures.</li>
+    <li>Vérifie le calendrier économique (ForexFactory). Si FOMC, CPI, NFP, PPI ou discours Powell dans les <strong>2 heures</strong> → <em>pas de trade</em>.</li>
+    <li>Check DXY : direction, structure, niveaux clés.</li>
+    <li>Définis ton scénario A (long) et scénario B (short) avec les zones précises.</li>
+  </ol>
+
+  <h2>3. Setup d'entrée — M15 / M5 / M1</h2>
+  <ol>
+    <li><strong>Sweep de liquidité</strong> : le prix perce un high/low précédent (asiatique, H4, ou equal highs/lows) avec une mèche rapide, puis rejette.</li>
+    <li><strong>CHoCH/MSS</strong> : sur M5 ou M1, le prix doit casser la structure interne opposée au sweep — avec un déplacement impulsif.</li>
+    <li><strong>FVG identifié</strong> : le déplacement laisse un Fair Value Gap visible.</li>
+    <li><strong>Entry</strong> : ordre limite sur le retest du FVG (ou de l'OB qui a créé le déplacement), idéalement dans la zone OTE (61–79% fib de la jambe impulsive).</li>
+  </ol>
+
+  <h2>4. Gestion du trade</h2>
+  <ul>
+    <li><strong>Stop Loss</strong> : juste au-delà du swing extrême du sweep (sous le low du sweep pour un long, au-dessus du high pour un short) + un buffer de <strong>20–30 pips</strong> pour absorber le spread Gold et la volatilité.</li>
+    <li><strong>TP1 à 1R</strong> : sécurise 33% de la position, passe le SL à break-even.</li>
+    <li><strong>TP2 à 2R</strong> : sécurise encore 33%.</li>
+    <li><strong>TP3</strong> : liquidité suivante (prochain high/low H4 ou D1).</li>
+    <li><strong>Time stop</strong> : si après 2 heures le trade n'évolue pas franchement dans ton sens, tu fermes. Un bon setup bouge vite.</li>
+  </ul>
+
+  <h2>5. Fenêtres de trading optimales</h2>
+  <ul>
+    <li><strong>London Killzone</strong> : 07:00–10:00 UTC — la meilleure fenêtre pour le Gold, volumes élevés, mouvements directionnels.</li>
+    <li><strong>NY Killzone</strong> : 13:30–16:00 UTC — deuxième meilleure, attention aux news US à 13:30 et 14:00.</li>
+    <li><strong>Silver Bullet</strong> : 15:00–16:00 UTC — fenêtre très surveillée.</li>
+    <li><strong>À éviter</strong> : 10:00–13:00 UTC (entre London et NY, range), 20:00–23:00 UTC (fin NY, mou), session asiatique pure.</li>
+  </ul>
+
+  <h2>6. Money management — non négociable</h2>
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Règles strictes — si tu les casses, tu blowes ton compte</div>
+    <ul>
+      <li><strong>1% max de risque</strong> par trade. Pas 2%. Pas "juste cette fois".</li>
+      <li><strong>2 trades perdants maximum</strong> dans la journée → tu fermes la plateforme.</li>
+      <li><strong>3 trades maximum</strong> par jour, quoi qu'il arrive.</li>
+      <li><strong>Win rate cible</strong> : 45–55%. Si quelqu'un te vend du 80%, c'est du mensonge ou de la sur-optimisation.</li>
+      <li><strong>Expectancy cible</strong> : +0.3R à +0.5R par trade en moyenne.</li>
+    </ul>
+  </div>
+
+  <h2>7. Checklist pré-trade</h2>
+  <p>Tu coches cette liste AVANT chaque entrée. Si une seule case n'est pas cochée, tu ne rentres pas.</p>
+
+  <div style="overflow-x:auto"><table class="w-full border-collapse my-4">
+    <thead>
+      <tr class="bg-dark-700">
+        <th class="border border-dark-600 p-2 text-left">#</th>
+        <th class="border border-dark-600 p-2 text-left">Critère</th>
+        <th class="border border-dark-600 p-2 text-center">✓</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="border border-dark-600 p-2">1</td><td class="border border-dark-600 p-2">Bias H4 identifié (long ou short clair)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">2</td><td class="border border-dark-600 p-2">DXY cohérent avec le bias (corrélation inverse)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">3</td><td class="border border-dark-600 p-2">Pas de news majeure dans les 2h à venir</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">4</td><td class="border border-dark-600 p-2">Killzone active (London / NY / Silver Bullet)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">5</td><td class="border border-dark-600 p-2">Liquidité évidente à prendre (swing marqué)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">6</td><td class="border border-dark-600 p-2">Sweep confirmé (mèche + rejet)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">7</td><td class="border border-dark-600 p-2">CHoCH/MSS confirmé sur M5 ou M1</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">8</td><td class="border border-dark-600 p-2">FVG/OB identifié dans la zone OTE</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">9</td><td class="border border-dark-600 p-2">SL logique placé (swing extrême + buffer 20-30 pips)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">10</td><td class="border border-dark-600 p-2">RR minimum 1:2 atteignable</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">11</td><td class="border border-dark-600 p-2">Taille de position calculée (1% de risque max)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+      <tr><td class="border border-dark-600 p-2">12</td><td class="border border-dark-600 p-2">État émotionnel calme (pas FOMO, pas revenge)</td><td class="border border-dark-600 p-2 text-center">☐</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>8. Exemple concret — trade long sur Gold</h2>
+  <div class="callout callout-info">
+    <div class="callout-title">📊 Scénario pédagogique chiffré</div>
+    <p><strong>Contexte</strong> : lundi 09:30 UTC. Gold en uptrend D1 (HH/HL clairs). H4 en uptrend également, dernier HL à 1995.00, dernier HH à 2008.00. DXY en downtrend H4. Pas de news avant 14:30.</p>
+    <p><strong>Observation</strong> : pendant la session asiatique, le prix forme un low à 2000.50 (sell-side liquidity évidente). À 08:15 UTC, pendant la London Killzone, le prix plonge sur 1999.20 — sweep du low asiatique — puis rejette violemment en 3 bougies M5. Un FVG se forme entre 2001.00 et 2002.50 lors du déplacement. Sur M1, un CHoCH haussier se valide à 2003.00.</p>
+    <p><strong>Plan</strong> :</p>
+    <ul>
+      <li>Entry limite à <strong>2002.00</strong> (milieu du FVG, zone OTE de la jambe 1999.20 → 2003.50)</li>
+      <li>Stop Loss à <strong>1998.70</strong> (sous le low du sweep + 50 pips buffer)</li>
+      <li>Distance SL = 330 pips (3.30$ sur Gold)</li>
+      <li>TP1 à 2005.30 (1R)</li>
+      <li>TP2 à 2008.60 (2R, prise de la buy-side liquidity du high H4)</li>
+      <li>TP3 à 2012.00 (prochain niveau D1)</li>
+    </ul>
+    <p><strong>Calcul de position</strong> : capital 10 000$, risque 1% = 100$. Distance SL = 3.30$. Sur Gold, 1 lot standard = 100 oz, donc 1$ de mouvement = 100$ de P&L par lot. Taille = 100$ / (3.30 × 100) = <strong>0.30 lot</strong>. Si SL touché : perte de 99$ ≈ 1% ✓.</p>
+    <p><strong>Résultat possible</strong> : TP1 touché (+33$), SL déplacé à BE, TP2 touché (+66$), TP3 non atteint (SL BE sur la dernière tranche). Gain total ≈ +99$ soit +1R sur le trade. Pas spectaculaire — mais reproductible, c'est ça l'objectif.</p>
+  </div>
+
+  <h2>9. Backtesting OBLIGATOIRE avant le réel</h2>
+  <ul>
+    <li><strong>Minimum 100 trades backtestés manuellement</strong> sur données historiques Gold (6 derniers mois).</li>
+    <li><strong>2 mois en démo</strong> en conditions réelles (mêmes horaires, mêmes règles strictes).</li>
+    <li>Si ton expectancy est négative après 100 trades → la stratégie ne <em>TE</em> convient pas. Tu l'adaptes ou tu changes.</li>
+    <li>Journal de trading obligatoire : chaque entrée, pourquoi tu l'as prise, le résultat, l'émotion ressentie.</li>
+  </ul>
+
+  <h2>10. Limites de la stratégie — sois lucide</h2>
+  <div class="callout callout-warn">
+    <div class="callout-title">🚫 Ce qui peut tuer cette stratégie</div>
+    <ul>
+      <li><strong>Marché consolidé sans volatilité</strong> : pas de vraie impulsion, les sweeps deviennent ambigus.</li>
+      <li><strong>Gaps du week-end</strong> : peuvent te stop out sans recours.</li>
+      <li><strong>News imprévues</strong> (géopolitique, banques centrales) : peuvent invalider tout setup en quelques secondes.</li>
+      <li><strong>Spread Gold élevé</strong> : 30–50 pips chez beaucoup de brokers. Mange littéralement les trades à petit RR. Choisis un broker avec spread Gold &lt; 25 pips.</li>
+      <li><strong>Slippage en killzone</strong> : les exécutions peuvent être décalées de plusieurs pips lors des mouvements rapides.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">🥇 Conclusion — cette stratégie est un EXEMPLE</div>
+    <p>Cette stratégie est un <strong>exemple pédagogique</strong>, pas une vérité révélée. Le but n'est pas que tu la copies aveuglément, mais que tu comprennes <em>comment construire TA propre stratégie</em> avec ces briques : biais multi-TF, liquidité, sweep, confirmation structurelle, entrée précise, gestion rigoureuse. Backteste, ajuste à ta personnalité (scalper vs swing), trouve TON edge. Et surtout : ne trade jamais en réel ce que tu n'as pas prouvé en backtest et en démo.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 Quiz de fin de module</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Marquer comme complété</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="07-smc-ict.html"><div class="label">← Précédent</div><div class="name">SMC / ICT</div></a>
+    <a href="09-money-management.html"><div class="label">Suivant →</div><div class="name">Money Management</div></a>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+initMarkDone(8);
+initQuiz('quizContainer', [
+  { q: "Quel est le risque maximum par trade recommandé ?", options: ["5%", "3%", "1%", "10%"], correct: 2, explain: "1% maximum par trade. C'est non négociable pour survivre aux séries de pertes." },
+  { q: "Pourquoi vérifier le DXY avant de trader le Gold ?", options: ["Pour la beauté du graphique", "Car Gold et DXY sont corrélés négativement (~-0.8)", "Car ils sont parfaitement corrélés positivement", "Pour rien, c'est un mythe"], correct: 1, explain: "La corrélation négative Gold/DXY est très forte. Trader Gold sans regarder DXY est une erreur." },
+  { q: "Que fais-tu si une news majeure (CPI, FOMC) est prévue dans 1h30 ?", options: ["Je prends le trade quand même", "Je double la taille pour profiter de la volatilité", "Je ne trade pas, j'attends", "Je mets un SL plus large"], correct: 2, explain: "Pas de trade dans les 2h avant une news majeure. La volatilité imprévisible peut invalider n'importe quel setup." },
+  { q: "Capital 10 000$, risque 1%, SL à 3.30$ sur Gold. Taille de position ?", options: ["0.10 lot", "0.30 lot", "1.00 lot", "3.00 lots"], correct: 1, explain: "100$ de risque / (3.30$ × 100$/lot) = 0.30 lot." },
+  { q: "Après combien de trades perdants dans la journée tu arrêtes ?", options: ["5", "2", "10", "Jamais"], correct: 1, explain: "2 trades perdants = stop de la journée. Ça protège ton capital et ton mental (tilt, revenge trading)." },
+  { q: "Quel est un win rate cible RÉALISTE pour cette stratégie ?", options: ["90%", "80%", "45–55%", "30%"], correct: 2, explain: "45–55% est réaliste. Un win rate annoncé de 80%+ est soit du mensonge, soit de la sur-optimisation sans tenir compte des coûts." }
+]);
+</script>
+</body>
+</html>

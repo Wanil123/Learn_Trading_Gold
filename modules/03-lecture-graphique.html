@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — Lecture de graphique | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Accueil</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 03</div>
+  <h1>Lecture de graphique</h1>
+  <p class="subtitle">Bougies japonaises, timeframes, structure, patterns. Apprendre à voir ce qui se passe sur le marché sans s'inventer des histoires.</p>
+
+  <h2>Les trois types de graphiques — et pourquoi un seul compte</h2>
+  <p>Quand tu ouvres ta plateforme, tu peux afficher le prix de trois façons principales :</p>
+  <ul>
+    <li><strong>Line chart (ligne)</strong> — relie simplement les prix de clôture. Lisible mais il te manque 75% de l'information (open, high, low).</li>
+    <li><strong>Bar chart (OHLC)</strong> — affiche les 4 prix clés avec des barres verticales. Complet mais visuellement dur à lire rapidement.</li>
+    <li><strong>Candlestick (bougies japonaises)</strong> — même info que le bar chart mais encodée visuellement avec un corps coloré. Inventé par le marchand de riz japonais Munehisa Homma au XVIIIᵉ siècle.</li>
+  </ul>
+  <p>Le chandelier japonais gagne haut la main : il te donne en un coup d'œil l'ouverture, le plus haut, le plus bas, la clôture, le sens de la période, l'ampleur du mouvement et la conviction des acheteurs/vendeurs. C'est la langue officielle de l'analyse technique moderne. <strong>Utilise uniquement des bougies</strong>.</p>
+
+  <h2>Anatomie d'une bougie</h2>
+  <p>Chaque bougie représente une <em>période</em> (1 minute, 1 heure, 1 jour…). Elle contient 4 informations :</p>
+  <ul>
+    <li><strong>Open</strong> — prix à l'ouverture de la période</li>
+    <li><strong>High</strong> — plus haut atteint</li>
+    <li><strong>Low</strong> — plus bas atteint</li>
+    <li><strong>Close</strong> — prix à la clôture de la période</li>
+  </ul>
+  <p>Visuellement, le <strong>corps</strong> (rectangle) va de l'open au close. Les <strong>mèches</strong> (ou ombres) vont du corps jusqu'au high et jusqu'au low. Si close &gt; open, la bougie est haussière (traditionnellement verte ou blanche). Si close &lt; open, elle est baissière (rouge ou noire).</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Bullish candle -->
+      <line x1="130" y1="30" x2="130" y2="220" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="110" y="80" width="40" height="110" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+      <text x="130" y="245" fill="#bbf7d0" font-size="12" text-anchor="middle" font-weight="bold">Haussière</text>
+      <text x="165" y="35" fill="#94a3b8" font-size="11">High</text>
+      <line x1="155" y1="32" x2="160" y2="32" stroke="#94a3b8"/>
+      <text x="165" y="85" fill="#94a3b8" font-size="11">Close</text>
+      <text x="165" y="195" fill="#94a3b8" font-size="11">Open</text>
+      <text x="165" y="225" fill="#94a3b8" font-size="11">Low</text>
+      <text x="60" y="135" fill="#94a3b8" font-size="11">Corps</text>
+      <line x1="85" y1="132" x2="108" y2="132" stroke="#94a3b8"/>
+      <text x="50" y="55" fill="#94a3b8" font-size="11">Mèche</text>
+      <line x1="85" y1="52" x2="128" y2="52" stroke="#94a3b8"/>
+
+      <!-- Bearish candle -->
+      <line x1="370" y1="40" x2="370" y2="230" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="350" y="70" width="40" height="120" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+      <text x="370" y="250" fill="#fecaca" font-size="12" text-anchor="middle" font-weight="bold">Baissière</text>
+      <text x="405" y="45" fill="#94a3b8" font-size="11">High</text>
+      <text x="405" y="75" fill="#94a3b8" font-size="11">Open</text>
+      <text x="405" y="195" fill="#94a3b8" font-size="11">Close</text>
+      <text x="405" y="235" fill="#94a3b8" font-size="11">Low</text>
+    </svg>
+    <div class="schema-caption">Anatomie complète d'une bougie japonaise haussière et baissière</div>
+  </div>
+
+  <h2>Lire une bougie : corps et mèches racontent une histoire</h2>
+  <p>Une bougie, c'est une bataille miniature entre acheteurs et vendeurs sur une période donnée. Le résultat visuel te dit qui a gagné et avec quelle conviction :</p>
+  <ul>
+    <li><strong>Gros corps, peu de mèches</strong> = un camp a dominé largement, mouvement directionnel fort. Conviction élevée.</li>
+    <li><strong>Petit corps, grandes mèches</strong> = bataille indécise, les deux camps ont poussé mais aucun n'a gagné. Attention.</li>
+    <li><strong>Longue mèche d'un seul côté</strong> = rejet. Le prix est allé d'un côté puis a été violemment repoussé. Signal potentiel de retournement.</li>
+    <li><strong>Bougie minuscule</strong> = compression, souvent précède un mouvement explosif.</li>
+  </ul>
+
+  <h2>Les patterns de base à connaître</h2>
+  <p>Il existe des centaines de patterns de bougies catalogués. Tu n'as besoin que de 6 pour 95% des situations :</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- Doji -->
+      <line x1="50" y1="30" x2="50" y2="140" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="42" y="83" width="16" height="4" fill="#e2e8f0"/>
+      <text x="50" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Doji</text>
+
+      <!-- Hammer -->
+      <line x1="150" y1="60" x2="150" y2="145" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="138" y="60" width="24" height="30" fill="#22c55e"/>
+      <text x="150" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Hammer</text>
+
+      <!-- Shooting star -->
+      <line x1="250" y1="30" x2="250" y2="115" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="238" y="85" width="24" height="30" fill="#ef4444"/>
+      <text x="250" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Shooting Star</text>
+
+      <!-- Bullish engulfing -->
+      <line x1="340" y1="45" x2="340" y2="115" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="332" y="60" width="16" height="40" fill="#ef4444"/>
+      <line x1="370" y1="35" x2="370" y2="130" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="358" y="50" width="24" height="65" fill="#22c55e"/>
+      <text x="360" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Engulfing</text>
+
+      <!-- Inside bar -->
+      <line x1="460" y1="30" x2="460" y2="130" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="448" y="45" width="24" height="70" fill="#22c55e"/>
+      <line x1="495" y1="60" x2="495" y2="105" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="487" y="70" width="16" height="25" fill="#ef4444"/>
+      <text x="480" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Inside Bar</text>
+
+      <!-- Pin bar -->
+      <line x1="560" y1="30" x2="560" y2="140" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="552" y="30" width="16" height="22" fill="#ef4444"/>
+      <text x="560" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Pin Bar</text>
+    </svg>
+    <div class="schema-caption">Les 6 patterns de base à identifier instantanément</div>
+  </div>
+
+  <ul>
+    <li><strong>Doji</strong> — open = close (ou presque). Corps quasi inexistant, mèches des deux côtés. Indécision totale. Fort si apparaît sur une zone clé.</li>
+    <li><strong>Hammer (marteau)</strong> — petit corps en haut, longue mèche en bas. Les vendeurs ont poussé puis se sont fait repousser. Signal haussier en fin de descente.</li>
+    <li><strong>Shooting star (étoile filante)</strong> — petit corps en bas, longue mèche en haut. L'inverse du hammer. Signal baissier en fin de hausse.</li>
+    <li><strong>Engulfing (avalement)</strong> — une bougie dont le corps "avale" entièrement celui de la précédente dans le sens inverse. Signal de retournement fort.</li>
+    <li><strong>Inside bar</strong> — bougie entièrement contenue (high et low) dans la précédente. Compression, souvent précède un breakout.</li>
+    <li><strong>Pin bar</strong> — bougie avec une mèche très longue (au moins 2× le corps) d'un côté. Rejet pur d'un niveau.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Attention au fétichisme du pattern</div>
+    <p>Un hammer isolé au milieu de nulle part ne veut rien dire. Un hammer sur un support majeur, après une descente, avec confirmation sur la bougie suivante : ça a du poids. Le <strong>contexte</strong> compte dix fois plus que le pattern lui-même. Un pattern sans contexte, c'est du bruit.</p>
+  </div>
+
+  <h2>Timeframes et analyse top-down</h2>
+  <p>Un graphique Gold peut s'afficher en M1 (1 minute), M5, M15, M30, H1, H4, D (journalier), W (hebdo), MN (mensuel). Chaque timeframe raconte une partie différente de la même histoire. Le piège classique du débutant : coller son nez sur le M1 et oublier que le H4 est en trend baissier.</p>
+  <p>La méthode pro : <strong>top-down analysis</strong>. Tu commences par le haut et tu descends :</p>
+  <ol>
+    <li><strong>D1 (journalier)</strong> — quel est le trend général ? Haussier, baissier, range ? Où sont les gros niveaux de support/résistance ?</li>
+    <li><strong>H4</strong> — où en est le prix dans la structure D1 ? S'approche-t-il d'un niveau ? Affine le bias.</li>
+    <li><strong>H1 / M15</strong> — zone d'exécution. Tu y cherches le setup précis qui s'aligne avec le bias des timeframes supérieurs.</li>
+    <li><strong>M5 / M1</strong> — uniquement pour affiner l'entrée (timing). Jamais pour décider de la direction.</li>
+  </ol>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">Le higher timeframe gagne toujours</div>
+    <p>Si le D1 est haussier et que tu vois un "signal short" sur M5, tu NE SHORTES PAS. Tu attends que le M5 s'aligne avec le D1. Cette règle seule va te sauver de 70% des trades pourris. Le timeframe supérieur dicte la direction, le timeframe inférieur dicte le timing.</p>
+  </div>
+
+  <h2>Structure de marché : trends et ranges</h2>
+  <p>Visuellement, un marché fait une seule de ces trois choses :</p>
+  <ul>
+    <li><strong>Uptrend</strong> — succession de plus hauts plus hauts (Higher Highs) et plus bas plus hauts (Higher Lows). Tu vois un escalier qui monte.</li>
+    <li><strong>Downtrend</strong> — succession de plus bas plus bas (Lower Lows) et plus hauts plus bas (Lower Highs). Escalier qui descend.</li>
+    <li><strong>Range</strong> — le prix oscille entre un support horizontal et une résistance horizontale. Pas de direction.</li>
+  </ul>
+  <p>Le changement de structure est le signal le plus important : quand un uptrend casse un Higher Low précédent, c'est un potentiel retournement (<em>Break of Structure</em> baissier). Entraîne ton œil à voir ces points sans indicateur.</p>
+
+  <h2>Volume sur XAUUSD</h2>
+  <p>Sur le forex pur, le volume affiché par ton broker n'est que son propre volume interne (tick volume), pas le vrai volume global. Sur XAUUSD c'est un peu mieux car le CME Gold Futures fournit une référence visible. Le volume peut t'aider à confirmer une cassure (volume fort = conviction) ou à détecter un piège (cassure sans volume = souvent faux). Mais ne bâtis pas ta stratégie dessus : considère-le comme un indicateur de confirmation, pas de décision.</p>
+
+  <h2>Tracer une trendline correctement</h2>
+  <p>Une trendline demande au <strong>minimum 2 points de contact</strong> pour exister, et devient valide seulement au 3ᵉ contact qui confirme. Le débat éternel : faut-il la tracer sur les mèches ou sur les corps des bougies ?</p>
+  <ul>
+    <li><strong>Sur les mèches</strong> — tradition classique. Respecte la vérité des prix extrêmes atteints.</li>
+    <li><strong>Sur les corps</strong> — approche plus "price action pure" (Al Brooks). Le corps reflète la conviction, les mèches sont du bruit/stop hunting.</li>
+  </ul>
+  <p>La vraie réponse : choisis une méthode et sois cohérent. Une trendline mal tracée ne prédit rien. Une trendline tracée avec rigueur, sur 3+ touches, reste un outil visuel puissant pour voir la dynamique.</p>
+
+  <h2>Support et résistance visuels</h2>
+  <p>Un support est un niveau horizontal où le prix a rebondi plusieurs fois à la hausse. Une résistance, où il a été repoussé plusieurs fois à la baisse. Règles pratiques :</p>
+  <ul>
+    <li>Plus le niveau a été testé, plus il est significatif</li>
+    <li>Un support cassé devient souvent une résistance (et vice versa)</li>
+    <li>Les niveaux "ronds" psychologiques (2000, 2050, 2100 sur Gold) sont souvent auto-réalisateurs</li>
+    <li>Un niveau sur D1 bat un niveau sur H1. Toujours.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Les pièges mentaux du lecteur de graphe</div>
+    <ul>
+      <li><strong>Hindsight bias</strong> — en regardant le passé, tout semble évident ("j'aurais dû voir ce reversal !"). En direct, c'est flou. Ne juge jamais ton trading avec les yeux du rétroviseur.</li>
+      <li><strong>Overfitting</strong> — tracer des patterns partout, relier des points qui n'ont rien à voir, voir des "figures" dans le bruit. Si tu as besoin de 12 lignes pour justifier un trade, c'est qu'il n'y a pas de trade.</li>
+      <li><strong>Pattern shopping</strong> — chercher le pattern qui confirme ton biais au lieu de lire ce que le marché dit réellement.</li>
+    </ul>
+  </div>
+
+  <h2>Ce que tu dois retenir</h2>
+  <p>Utilise uniquement des bougies. Apprends leur anatomie par cœur. Maîtrise 6 patterns, pas 60. Fais toujours du top-down : D1 → H4 → H1 → M15. Le contexte prime sur le pattern. La structure (HH/HL vs LH/LL) te dit où tu es dans l'histoire. Et souviens-toi : un graphique ne prédit rien, il raconte ce qui s'est passé. Ton travail est d'identifier les zones où la probabilité de continuation ou de retournement est statistiquement favorable — rien de plus, rien de moins.</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <h3>🎓 Quiz de fin de module</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Marquer comme complété</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="02-marches-gold.html"><div class="label">← Précédent</div><div class="name">Les marchés & le Gold</div></a>
+    <a href="04-price-action.html"><div class="label">Suivant →</div><div class="name">Price Action</div></a>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+initMarkDone(3);
+initQuiz('quizContainer', [
+  {
+    q: "Sur une bougie, que représente le 'corps' ?",
+    options: ["La distance entre le high et le low", "La distance entre l'open et le close", "Uniquement la partie haussière", "Le volume de la période"],
+    correct: 1,
+    explain: "Le corps va de l'open au close. Les mèches (ombres) prolongent ensuite jusqu'au high et au low. Le corps représente la conviction directionnelle de la période."
+  },
+  {
+    q: "Tu observes une bougie avec un petit corps rouge en haut et une très longue mèche vers le bas. Quel pattern est-ce ?",
+    options: ["Shooting star", "Doji", "Hammer", "Inside bar"],
+    correct: 2,
+    explain: "C'est un hammer (marteau) : les vendeurs ont poussé le prix fort vers le bas, mais les acheteurs ont tout remonté. Signal potentiel de retournement haussier, surtout s'il apparaît sur un support après une descente."
+  },
+  {
+    q: "Dans une analyse top-down, par quel timeframe dois-tu commencer ?",
+    options: ["M1 pour voir le détail", "M15 pour trouver un setup", "H1 pour le timing", "D1/H4 pour définir le bias général"],
+    correct: 3,
+    explain: "Top-down = on part du haut. D1 donne le trend et les gros niveaux, H4 affine, H1/M15 sert à trouver le setup, M5/M1 ne sert qu'à affiner l'entrée. Le higher timeframe dicte la direction."
+  },
+  {
+    q: "Un uptrend est caractérisé par…",
+    options: ["Une succession de Lower Highs et Lower Lows", "Une succession de Higher Highs et Higher Lows", "Un prix qui ne bouge pas", "Beaucoup de volume uniquement"],
+    correct: 1,
+    explain: "Uptrend = escalier qui monte = chaque sommet et chaque creux est plus haut que le précédent (HH/HL). Inversement pour un downtrend (LH/LL). Un range n'a ni l'un ni l'autre."
+  },
+  {
+    q: "Quelle est la règle correcte concernant les trendlines ?",
+    options: ["Une seule touche suffit", "Il faut au moins 2 points, et la 3ᵉ touche confirme la validité", "Il faut toujours les tracer sur les mèches", "Elles prédisent avec certitude le futur"],
+    correct: 1,
+    explain: "Une trendline demande minimum 2 points pour exister. La 3ᵉ touche est la confirmation de validité. Le choix mèche vs corps est une question de méthode personnelle à condition d'être cohérent. Et aucune trendline ne 'prédit' — elle visualise une dynamique."
+  }
+]);
+</script>
+</body>
+</html>

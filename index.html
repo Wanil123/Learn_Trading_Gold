@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Trading Academy — Formation Complète A→Z</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: { 50:'#FFFBEB', 100:'#FEF3C7', 400:'#FBBF24', 500:'#F59E0B', 600:'#D97706', 700:'#B45309' },
+          dark: { 900:'#0A0A0A', 800:'#121212', 700:'#1A1A1A', 600:'#252525', 500:'#333333' }
+        },
+        fontFamily: { display: ['Inter','system-ui','sans-serif'] }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-dark-900 text-gray-100 font-display min-h-screen">
+
+<!-- HEADER -->
+<header class="border-b border-dark-600 bg-dark-800/80 backdrop-blur sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+    <a href="index.html" class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <span class="text-2xl sm:text-3xl flex-shrink-0">🥇</span>
+      <div class="min-w-0">
+        <h1 class="text-base sm:text-xl font-bold text-gold-400 truncate">Gold Trading Academy</h1>
+        <p class="text-[10px] sm:text-xs text-gray-500 truncate">Formation honnête — A→Z</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex gap-3 text-sm">
+      <a href="index.html" class="hover:text-gold-400">Accueil</a>
+      <a href="tools/calculator.html" class="hover:text-gold-400">Calcul</a>
+      <a href="tools/simulator.html" class="hover:text-gold-400">Simu</a>
+      <a href="tools/backtester.html" class="hover:text-gold-400">Backtest</a>
+      <a href="tools/journal.html" class="hover:text-gold-400">Journal</a>
+      <a href="tools/checklist.html" class="hover:text-gold-400">Checklist</a>
+      <a href="tools/discipline.html" class="hover:text-gold-400">Discipline</a>
+      <a href="tools/resources.html" class="hover:text-gold-400">Ressources</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button id="menuBtn" class="md:hidden text-gold-400 text-2xl px-2 flex-shrink-0" aria-label="Menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">☰</button>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <nav id="mobileMenu" class="hidden md:hidden border-t border-dark-600 bg-dark-800">
+    <a href="index.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">🏠 Accueil</a>
+    <a href="tools/calculator.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">🧮 Calculateur</a>
+    <a href="tools/simulator.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">📊 Simulateur</a>
+    <a href="tools/backtester.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">🔬 Backtester</a>
+    <a href="tools/journal.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">📓 Journal</a>
+    <a href="tools/checklist.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">✅ Checklist</a>
+    <a href="tools/discipline.html" class="block px-4 py-3 border-b border-dark-600 hover:bg-dark-700 hover:text-gold-400">🔥 Discipline</a>
+    <a href="tools/resources.html" class="block px-4 py-3 hover:bg-dark-700 hover:text-gold-400">🔗 Ressources</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 text-center">
+  <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+    De <span class="text-red-400">débutant</span> à <span class="text-gold-400">trader profitable</span>
+  </h2>
+  <p class="text-base sm:text-xl text-gray-400 mb-4">Formation complète sur le Gold (XAUUSD) — sans BS de guru.</p>
+  <p class="text-xs sm:text-sm text-gray-500 max-w-2xl mx-auto">
+    14 modules pédagogiques · SMC/ICT critique et honnête · Money management rigoureux ·
+    Psychologie · Outils interactifs · Journal intégré · Calculateur de position · Simulateur SL/TP
+  </p>
+  <div class="mt-8 flex gap-4 justify-center flex-wrap">
+    <a href="modules/01-mindset.html" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-5 sm:px-8 py-3 rounded-lg transition text-sm sm:text-base">
+      🚀 Commencer le Module 1
+    </a>
+    <a href="#modules" class="border border-gold-500 text-gold-400 px-8 py-3 rounded-lg hover:bg-gold-500/10 transition">
+      Voir tous les modules
+    </a>
+  </div>
+
+  <!-- Progression -->
+  <div class="mt-10 bg-dark-800 border border-dark-600 rounded-lg p-5 max-w-2xl mx-auto">
+    <div class="flex justify-between text-sm mb-2">
+      <span class="text-gray-400">Ta progression</span>
+      <span id="progressText" class="text-gold-400 font-bold">0 / 14 modules</span>
+    </div>
+    <div class="bg-dark-600 h-3 rounded-full overflow-hidden">
+      <div id="progressBar" class="bg-gradient-to-r from-gold-600 to-gold-400 h-full transition-all duration-500" style="width:0%"></div>
+    </div>
+    <button onclick="if(confirm('Réinitialiser toute ta progression?')){localStorage.clear();location.reload();}" class="mt-3 text-xs text-gray-500 hover:text-red-400">Réinitialiser la progression</button>
+  </div>
+</section>
+
+<!-- WARNING HONNÊTE -->
+<section class="max-w-4xl mx-auto px-6 py-6">
+  <div class="bg-red-900/20 border border-red-700 rounded-lg p-6">
+    <h3 class="text-red-400 font-bold mb-2">⚠️ La vérité avant de commencer</h3>
+    <p class="text-sm text-gray-300">
+      Selon les études <strong>ESMA</strong> et <strong>AMF</strong>, <strong>74 à 89%</strong> des traders retail perdent de l'argent.
+      Aucune stratégie n'a un taux de réussite de 100% — méfie-toi de quiconque le prétend. La profitabilité vient à
+      <strong>80% du money management et de la psychologie</strong>, pas de la stratégie. Cette formation t'enseigne les deux.
+    </p>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section id="modules" class="max-w-6xl mx-auto px-6 py-12">
+  <h3 class="text-3xl font-bold text-gold-400 mb-8">📚 Les 14 modules</h3>
+
+  <div class="mb-8">
+    <h4 class="text-sm uppercase tracking-wider text-gray-500 mb-4">Bloc 1 — Fondations</h4>
+    <div class="grid md:grid-cols-3 gap-4">
+      <a href="modules/01-mindset.html" data-module="1" class="module-card"><div class="num">01</div><div class="title">Mindset & réalité du trading</div><div class="desc">Stats ESMA, pourquoi 90% perdent, règles du jeu honnêtes</div></a>
+      <a href="modules/02-marches-gold.html" data-module="2" class="module-card"><div class="num">02</div><div class="title">Les marchés & le Gold</div><div class="desc">XAUUSD vs futures, spread, leverage, sessions, pip, lot</div></a>
+      <a href="modules/03-lecture-graphique.html" data-module="3" class="module-card"><div class="num">03</div><div class="title">Lecture de graphique</div><div class="desc">Bougies japonaises, timeframes, structure visuelle</div></a>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h4 class="text-sm uppercase tracking-wider text-gray-500 mb-4">Bloc 2 — Analyse technique</h4>
+    <div class="grid md:grid-cols-3 gap-4">
+      <a href="modules/04-price-action.html" data-module="4" class="module-card"><div class="num">04</div><div class="title">Price Action pure</div><div class="desc">Trends, ranges, swings, signal bars (Al Brooks)</div></a>
+      <a href="modules/05-support-resistance.html" data-module="5" class="module-card"><div class="num">05</div><div class="title">Support / Résistance & Fibonacci</div><div class="desc">Niveaux clés, confluences, retracements</div></a>
+      <a href="modules/06-structure-marche.html" data-module="6" class="module-card"><div class="num">06</div><div class="title">Structure de marché</div><div class="desc">HH/HL/LH/LL, BOS, CHoCH — fondation du SMC</div></a>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h4 class="text-sm uppercase tracking-wider text-gray-500 mb-4">Bloc 3 — SMC / ICT (honnête)</h4>
+    <div class="grid md:grid-cols-2 gap-4">
+      <a href="modules/07-smc-ict.html" data-module="7" class="module-card"><div class="num">07</div><div class="title">Smart Money Concepts</div><div class="desc">Order Blocks, FVG, Liquidity, Premium/Discount, OTE, Killzones + critique</div></a>
+      <a href="modules/08-strategie-gold.html" data-module="8" class="module-card"><div class="num">08</div><div class="title">Stratégie Gold complète</div><div class="desc">Liquidity sweep + FVG retest + confluence macro (DXY, US10Y)</div></a>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h4 class="text-sm uppercase tracking-wider text-gray-500 mb-4">Bloc 4 — Les 3 piliers de la rentabilité</h4>
+    <div class="grid md:grid-cols-2 gap-4">
+      <a href="modules/09-money-management.html" data-module="9" class="module-card"><div class="num">09</div><div class="title">Money Management</div><div class="desc">Règle 1%, recovery math, RR, expectancy, position sizing</div></a>
+      <a href="modules/10-sl-tp-be.html" data-module="10" class="module-card"><div class="num">10</div><div class="title">SL / TP / Break Even / Trailing</div><div class="desc">Placement logique, TP1/2/3, scaling out, trailing stops</div></a>
+      <a href="modules/11-psychologie.html" data-module="11" class="module-card"><div class="num">11</div><div class="title">Psychologie & biais</div><div class="desc">FOMO, revenge, loss aversion, routine mentale, journal</div></a>
+      <a href="modules/12-backtest.html" data-module="12" class="module-card"><div class="num">12</div><div class="title">Backtest & Forward test</div><div class="desc">200+ trades, métriques, outils gratuits, validation d'edge</div></a>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h4 class="text-sm uppercase tracking-wider text-gray-500 mb-4">Bloc 5 — Passage à l'action</h4>
+    <div class="grid md:grid-cols-2 gap-4">
+      <a href="modules/13-plan-12-mois.html" data-module="13" class="module-card"><div class="num">13</div><div class="title">Plan d'action 12 mois</div><div class="desc">Roadmap phase par phase : fondations → backtest → démo → réel micro</div></a>
+      <a href="modules/14-brokers.html" data-module="14" class="module-card"><div class="num">14</div><div class="title">Choisir son broker</div><div class="desc">Régulation Tier 1, red flags, comparaison, anti-arnaques</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <h3 class="text-3xl font-bold text-gold-400 mb-8">🛠️ Outils pratiques</h3>
+  <div class="grid md:grid-cols-4 gap-4">
+    <a href="tools/calculator.html" class="tool-card">🧮<div class="mt-2 font-bold">Calculateur Position</div><p class="text-xs text-gray-400">Taille de lot exacte pour X% sur XAUUSD</p></a>
+    <a href="tools/simulator.html" class="tool-card">📊<div class="mt-2 font-bold">Simulateur SL/TP</div><p class="text-xs text-gray-400">Place SL, TP1/2/3 sur un graphique interactif</p></a>
+    <a href="tools/backtester.html" class="tool-card">🔬<div class="mt-2 font-bold">Backtester</div><p class="text-xs text-gray-400">200+ trades simulés, expectancy et profit factor en live</p></a>
+    <a href="tools/journal.html" class="tool-card">📓<div class="mt-2 font-bold">Journal</div><p class="text-xs text-gray-400">Tes trades réels + stats auto, import/export</p></a>
+    <a href="tools/checklist.html" class="tool-card">✅<div class="mt-2 font-bold">Checklist pré-trade</div><p class="text-xs text-gray-400">16 points obligatoires, imprimable</p></a>
+    <a href="tools/discipline.html" class="tool-card">🔥<div class="mt-2 font-bold">Tracker discipline</div><p class="text-xs text-gray-400">Streak de jours sans règle brisée, heatmap 90j</p></a>
+    <a href="tools/resources.html" class="tool-card">🔗<div class="mt-2 font-bold">Ressources</div><p class="text-xs text-gray-400">News, chaînes YouTube légitimes, livres</p></a>
+  </div>
+</section>
+
+<footer class="border-t border-dark-600 mt-16 py-8 text-center text-xs text-gray-600">
+  <p>Gold Trading Academy — Formation pédagogique. Ceci n'est pas un conseil en investissement.</p>
+  <p class="mt-1">Le trading comporte un risque de perte en capital. 74-89% des traders retail perdent (ESMA).</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 10 — SL / TP / Break Even | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Accueil</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 10</div>
+  <h1>Stop Loss, Take Profit, Break Even, Trailing</h1>
+  <p class="subtitle">L'art de sortir d'un trade. Parce que l'entrée, c'est 20% du résultat. La sortie, c'est les 80 autres.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">Le vrai secret des pros</div>
+    <p>Les traders amateurs passent 95% de leur temps à chercher la "meilleure entrée". Les pros passent 95% de leur temps à gérer la sortie. Une entrée moyenne avec une sortie brillante bat dix fois une entrée brillante avec une sortie catastrophique. Ce module est plus important que tous les modules d'analyse technique réunis.</p>
+  </div>
+
+  <h2>1. Stop Loss — où le placer logiquement</h2>
+  <p>Ton stop loss n'est pas l'endroit où tu "as envie" de sortir. C'est l'endroit où <strong>ton idée de trade devient fausse</strong>. Si tu vas long parce qu'un swing low tient, alors ton SL va sous ce swing low. Si le prix passe dessous, ton idée est fausse, tu sors. C'est tout. Il y a quatre méthodes légitimes :</p>
+  <ul>
+    <li><strong>Structure</strong> : sous le dernier swing low (long) ou au-dessus du dernier swing high (short). C'est la méthode reine.</li>
+    <li><strong>Order block</strong> : juste au-delà du bloc d'ordres institutionnel qui a créé le mouvement.</li>
+    <li><strong>ATR-based</strong> : 1.5× à 2× ATR(14). Adapté à la volatilité actuelle, pas à une moyenne mythique.</li>
+    <li><strong>Volatilité du spread Gold</strong> : ajoute un buffer de 20-30 pips ($2-3) pour éviter les mèches de liquidité.</li>
+  </ul>
+  <p>Ce que tu ne fais <strong>jamais</strong> : un SL basé sur "combien je veux risquer en euros". Ce n'est pas toi qui dictes le SL, c'est le marché. Si le SL logique implique une position trop petite pour toi, la solution n'est pas de rapprocher le SL. La solution est de prendre une position plus petite, ou de ne pas prendre le trade.</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Le piège du SL évident</div>
+    <p>Si ton SL est sur un niveau que <strong>tout le monde</strong> voit (round number, plus haut évident, support de livre), les institutionnels vont le chasser. Place ton SL <em>au-delà</em> du niveau évident, pas pile dessus. +15 à 30 pips de buffer sur XAUUSD, toujours.</p>
+  </div>
+
+  <h2>2. Take Profit — structure à 3 niveaux</h2>
+  <p>La méthode qui a fait ses preuves : diviser la position en trois.</p>
+  <ul>
+    <li><strong>TP1 à 1R</strong> : tu sécurises 33% de la position. Tu passes le SL à break-even sur le reste. Psychologiquement, tu as verrouillé un gain, ton cerveau se détend.</li>
+    <li><strong>TP2 à 2R</strong> : tu sécurises 33% de plus. Tu as déjà un gain net garanti (1R sur 33% + 2R sur 33%).</li>
+    <li><strong>TP3 à 3R+ ou en trailing</strong> : le runner. C'est lui qui fait les grosses journées.</li>
+  </ul>
+  <p>Alternative pro : placer les TP sur des <strong>niveaux de liquidité</strong> (plus hauts/plus bas précédents, round numbers, zones d'imbalance) plutôt que sur des multiples mathématiques de R. Parce que c'est là que le prix veut aller.</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" style="max-width:100%;height:auto">
+      <rect width="600" height="320" fill="#0f172a"/>
+      <line x1="50" y1="260" x2="550" y2="260" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="265" fill="#ef4444" font-size="12">SL</text>
+      <line x1="50" y1="220" x2="550" y2="220" stroke="#94a3b8" stroke-width="2"/>
+      <text x="560" y="225" fill="#94a3b8" font-size="12">Entry</text>
+      <line x1="50" y1="180" x2="550" y2="180" stroke="#22c55e" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="185" fill="#22c55e" font-size="12">TP1 1R</text>
+      <line x1="50" y1="140" x2="550" y2="140" stroke="#22c55e" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="145" fill="#22c55e" font-size="12">TP2 2R</text>
+      <line x1="50" y1="80" x2="550" y2="80" stroke="#eab308" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="85" fill="#eab308" font-size="12">TP3 3R+</text>
+      <polyline points="60,250 100,240 140,245 180,220 220,210 260,185 300,190 340,160 380,150 420,120 460,110 500,85" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="100" cy="240" r="5" fill="#fff"/>
+      <text x="105" y="235" fill="#fff" font-size="10">Entrée</text>
+    </svg>
+    <div class="schema-caption">Structure classique d'un trade long : SL sous la structure, TP1/TP2/TP3 étagés, runner laissé courir.</div>
+  </div>
+
+  <h2>3. Break Even — l'art de ne pas s'auto-détruire</h2>
+  <p>Passer le SL à break-even (BE), c'est transformer un trade risqué en trade neutre : pire scénario, tu ne perds rien. Ça semble génial. Ça l'est… à condition de ne pas le faire trop tôt.</p>
+  <ul>
+    <li><strong>Règle</strong> : pas de BE avant que 1R ne soit atteint. Idéalement après TP1.</li>
+    <li><strong>Alternative structurelle</strong> : passer BE après cassure de structure en ta faveur (nouveau higher low confirmé sur un long, par exemple).</li>
+    <li><strong>Le piège</strong> : passer BE à 0.3R "par sécurité" transforme la moitié de tes gagnants en BE qui seraient devenus des +3R. Tu détruis ton expectancy.</li>
+  </ul>
+  <p>Pense-y comme ça : le bruit normal du marché, c'est 0.5 à 1R autour de ton entrée. Si tu mets BE dans ce bruit, tu te fais sortir par du bruit. Laisse respirer ton trade jusqu'à ce qu'il ait prouvé qu'il bouge vraiment en ta faveur.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Règle simple</div>
+    <p>Pas de BE avant 1R. Jamais. Même si tu as peur. Surtout si tu as peur. La peur n'est pas un signal de trading.</p>
+  </div>
+
+  <h2>4. Trailing stops — laisser courir les gagnants</h2>
+  <p>Un trailing stop suit le prix et verrouille les gains progressivement. Quatre méthodes connues :</p>
+  <ul>
+    <li><strong>Chandelier Exit (Chuck LeBeau)</strong> : SL = plus haut des N dernières bougies - 3 × ATR. Solide pour les tendances.</li>
+    <li><strong>Trailing structurel</strong> : sous chaque nouveau higher low (long) / au-dessus de chaque lower high (short). Le plus propre.</li>
+    <li><strong>Parabolic SAR</strong> : visuellement pratique mais bruité, fait sortir trop tôt en range.</li>
+    <li><strong>EMA 20 / EMA 50</strong> : SL dynamique sur la moyenne mobile. Efficace sur les gros moves trendy.</li>
+  </ul>
+  <p>Choisis-en <strong>une seule</strong> et colle-toi à elle. Changer de méthode trailing en plein trade = décision émotionnelle = sabotage.</p>
+
+  <h2>5. Scaling out vs exit complet — le débat</h2>
+  <p>Le scaling out (sortir par morceaux) est populaire, mais les backtests rigoureux (Adam Grimes, Curtis Faith) montrent que pour une stratégie de suivi de tendance, <strong>sortir en une seule fois au TP final bat mathématiquement le scaling</strong>. Tu coupes ton upside.</p>
+  <p><strong>Mais</strong> : le scaling est un outil psychologique. Si sortir en une fois te fait couper des trades à -0.5R parce que tu paniques, alors tu vas détruire ton edge par tes émotions, pas par les maths. Dans ce cas, le scaling sauve ton expectancy en la protégeant de <em>toi</em>.</p>
+  <p><strong>Recommandation</strong> : scale out si ça t'aide à tenir tes trades. Exit complet si tu es capable de rester discipliné. Sois honnête avec toi-même.</p>
+
+  <h2>6. Les erreurs classiques — le top 5 des tueurs de compte</h2>
+  <ol>
+    <li><strong>Déplacer le SL pour l'élargir</strong> — destructeur de compte n°1. Tu transformes une perte contrôlée en désastre incontrôlé. Cette erreur seule a liquidé plus de comptes que toutes les autres réunies.</li>
+    <li><strong>Couper les gagnants trop tôt</strong> — "je sécurise". Tu coupes à +0.8R ce qui allait faire +3R. Fais-le 20 fois et ton expectancy est morte.</li>
+    <li><strong>Trader sans SL</strong> — "je surveille". Non. Tu ne surveilles pas. Tu hopes. Et le hope est une stratégie de ruine.</li>
+    <li><strong>Mettre le SL sur un niveau évident</strong> — tout le monde le voit, donc il se fait chasser. Buffer 20-30 pips, toujours.</li>
+    <li><strong>Changer de plan en cours de trade</strong> — "je le tiens un peu plus". Si tu n'avais pas prévu ce scénario avant, tu improvises. Et l'improvisation, en trading, s'appelle gambling.</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">La règle la plus importante de ce module</div>
+    <p>Tu ne déplaces JAMAIS un SL dans la mauvaise direction (élargir). Jamais. Pas une seule fois. Pas même "juste cette fois". C'est LA règle dont le non-respect fait sauter les comptes. Tu peux resserrer un SL, jamais l'élargir.</p>
+  </div>
+
+  <h2>7. Workflow de sortie complet</h2>
+  <ol>
+    <li>Avant entrée : je définis SL structurel, TP1, TP2, TP3.</li>
+    <li>Je calcule la taille avec <a href="../tools/calculator.html">le calculateur</a>.</li>
+    <li>J'entre avec SL et TP1/TP2/TP3 déjà placés en ordre.</li>
+    <li>Quand TP1 est hit → SL à BE, automatique.</li>
+    <li>Quand TP2 est hit → je démarre le trailing sur le runner.</li>
+    <li>Je ne touche plus à rien. Je laisse le plan s'exécuter.</li>
+  </ol>
+  <p>Teste cette exécution sur <a href="../tools/simulator.html">le simulateur</a> avant de le faire en live. L'exécution froide se pratique, elle ne s'improvise pas.</p>
+
+  <div class="callout callout-ok">
+    <div class="callout-title">Résumé</div>
+    <p>SL là où l'idée est fausse. TP à 3 niveaux. BE après 1R. Trailing sur une méthode unique. Pas de modification en cours de trade. Simple. Impitoyable. Ça marche.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 Quiz de fin de module</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Marquer comme complété</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="09-money-management.html"><div class="label">← Précédent</div><div class="name">Money Management</div></a>
+    <a href="11-psychologie.html"><div class="label">Suivant →</div><div class="name">Psychologie</div></a>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+initMarkDone(10);
+initQuiz('quizContainer', [
+  { q: "Où placer logiquement un stop loss sur un trade long ?", options: ["À un nombre arbitraire de pips","Sous le dernier swing low","Au prix d'entrée","Là où je veux risquer 50€"], correct: 1, explain: "Le SL doit être là où l'idée de trade devient fausse — sous la structure qui justifie l'entrée." },
+  { q: "Quand passer le SL à break-even ?", options: ["Dès 0.3R","Immédiatement","Après 1R atteint","Jamais"], correct: 2, explain: "Avant 1R, tu es dans le bruit normal du marché et tu te fais sortir pour rien." },
+  { q: "Quelle est la pire erreur en gestion de trade ?", options: ["Sortir trop tôt","Déplacer le SL pour l'élargir","Prendre un petit profit","Mettre 3 TP"], correct: 1, explain: "Élargir un SL transforme une perte contrôlée en désastre — la cause n°1 des comptes liquidés." },
+  { q: "Pour un trend-follower, le scaling out est…", options: ["Mathématiquement optimal","Sous-optimal mais psychologiquement utile","Interdit","Sans effet"], correct: 1, explain: "Les backtests (Grimes) montrent que l'exit complet bat le scaling, mais le scaling aide à tenir ses trades." },
+  { q: "Quel trailing est le plus propre techniquement ?", options: ["Parabolic SAR","Trailing sous chaque higher low","Fixed 50 pips","Aucun"], correct: 1, explain: "Le trailing structurel suit la vraie mécanique du marché sans bruit arbitraire." },
+  { q: "Tu as un SL pile sur un round number évident (2050.00). Que fais-tu ?", options: ["Parfait, je laisse","J'ajoute 20-30 pips de buffer au-delà","Je retire le SL","Je double la taille"], correct: 1, explain: "Les niveaux évidents sont chassés par les institutionnels. Toujours un buffer au-delà du niveau." }
+]);
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de Position — XAUUSD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+
+<header class="border-b border-dark-600 bg-dark-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3">
+      <span class="text-xl sm:text-2xl">🥇</span>
+      <span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span>
+    </a>
+    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">🧮 Calculateur de Position — XAUUSD</h1>
+  <p class="text-gray-400 mb-8">Calcule la taille de lot exacte pour risquer un pourcentage précis de ton capital sur le Gold.</p>
+
+  <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 mb-6">
+    <div class="grid md:grid-cols-2 gap-3 sm:gap-5">
+      <div>
+        <label>Capital du compte (USD)</label>
+        <input type="number" id="capital" value="10000" step="100">
+      </div>
+      <div>
+        <label>Risque par trade (%)</label>
+        <input type="number" id="risk" value="1" step="0.1" min="0.1" max="10">
+      </div>
+      <div>
+        <label>Prix d'entrée (USD / once)</label>
+        <input type="number" id="entry" value="2000" step="0.1">
+      </div>
+      <div>
+        <label>Stop Loss (USD / once)</label>
+        <input type="number" id="stop" value="1990" step="0.1">
+      </div>
+      <div>
+        <label>Take Profit (USD / once) — optionnel</label>
+        <input type="number" id="tp" value="2020" step="0.1">
+      </div>
+      <div>
+        <label>Direction</label>
+        <select id="direction">
+          <option value="long">Long (achat)</option>
+          <option value="short">Short (vente)</option>
+        </select>
+      </div>
+    </div>
+    <button onclick="calculate()" class="mt-5 bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full">Calculer</button>
+  </div>
+
+  <div id="results" class="hidden bg-dark-800 border border-gold-500 rounded-lg p-4 sm:p-6">
+    <h2 class="text-2xl font-bold text-gold-400 mb-4">Résultat</h2>
+    <div id="output" class="space-y-3"></div>
+  </div>
+
+  <div class="callout callout-info mt-6">
+    <div class="callout-title">💡 Comment ça marche</div>
+    <p class="text-sm">Sur XAUUSD : 1 lot standard = 100 onces. Donc <strong>1 USD de mouvement du prix = 100 USD de P&L par lot</strong>.<br>
+    <strong>Formule</strong> : Lot = Risque_USD / (Distance_SL_USD × 100)</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Important</div>
+    <p class="text-sm">Certains brokers définissent le "pip" différemment (0,01 ou 0,10 USD). Raisonne toujours en <strong>USD de mouvement de prix</strong>, pas en "pips". Vérifie les spécifications de ton broker avant de trader en réel.</p>
+  </div>
+</main>
+
+<script>
+function calculate() {
+  const capital = parseFloat(document.getElementById('capital').value);
+  const riskPct = parseFloat(document.getElementById('risk').value);
+  const entry   = parseFloat(document.getElementById('entry').value);
+  const stop    = parseFloat(document.getElementById('stop').value);
+  const tp      = parseFloat(document.getElementById('tp').value);
+  const dir     = document.getElementById('direction').value;
+
+  if (!capital || !riskPct || !entry || !stop) {
+    alert('Remplis tous les champs obligatoires.');
+    return;
+  }
+
+  // Validation direction
+  if (dir === 'long' && stop >= entry) { alert('En LONG, le SL doit être SOUS le prix d\'entrée.'); return; }
+  if (dir === 'short' && stop <= entry) { alert('En SHORT, le SL doit être AU-DESSUS du prix d\'entrée.'); return; }
+
+  const riskUSD = capital * riskPct / 100;
+  const slDistance = Math.abs(entry - stop);
+  if (slDistance === 0) { alert('Le SL ne peut pas être égal à l\'entrée.'); return; }
+
+  // 1 lot standard = 100 oz, 1 USD move = 100 USD P&L
+  const lotSize = riskUSD / (slDistance * 100);
+  const microLot = lotSize * 100;
+  const units = lotSize * 100;  // ounces
+
+  // TP calculations if provided
+  let tpHTML = '';
+  if (tp && tp > 0) {
+    if ((dir === 'long' && tp <= entry) || (dir === 'short' && tp >= entry)) {
+      tpHTML = '<div class="text-red-400 text-sm">⚠️ TP du mauvais côté du prix d\'entrée</div>';
+    } else {
+      const tpDistance = Math.abs(tp - entry);
+      const rr = tpDistance / slDistance;
+      const potentialProfit = tpDistance * lotSize * 100;
+      const rrColor = rr >= 2 ? 'text-green-400' : (rr >= 1.5 ? 'text-yellow-400' : 'text-red-400');
+      tpHTML = `
+        <div class="flex justify-between border-b border-dark-600 pb-2">
+          <span class="text-gray-400">Distance TP</span>
+          <span class="font-bold">${tpDistance.toFixed(2)} USD</span>
+        </div>
+        <div class="flex justify-between border-b border-dark-600 pb-2">
+          <span class="text-gray-400">Risk/Reward Ratio</span>
+          <span class="font-bold ${rrColor}">1 : ${rr.toFixed(2)}</span>
+        </div>
+        <div class="flex justify-between border-b border-dark-600 pb-2">
+          <span class="text-gray-400">Profit potentiel</span>
+          <span class="font-bold text-green-400">+${potentialProfit.toFixed(2)} USD</span>
+        </div>
+      `;
+      if (rr < 1.5) tpHTML += '<div class="callout callout-warn mt-2"><strong>RR trop faible.</strong> Vise minimum 1:2 pour supporter les séries de pertes.</div>';
+    }
+  }
+
+  const html = `
+    <div class="flex justify-between border-b border-dark-600 pb-2">
+      <span class="text-gray-400">Risque en USD</span>
+      <span class="font-bold">${riskUSD.toFixed(2)} USD</span>
+    </div>
+    <div class="flex justify-between border-b border-dark-600 pb-2">
+      <span class="text-gray-400">Distance Stop Loss</span>
+      <span class="font-bold">${slDistance.toFixed(2)} USD</span>
+    </div>
+    <div class="flex justify-between border-b border-dark-600 pb-2 text-lg">
+      <span class="text-gold-400 font-bold">TAILLE DE POSITION</span>
+      <span class="font-bold text-gold-400">${lotSize.toFixed(3)} lot</span>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-between border-b border-dark-600 pb-2 text-sm text-gray-400">
+      <span>= ${microLot.toFixed(1)} micro-lots</span>
+      <span>= ${units.toFixed(2)} onces</span>
+    </div>
+    <div class="flex justify-between border-b border-dark-600 pb-2">
+      <span class="text-gray-400">Perte max si SL touché</span>
+      <span class="font-bold text-red-400">-${riskUSD.toFixed(2)} USD</span>
+    </div>
+    ${tpHTML}
+  `;
+
+  document.getElementById('output').innerHTML = html;
+  document.getElementById('results').classList.remove('hidden');
+}
+
+// Auto-calc on load
+window.addEventListener('DOMContentLoaded', calculate);
+</script>
+</body>
+</html>

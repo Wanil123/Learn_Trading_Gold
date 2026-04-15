@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 — Structure de marché | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Accueil</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 06</div>
+  <h1>Structure de marché</h1>
+  <p class="subtitle">Le squelette qui tient tout le reste debout</p>
+
+  <h2>Pourquoi la structure, c'est tout</h2>
+  <p>Si tu devais virer <em>tout</em> de tes graphiques sauf une seule chose, garde la <strong>structure de marché</strong>. Pas les indicateurs, pas les chandeliers japonais exotiques, pas les EMA. La structure. Parce que la structure, c'est ce que le prix <em>fait</em> réellement — ses hauts, ses bas, sa direction. Tout le reste n'est qu'une interprétation.</p>
+  <p>Comprendre la structure, c'est savoir en permanence : "le marché monte, descend, ou stagne — et à quel point". À partir de là, tu sais si tu dois chercher des longs, des shorts, ou rien faire. C'est le fondement de tout ce qui vient après (SMC, ICT, order blocks, liquidity, etc.).</p>
+
+  <h2>Les 3 états structurels</h2>
+  <h3>Uptrend : HH + HL</h3>
+  <p>Un marché haussier fait des <strong>Higher Highs (HH)</strong> et des <strong>Higher Lows (HL)</strong>. Chaque nouveau sommet est plus haut que le précédent, et chaque creux intermédiaire est aussi plus haut que le précédent. Tant que cette séquence continue, tu es en uptrend. Point.</p>
+
+  <h3>Downtrend : LH + LL</h3>
+  <p>Un marché baissier fait des <strong>Lower Highs (LH)</strong> et des <strong>Lower Lows (LL)</strong>. Symétrique de l'uptrend. Chaque sommet est plus bas, chaque creux est plus bas.</p>
+
+  <h3>Range</h3>
+  <p>Quand tu ne vois ni HH/HL clairs ni LH/LL clairs — le prix oscille entre deux bornes — tu es en range. Le range est l'état <strong>par défaut</strong> du marché. Environ 70-80% du temps. La majorité des traders qui perdent, c'est parce qu'ils essaient de "trader un trend" alors qu'ils sont en range.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">💡 Règle du bias</div>
+    En uptrend, tu ne prends que des <strong>longs</strong>. En downtrend, uniquement des <strong>shorts</strong>. En range, soit tu trades les extrêmes (fade), soit tu attends le breakout. Cette discipline, à elle seule, élimine la moitié de tes pertes. Pas de "je sens que ça va tomber" en plein uptrend D1.
+  </div>
+
+  <h2>Les swing points : comment les identifier</h2>
+  <p>Un <strong>swing high</strong>, c'est une bougie dont le high est plus haut que les N bougies à gauche et les N bougies à droite. Même logique pour un swing low.</p>
+  <ul>
+    <li><strong>Pivot de 3 bougies</strong> (fractal) : N=1. Rapide mais bruité.</li>
+    <li><strong>Pivot de 5 bougies</strong> : N=2. Standard. Bon compromis entre réactivité et fiabilité.</li>
+    <li><strong>Pivot de 7+ bougies</strong> : pour identifier les swings majeurs, le "macro" du marché.</li>
+  </ul>
+  <p>Astuce pratique : sur ton timeframe de trading, utilise pivot 5 pour les swings courts et pivot 7-9 pour tracer la structure majeure qui définit ton bias.</p>
+
+  <h2>BOS — Break of Structure</h2>
+  <p>Le <strong>BOS</strong>, c'est quand le prix casse le dernier swing high (en uptrend) ou le dernier swing low (en downtrend). C'est un signal de <strong>continuation</strong> du trend en cours.</p>
+  <p><strong>Critère important :</strong> clôture au-dessus (ou en-dessous), pas juste une mèche qui dépasse. Débat éternel dans la communauté SMC — mais statistiquement, la clôture filtre beaucoup mieux les faux breakouts. Privilégie toujours la <strong>clôture</strong>.</p>
+
+  <h2>CHoCH — Change of Character</h2>
+  <p>Le <strong>CHoCH</strong> est le signal inverse du BOS : c'est quand, en uptrend, le prix casse pour la première fois un <strong>Lower High</strong> — ou plutôt, le premier <strong>Higher Low</strong> précédent. C'est le <em>premier</em> signe qu'un retournement est en train de se produire.</p>
+  <p>Schéma mental : <strong>HH → HL → HH → HL → (cassure d'un HL = CHoCH baissier) → LH → LL (= BOS baissier confirmé)</strong></p>
+  <p>Le CHoCH seul ne suffit pas à valider un retournement. Mais c'est un premier drapeau rouge qui te dit : "attention, le trend est en danger, ne prends plus de longs agressifs, attends la confirmation BOS".</p>
+
+  <h2>Schéma : HH-HL-HH-HL-CHoCH-LH-LL</h2>
+  <div class="schema">
+    <svg viewBox="0 0 650 300" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <rect width="650" height="300" fill="#0f1419"/>
+      <!-- Zigzag structure -->
+      <polyline points="40,230 90,160 140,190 200,100 260,140 320,50 380,95 440,140 500,180 560,220 610,260"
+                fill="none" stroke="#9ca3af" stroke-width="2"/>
+      <!-- Points + labels -->
+      <circle cx="90" cy="160" r="4" fill="#22c55e"/>
+      <text x="70" y="150" fill="#22c55e" font-size="10">HH1</text>
+      <circle cx="140" cy="190" r="4" fill="#22c55e"/>
+      <text x="125" y="210" fill="#22c55e" font-size="10">HL1</text>
+      <circle cx="200" cy="100" r="4" fill="#22c55e"/>
+      <text x="185" y="90" fill="#22c55e" font-size="10">HH2</text>
+      <circle cx="260" cy="140" r="4" fill="#22c55e"/>
+      <text x="245" y="160" fill="#22c55e" font-size="10">HL2</text>
+      <circle cx="320" cy="50" r="4" fill="#22c55e"/>
+      <text x="305" y="40" fill="#22c55e" font-size="10">HH3</text>
+      <circle cx="380" cy="95" r="4" fill="#22c55e"/>
+      <text x="365" y="115" fill="#22c55e" font-size="10">HL3</text>
+
+      <!-- CHoCH: la cassure du HL2 à 140 -->
+      <line x1="260" y1="140" x2="610" y2="140" stroke="#fbbf24" stroke-dasharray="3,3"/>
+      <text x="450" y="135" fill="#fbbf24" font-size="10">Niveau HL2</text>
+      <circle cx="440" cy="140" r="5" fill="#fbbf24"/>
+      <text x="430" y="125" fill="#fbbf24" font-size="11" font-weight="bold">CHoCH</text>
+
+      <!-- LH -->
+      <circle cx="440" cy="140" r="4" fill="#ef4444"/>
+      <circle cx="500" cy="180" r="4" fill="#ef4444"/>
+      <text x="490" y="200" fill="#ef4444" font-size="10">LH</text>
+      <circle cx="560" cy="220" r="4" fill="#ef4444"/>
+
+      <!-- BOS baissier: cassure du dernier HL bas (190) -->
+      <line x1="140" y1="190" x2="610" y2="190" stroke="#ef4444" stroke-dasharray="3,3"/>
+      <circle cx="560" cy="220" r="5" fill="#ef4444"/>
+      <text x="565" y="215" fill="#ef4444" font-size="11" font-weight="bold">BOS bearish</text>
+      <circle cx="610" cy="260" r="4" fill="#ef4444"/>
+      <text x="595" y="280" fill="#ef4444" font-size="10">LL</text>
+
+      <text x="30" y="290" fill="#888" font-size="10">Uptrend (HH/HL) → CHoCH → Retournement (LH/LL)</text>
+    </svg>
+  </div>
+  <div class="schema-caption">Séquence complète : trois HH/HL en uptrend, puis cassure d'un HL antérieur (CHoCH), formation d'un LH, puis BOS baissier qui confirme le retournement.</div>
+
+  <h2>Internal vs External structure</h2>
+  <p>Sur un chart H1, tu as deux couches de structure :</p>
+  <ul>
+    <li><strong>External structure</strong> : les swings majeurs, ceux qui apparaissent aussi si tu zoomes sur H4 ou D1. C'est ta structure "macro".</li>
+    <li><strong>Internal structure</strong> : les petits swings entre deux swings majeurs. C'est la structure "micro" qui existe dans chaque jambe du mouvement macro.</li>
+  </ul>
+  <p>L'internal sert à timer ton entrée ; l'external te donne ton bias. Tu ne trades <em>jamais</em> contre l'external sans une très bonne raison.</p>
+
+  <h2>Equal highs / equal lows : la liquidité apparaît</h2>
+  <p>Quand tu vois deux swing highs (ou plus) au même niveau, c'est un signe que des stops sont accumulés juste au-dessus. Les traders ont placé leur stop loss juste au-dessus du dernier high. Tout le monde l'a fait, et les institutions <em>savent</em> que tout le monde l'a fait.</p>
+  <p>Conséquence : le prix viendra très souvent <strong>balayer ces stops</strong> (liquidity grab / stop hunt) avant de repartir dans l'autre sens. C'est la porte d'entrée vers le module 7 sur les Smart Money Concepts.</p>
+
+  <h2>Analyse multi-timeframe : l'ordre</h2>
+  <p>La bonne méthode, celle qui fonctionne :</p>
+  <ol>
+    <li><strong>D1</strong> : définir le bias macro (uptrend, downtrend, range). C'est non-négociable. Si D1 est en range, tu trades petit ou pas du tout.</li>
+    <li><strong>H4</strong> : confirmer la structure et localiser les zones clés (swings majeurs, S/R).</li>
+    <li><strong>H1</strong> : chercher des setups alignés avec H4 et D1. C'est souvent ici qu'un pullback se forme.</li>
+    <li><strong>M15</strong> : chercher un CHoCH intraday dans le sens du bias, précisant le point d'entrée.</li>
+    <li><strong>M5 / M1</strong> : timing précis de l'entrée (facultatif).</li>
+  </ol>
+  <p>Exemple concret : D1 XAUUSD en uptrend clair (HH/HL). H4 fait un pullback sur une ancienne résistance devenue support. H1 consolide. M15 forme un CHoCH haussier. Tu entres long, stop sous le dernier LL du M15, TP sur le dernier HH de H4. Voilà. Ça ne demande pas d'indicateur, juste de la structure.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">🏆 La structure est le fondement du SMC</div>
+    Tout ce que tu vas apprendre au module 7 (Smart Money Concepts, ICT, order blocks, FVG, liquidity pools) repose <strong>à 100%</strong> sur la structure. Si tu n'es pas à l'aise avec HH/HL, BOS, CHoCH, le SMC va te paraître incompréhensible. Prends le temps ici, ça te sauvera 3 mois de confusion plus tard.
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Le piège de la structure "plastique"</div>
+    Beaucoup de traders ajustent leur définition des swings jusqu'à ce que la structure "colle" à leur biais directionnel. C'est de la triche mentale. Fixe ta méthode (par exemple : pivot 5 bougies, clôture obligatoire pour valider un BOS) et <strong>applique-la mécaniquement</strong>. Si la structure dit range, tu ne prends pas de trades trend-following. Point.
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 Quiz de fin de module</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Marquer comme complété</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="05-support-resistance.html"><div class="label">← Précédent</div><div class="name">Module 5 — Support / Résistance</div></a>
+    <a href="07-smc-ict.html"><div class="label">Suivant →</div><div class="name">Module 7 — Smart Money Concepts</div></a>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+initMarkDone(6);
+initQuiz('quizContainer', [
+  { q: "Quelle séquence définit un uptrend ?", options: ["LH + LL","HH + HL","HH + LL","Equal highs"], correct: 1, explain: "Un uptrend = Higher Highs + Higher Lows. Chaque sommet plus haut, chaque creux plus haut." },
+  { q: "Qu'est-ce qu'un BOS (Break of Structure) ?", options: ["Un indicateur d'oscillation","La cassure en clôture du dernier swing significatif dans le sens du trend","Une bougie doji","Un pattern de retournement"], correct: 1, explain: "Le BOS confirme la continuation du trend : clôture au-dessus du dernier swing high (uptrend) ou sous le dernier swing low (downtrend)." },
+  { q: "Quelle est la différence entre BOS et CHoCH ?", options: ["Rien, c'est pareil","BOS = continuation, CHoCH = premier signe de retournement","BOS = retournement, CHoCH = continuation","CHoCH est un type de bougie"], correct: 1, explain: "BOS confirme le trend, CHoCH est le premier signal qu'il est en train de changer (cassure du premier HL en uptrend ou LH en downtrend)." },
+  { q: "Prix sur D1 : tu vois HH-HL-HH-HL-HH. Quel est l'état du marché ?", options: ["Downtrend","Uptrend","Range","Breakout baissier"], correct: 1, explain: "Séquence HH/HL répétée = uptrend clair. Tu ne cherches que des longs dans ce contexte." },
+  { q: "Pourquoi les equal highs sont-ils importants ?", options: ["Ils forment un beau pattern graphique","Ils indiquent une accumulation de stops (liquidité) susceptible d'être balayée","Ils sont interdits par la SEC","Ils annulent le trend"], correct: 1, explain: "Equal highs = stops accumulés juste au-dessus. Les institutions ciblent souvent ces zones pour un liquidity grab avant de repartir." }
+]);
+</script>
+</body>
+</html>

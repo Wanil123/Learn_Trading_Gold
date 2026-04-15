@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — Les marchés & le Gold (XAUUSD) | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Accueil</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 02</div>
+  <h1>Les marchés & le Gold (XAUUSD)</h1>
+  <p class="subtitle">Comprendre ce que tu trades avant de le trader. Structure du marché, sessions, drivers, corrélations.</p>
+
+  <h2>Qu'est-ce que le Gold, concrètement ?</h2>
+  <p>Quand tu trades "le Gold" chez ton broker CFD, tu ne touches jamais de lingots. Tu trades un <strong>contrat pour différence</strong> qui réplique le prix du marché physique londonien (le LBMA Gold). Le prix coté est celui d'une <em>once troy</em> (31,1035 grammes) libellée en dollars américains — d'où le ticker <code>XAUUSD</code>, où "XAU" est le code ISO 4217 de l'or.</p>
+  <p>Il existe trois façons principales d'être exposé à l'or sur les marchés :</p>
+  <ul>
+    <li><strong>Le Gold Spot (XAUUSD)</strong> — le marché OTC interbancaire, traité 23h/24 du dimanche soir au vendredi soir. C'est ce que réplique ton broker CFD. Pas de livraison physique, règlement en cash, liquidité massive.</li>
+    <li><strong>Les Futures CME (GC, MGC)</strong> — contrats standardisés sur le Chicago Mercantile Exchange. Le <code>GC</code> (Gold Futures) fait 100 onces, le <code>MGC</code> (Micro Gold) fait 10 onces. Échéances trimestrielles, vrai volume visible, prix de référence pour beaucoup de pros.</li>
+    <li><strong>Les ETFs (GLD, IAU)</strong> — pour de l'investissement long terme, pas du trading intraday. Hors de notre sujet ici.</li>
+  </ul>
+
+  <h2>La taille du contrat : ce que bouge vraiment ton compte</h2>
+  <p>Sur XAUUSD CFD, la convention standard est : <strong>1 lot standard = 100 onces</strong>. Donc si le prix de l'or bouge de 1 USD (par exemple de 2050 à 2051), un lot te fait gagner ou perdre exactement <strong>100 USD</strong>. C'est la règle de base à graver dans ton cerveau.</p>
+  <p>En corollaire :</p>
+  <ul>
+    <li>0,10 lot (mini) → 1 USD de mouvement = 10 USD de P&L</li>
+    <li>0,01 lot (micro) → 1 USD de mouvement = 1 USD de P&L</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Le piège du "pip" sur le Gold</div>
+    <p>Contrairement aux paires forex, il n'y a pas de définition universelle du pip sur le Gold. Certains brokers appellent "pip" un mouvement de 0,01 USD, d'autres 0,10 USD, d'autres 1 USD. <strong>Arrête de raisonner en pips sur XAUUSD</strong>. Raisonne directement en USD de mouvement. Si tu veux un stop à 3 dollars de ton entrée, tu dis "stop à 3 dollars", pas "stop à 30 pips" ou "300 pips" — tu finiras par te tromper d'un facteur 10.</p>
+  </div>
+
+  <h2>Spreads et brokers réputés</h2>
+  <p>Le spread sur XAUUSD varie énormément selon le broker, la session et la volatilité. En heures calmes chez un ECN sérieux, tu peux voir 15 à 25 cents de spread (0,15 à 0,25 USD). Sur les news, ça peut exploser à 1-2 USD voire davantage. Chez un market maker agressif, tu paieras le double en permanence.</p>
+  <p>Parmi les brokers réputés pour trader le Gold sérieusement (régulation solide, exécution correcte, spreads raisonnables) : <strong>IC Markets</strong>, <strong>Pepperstone</strong>, <strong>Tickmill</strong>, <strong>Swissquote</strong>, <strong>Saxo Bank</strong>. Ce ne sont pas des recommandations : fais toujours ta propre vérification réglementaire (FCA, ASIC, FINMA, CySEC Tier 1).</p>
+
+  <h2>Leverage : ton meilleur ennemi</h2>
+  <p>Depuis la réforme ESMA de 2018, le levier maximum autorisé pour un retail européen sur l'or est de <strong>1:20</strong>. Chez un broker offshore, tu peux trouver 1:500 ou 1:1000. Ce n'est pas un cadeau, c'est un permis de te suicider financièrement.</p>
+  <p>La règle de survie : ton <em>levier effectif</em> (exposition totale / capital) ne doit jamais dépasser <strong>1:10</strong>, et idéalement rester autour de 1:3 à 1:5. Le levier n'augmente pas ton edge, il multiplie juste l'amplitude — gains et pertes. Si ta stratégie est perdante, le levier t'envoie au cimetière plus vite. Si elle est gagnante, elle le reste sans levier excessif.</p>
+
+  <h2>Sessions de trading — quand trader, quand dormir</h2>
+  <p>Le Gold suit une rythmique claire liée aux sessions financières mondiales. Toutes les heures ci-dessous sont en <strong>UTC</strong> (ajuste selon ton fuseau). Cette rythmique est fondamentale : trader pendant la mauvaise session, c'est se battre avec une main liée.</p>
+  <table>
+    <thead>
+      <tr><th>Session</th><th>Heure UTC</th><th>Caractère</th><th>Recommandation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Asie (Tokyo/Sydney)</td><td>00:00 - 07:00</td><td>Calme, range étroit, faible volume</td><td>Observation, pas d'entrée</td></tr>
+      <tr><td>Londres (open)</td><td>07:00 - 12:00</td><td>Momentum, cassures, volume massif</td><td>Zone de trade principale</td></tr>
+      <tr><td>Overlap Londres/NY</td><td>12:00 - 16:00</td><td>Liquidité maximale, volatilité top</td><td>La meilleure fenêtre</td></tr>
+      <tr><td>NY PM</td><td>16:00 - 20:00</td><td>Retracements, fin de journée</td><td>Scalping prudent</td></tr>
+      <tr><td>Late NY / soirée</td><td>20:00 - 00:00</td><td>Liquidité morte, spreads larges</td><td>Ne pas trader</td></tr>
+    </tbody>
+  </table>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="100" height="40" fill="#1e3a5f" stroke="#3b82f6"/>
+      <text x="60" y="75" fill="#cbd5e1" font-size="11" text-anchor="middle">Asie</text>
+      <rect x="110" y="30" width="140" height="60" fill="#78350f" stroke="#fbbf24"/>
+      <text x="180" y="65" fill="#fde68a" font-size="11" text-anchor="middle">Londres</text>
+      <rect x="250" y="10" width="120" height="80" fill="#14532d" stroke="#22c55e"/>
+      <text x="310" y="55" fill="#bbf7d0" font-size="11" text-anchor="middle">Overlap (TOP)</text>
+      <rect x="370" y="30" width="120" height="60" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="430" y="65" fill="#fecaca" font-size="11" text-anchor="middle">NY PM</text>
+      <rect x="490" y="55" width="100" height="35" fill="#27272a" stroke="#71717a"/>
+      <text x="540" y="77" fill="#a1a1aa" font-size="11" text-anchor="middle">Soirée</text>
+      <text x="10" y="110" fill="#94a3b8" font-size="10">00h</text>
+      <text x="290" y="110" fill="#94a3b8" font-size="10">12h UTC</text>
+      <text x="560" y="110" fill="#94a3b8" font-size="10">00h</text>
+      <line x1="10" y1="95" x2="590" y2="95" stroke="#475569"/>
+    </svg>
+    <div class="schema-caption">Volume et volatilité relatifs par session sur XAUUSD — hauteur = opportunité</div>
+  </div>
+
+  <p>À cela s'ajoutent les deux <strong>LBMA Gold Fixings</strong>, moments où le prix de référence londonien est établi : <strong>10:30 et 15:00 heure de Londres</strong>. Beaucoup de liquidité institutionnelle passe à ces horaires — parfois on voit des mouvements brutaux en quelques minutes.</p>
+
+  <h2>Les vrais drivers fondamentaux du Gold</h2>
+  <p>Oublie les théories fumeuses. Voici ce qui bouge vraiment le prix de l'or, par ordre d'importance :</p>
+  <ol>
+    <li><strong>Les taux réels américains (driver #1)</strong> — mesurés par les TIPS 10 ans. L'or est un actif sans rendement ; quand les taux réels montent, détenir de l'or devient coûteux (coût d'opportunité), donc le prix baisse. Quand ils baissent, l'or monte. C'est la relation la plus robuste historiquement.</li>
+    <li><strong>L'inflation anticipée</strong> — l'or est perçu comme une couverture inflation. Mais attention : c'est l'inflation <em>non anticipée</em> qui compte, et la relation n'est pas linéaire.</li>
+    <li><strong>Le DXY (Dollar Index)</strong> — l'or est coté en USD, donc quand le dollar s'affaiblit, l'or devient moins cher en autres devises → demande → prix monte.</li>
+    <li><strong>La géopolitique</strong> — guerres, crises, tensions. Effet "safe haven" réel mais souvent court terme, sauf crise majeure.</li>
+    <li><strong>Les banques centrales</strong> — BRICS, Chine, Russie, Inde accumulent de l'or depuis 2022. Demande structurelle massive.</li>
+    <li><strong>La demande physique</strong> — bijouterie (Inde, Chine), industrie, ETFs. Évolue lentement mais donne une base.</li>
+  </ol>
+
+  <h2>Corrélations à connaître</h2>
+  <table>
+    <thead>
+      <tr><th>Actif</th><th>Corrélation avec Gold</th><th>Commentaire</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>DXY (Dollar Index)</td><td>-0,6 à -0,9 (forte négative)</td><td>Corrélation la plus fiable, inverse quasi systématique</td></tr>
+      <tr><td>US10Y réel / TIPS</td><td>Négative forte</td><td>Driver fondamental, plus stable que le nominal</td></tr>
+      <tr><td>S&P 500</td><td>Instable</td><td>Parfois positive (liquidité), parfois négative (risk off)</td></tr>
+      <tr><td>Bitcoin</td><td>Bruitée</td><td>Narrative "or numérique" mais pas de corrélation stable</td></tr>
+      <tr><td>Argent (Silver)</td><td>+0,7 à +0,9</td><td>Même famille, Silver amplifie souvent les mouvements</td></tr>
+    </tbody>
+  </table>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="150" x2="580" y2="150" stroke="#475569"/>
+      <line x1="40" y1="20" x2="40" y2="150" stroke="#475569"/>
+      <text x="20" y="30" fill="#fbbf24" font-size="11">Gold</text>
+      <text x="20" y="145" fill="#3b82f6" font-size="11">DXY</text>
+      <path d="M 40 40 Q 120 70 180 55 T 320 90 T 460 50 T 580 70" stroke="#fbbf24" stroke-width="2.5" fill="none"/>
+      <path d="M 40 130 Q 120 100 180 115 T 320 80 T 460 120 T 580 100" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+      <text x="300" y="170" fill="#94a3b8" font-size="11" text-anchor="middle">Temps →</text>
+    </svg>
+    <div class="schema-caption">Illustration schématique de la corrélation inverse DXY / Gold</div>
+  </div>
+
+  <h2>Volatilité journalière : à quoi t'attendre</h2>
+  <p>L'ATR (Average True Range) journalier de XAUUSD se situe habituellement entre <strong>150 et 300 "pips broker" (soit 15 à 30 USD de mouvement)</strong>. Sur des journées calmes, tu peux voir 10 USD de range total. Sur des journées FOMC ou CPI, tu peux voir 50 à 80 USD, parfois plus. Dimensionne tes stops en fonction de cette réalité : mettre un stop à 2 USD du prix sur H1, c'est quasi garanti de se faire stop-out sur du bruit.</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">News à haut impact — protège-toi</div>
+    <p>Certaines publications font littéralement exploser le Gold en quelques secondes : <strong>FOMC</strong> (décisions et minutes Fed), <strong>CPI</strong> (inflation US), <strong>NFP</strong> (emploi US, premier vendredi du mois), <strong>PCE</strong> (l'indicateur d'inflation préféré de la Fed), <strong>discours de Powell</strong>. Règle simple : ne prends pas de trade dans les 30 minutes qui précèdent ni les 15 qui suivent ces événements, sauf si tu as une stratégie spécifiquement conçue pour. Les spreads triplent, la slippage explose, ton stop peut ne pas être honoré.</p>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Calendrier économique</div>
+    <p>Utilise <em>Forex Factory</em>, <em>Investing.com</em> ou <em>MyFXBook</em> pour avoir le calendrier des news. Filtre sur USD + high impact. Check-le chaque matin avant de t'asseoir devant ton écran. Ça te prend 2 minutes et ça sauve des comptes.</p>
+  </div>
+
+  <h2>Ce que tu dois retenir</h2>
+  <p>Le Gold est un marché mature, dense, piloté par les taux réels US et le dollar. Il se trade principalement entre 07:00 et 20:00 UTC, avec un pic entre 12:00 et 16:00. Un lot standard = 100 onces = 100 USD par dollar de mouvement. Le levier est ton pire ennemi si tu ne le respectes pas. Et avant chaque session, tu regardes ton calendrier économique. Toujours.</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <h3>🎓 Quiz de fin de module</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Marquer comme complété</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="01-mindset.html"><div class="label">← Précédent</div><div class="name">Mindset</div></a>
+    <a href="03-lecture-graphique.html"><div class="label">Suivant →</div><div class="name">Lecture de graphique</div></a>
+  </div>
+</main>
+<script src="../js/app.js"></script>
+<script>
+initMarkDone(2);
+initQuiz('quizContainer', [
+  {
+    q: "Sur XAUUSD CFD, si le prix passe de 2050 à 2055 et que tu as 1 lot standard long, combien gagnes-tu ?",
+    options: ["5 USD", "50 USD", "500 USD", "5000 USD"],
+    correct: 2,
+    explain: "1 lot = 100 onces. 1 USD de mouvement = 100 USD de P&L par lot. Donc 5 USD de mouvement × 100 onces = 500 USD de gain."
+  },
+  {
+    q: "Quel est le driver fondamental numéro un du prix de l'or à moyen terme ?",
+    options: ["Le prix du Bitcoin", "Les taux réels américains (TIPS 10Y)", "Le PIB chinois", "La demande en bijouterie"],
+    correct: 1,
+    explain: "Les taux réels US sont le driver #1 et historiquement le plus robuste. L'or n'a pas de rendement, donc son prix est très sensible au coût d'opportunité de le détenir."
+  },
+  {
+    q: "Quelle fenêtre horaire UTC offre généralement la meilleure liquidité et volatilité sur le Gold ?",
+    options: ["00:00 - 07:00", "07:00 - 12:00", "12:00 - 16:00", "20:00 - 00:00"],
+    correct: 2,
+    explain: "L'overlap Londres/New York (12:00-16:00 UTC) combine les deux plus gros centres financiers : liquidité maximale, volatilité propre, meilleurs setups."
+  },
+  {
+    q: "Quelle est la corrélation typique entre le DXY et le Gold ?",
+    options: ["Fortement positive (+0.7 à +0.9)", "Neutre, pas de corrélation", "Fortement négative (-0.6 à -0.9)", "Variable et imprévisible"],
+    correct: 2,
+    explain: "L'or est coté en dollars : quand le dollar s'affaiblit (DXY baisse), l'or devient moins cher pour les autres devises, donc la demande et le prix montent. C'est la corrélation la plus fiable."
+  },
+  {
+    q: "Pourquoi est-il risqué de raisonner en 'pips' sur XAUUSD ?",
+    options: ["Parce que les pips n'existent pas sur le Gold", "Parce que la définition varie selon les brokers (0.01, 0.10 ou 1 USD)", "Parce que les pips sont plus chers que sur le forex", "Parce que MetaTrader ne les affiche pas"],
+    correct: 1,
+    explain: "Certains brokers comptent un pip comme 0,01 USD, d'autres comme 0,10 USD, d'autres 1 USD. Tu peux te tromper d'un facteur 10 sur ta taille de position. Raisonne directement en USD de mouvement."
+  }
+]);
+</script>
+</body>
+</html>

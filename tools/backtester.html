@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backtester Manuel — Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+
+<header class="border-b border-dark-600 bg-dark-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">🔬 Backtester Manuel</h1>
+  <p class="text-gray-400 mb-6">Entre chaque trade simulé de ton backtest (TradingView Replay). L'app calcule en temps réel expectancy, profit factor, max drawdown et ton edge réel. Objectif : 200+ trades.</p>
+
+  <div class="callout callout-gold mb-6">
+    <div class="callout-title">Seuils de validation (objectifs)</div>
+    <p class="text-sm">✅ <strong>200+ trades</strong> · ✅ <strong>Expectancy &gt; +0.2R</strong> · ✅ <strong>Profit Factor &gt; 1.3</strong> · ✅ <strong>Max DD ≤ 20R</strong></p>
+  </div>
+
+  <!-- Stats dashboard -->
+  <div id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-6"></div>
+  <div id="validation" class="mb-6"></div>
+
+  <!-- Equity curve -->
+  <div class="bg-dark-800 border border-dark-600 rounded-lg p-2 sm:p-4 mb-6">
+    <h2 class="text-xl font-bold text-gold-400 mb-3">📈 Courbe d'equity (en R cumulé)</h2>
+    <svg id="equityChart" viewBox="0 0 800 250" class="w-full h-auto"></svg>
+  </div>
+
+  <!-- Add trade form -->
+  <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 mb-6">
+    <h2 class="text-xl font-bold text-gold-400 mb-4">➕ Ajouter un backtest</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+      <div><label>Date (du graph)</label><input type="date" id="bt_date"></div>
+      <div><label>Timeframe</label><select id="bt_tf"><option>M5</option><option>M15</option><option>H1</option><option>H4</option><option>D</option></select></div>
+      <div><label>Direction</label><select id="bt_dir"><option value="long">Long</option><option value="short">Short</option></select></div>
+      <div><label>Résultat (R)</label><input type="number" id="bt_r" step="0.1" placeholder="ex: 2 ou -1"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-3 mb-3">
+      <div><label>Setup / Raison d'entrée</label><input type="text" id="bt_setup" placeholder="ex: Sweep + FVG M15 en OTE"></div>
+      <div><label>Condition marché</label><select id="bt_cond"><option>Trend</option><option>Range</option><option>Breakout</option><option>News</option></select></div>
+    </div>
+    <div class="mb-3"><label>Note (optionnelle)</label><input type="text" id="bt_note"></div>
+    <div class="flex gap-3 items-center">
+      <label class="flex items-center gap-2 text-gray-300"><input type="checkbox" id="bt_checklist"> Checklist entièrement respectée</label>
+    </div>
+    <button onclick="addBT()" class="mt-4 bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full sm:w-auto">Ajouter ce backtest</button>
+  </div>
+
+  <!-- List -->
+  <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold text-gold-400">📋 Historique (<span id="count">0</span>)</h2>
+      <div class="flex gap-2">
+        <button onclick="exportBT()" class="text-sm bg-dark-600 hover:bg-dark-500 px-3 py-1 rounded">💾 Export</button>
+        <button onclick="clearBT()" class="text-sm bg-red-900 hover:bg-red-800 px-3 py-1 rounded">🗑 Reset</button>
+      </div>
+    </div>
+    <div id="list" class="space-y-1 text-sm max-h-96 overflow-y-auto"></div>
+  </div>
+</main>
+
+<script>
+function load() { try { return JSON.parse(localStorage.getItem('gta_backtests') || '[]'); } catch(e) { return []; } }
+function save(t) { localStorage.setItem('gta_backtests', JSON.stringify(t)); }
+
+function addBT() {
+  const r = parseFloat(document.getElementById('bt_r').value);
+  if (isNaN(r)) { alert('Résultat en R obligatoire (ex: 2 ou -1)'); return; }
+  const bt = {
+    id: Date.now(),
+    date: document.getElementById('bt_date').value || new Date().toISOString().split('T')[0],
+    tf: document.getElementById('bt_tf').value,
+    dir: document.getElementById('bt_dir').value,
+    r: r,
+    setup: document.getElementById('bt_setup').value,
+    cond: document.getElementById('bt_cond').value,
+    note: document.getElementById('bt_note').value,
+    checklist: document.getElementById('bt_checklist').checked
+  };
+  const all = load(); all.push(bt); save(all);
+  ['bt_r','bt_setup','bt_note'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('bt_checklist').checked = false;
+  render();
+}
+
+function delBT(id) {
+  if (!confirm('Supprimer?')) return;
+  save(load().filter(t => t.id !== id));
+  render();
+}
+
+function clearBT() {
+  if (!confirm('Effacer TOUS les backtests? Irréversible.')) return;
+  save([]); render();
+}
+
+function exportBT() {
+  const blob = new Blob([JSON.stringify(load(), null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'backtests-' + new Date().toISOString().split('T')[0] + '.json';
+  a.click();
+}
+
+function render() {
+  const data = load();
+  const n = data.length;
+  document.getElementById('count').textContent = n;
+
+  // Stats
+  const wins = data.filter(t => t.r > 0);
+  const losses = data.filter(t => t.r < 0);
+  const winrate = n > 0 ? (wins.length / n * 100) : 0;
+  const avgWin = wins.length > 0 ? wins.reduce((s,t) => s+t.r, 0) / wins.length : 0;
+  const avgLoss = losses.length > 0 ? Math.abs(losses.reduce((s,t) => s+t.r, 0) / losses.length) : 0;
+  const totalR = data.reduce((s,t) => s+t.r, 0);
+  const expectancy = n > 0 ? totalR / n : 0;
+  const sumWins = wins.reduce((s,t)=>s+t.r,0);
+  const sumLosses = Math.abs(losses.reduce((s,t)=>s+t.r,0));
+  const profitFactor = sumLosses > 0
+    ? sumWins / sumLosses
+    : (sumWins > 0 ? Infinity : 0);
+
+  // Max DD on equity curve
+  let peak = 0, dd = 0, maxDD = 0, eq = 0;
+  const curve = [];
+  data.forEach(t => { eq += t.r; curve.push(eq); if (eq > peak) peak = eq; dd = peak - eq; if (dd > maxDD) maxDD = dd; });
+
+  // Max consecutive losses
+  let maxConsec = 0, cur = 0;
+  data.forEach(t => { if (t.r < 0) { cur++; if (cur > maxConsec) maxConsec = cur; } else cur = 0; });
+
+  const stat = (l,v,c='text-gold-400') => `<div class="bg-dark-800 border border-dark-600 rounded p-2 sm:p-3 text-center"><div class="text-xs text-gray-500">${l}</div><div class="text-xl font-bold ${c}">${v}</div></div>`;
+
+  document.getElementById('stats').innerHTML =
+    stat('Trades', n) +
+    stat('Winrate', winrate.toFixed(0) + '%', winrate>=45?'text-green-400':'text-yellow-400') +
+    stat('Expectancy', expectancy.toFixed(2) + 'R', expectancy>0.2?'text-green-400':(expectancy>0?'text-yellow-400':'text-red-400')) +
+    stat('Profit Factor', isFinite(profitFactor)?profitFactor.toFixed(2):'∞', profitFactor>=1.3?'text-green-400':(profitFactor>=1?'text-yellow-400':'text-red-400')) +
+    stat('Total', (totalR>=0?'+':'') + totalR.toFixed(1) + 'R', totalR>=0?'text-green-400':'text-red-400') +
+    stat('Max DD', '-' + maxDD.toFixed(1) + 'R', maxDD<=10?'text-green-400':(maxDD<=20?'text-yellow-400':'text-red-400')) +
+    stat('Avg Win', '+' + avgWin.toFixed(2) + 'R', 'text-green-400') +
+    stat('Pertes consec.', maxConsec, maxConsec<=5?'text-gold-400':'text-red-400');
+
+  // Validation
+  const checks = [
+    { c: n >= 200, l: '200+ trades' },
+    { c: expectancy > 0.2, l: 'Expectancy > +0.2R' },
+    { c: profitFactor >= 1.3, l: 'Profit Factor ≥ 1.3' },
+    { c: maxDD <= 20, l: 'Max DD ≤ 20R' }
+  ];
+  const valid = checks.every(x => x.c);
+  document.getElementById('validation').innerHTML = `
+    <div class="bg-dark-800 border ${valid?'border-green-500':'border-yellow-500'} rounded-lg p-4">
+      <div class="font-bold ${valid?'text-green-400':'text-yellow-400'} mb-2">${valid ? '✅ Ta stratégie valide les critères — prêt pour la démo' : '⏳ Critères non remplis — continue le backtest'}</div>
+      <div class="grid md:grid-cols-2 gap-2 text-sm">
+        ${checks.map(x => `<div class="${x.c?'text-green-400':'text-gray-500'}">${x.c?'✅':'❌'} ${x.l}</div>`).join('')}
+      </div>
+    </div>`;
+
+  // Equity curve SVG
+  const W=800,H=250,L=40,R=20,T=20,B=30;
+  if (curve.length > 0) {
+    const minE = Math.min(0, ...curve);
+    const maxE = Math.max(0, ...curve);
+    const range = (maxE - minE) || 1;
+    const x = i => L + (i / Math.max(curve.length-1,1)) * (W-L-R);
+    const y = v => T + (1 - (v - minE)/range) * (H-T-B);
+    const zero = y(0);
+    let path = 'M ' + x(0) + ' ' + y(curve[0]);
+    curve.forEach((v,i) => { path += ' L ' + x(i) + ' ' + y(v); });
+    const col = curve[curve.length-1] >= 0 ? '#22c55e' : '#ef4444';
+    document.getElementById('equityChart').innerHTML = `
+      <rect x="0" y="0" width="${W}" height="${H}" fill="#0A0A0A"/>
+      <line x1="${L}" y1="${zero}" x2="${W-R}" y2="${zero}" stroke="#333" stroke-dasharray="3,3"/>
+      <path d="${path}" fill="none" stroke="${col}" stroke-width="2"/>
+      <text x="${L-5}" y="${y(maxE)+4}" fill="#9ca3af" font-size="10" text-anchor="end">${maxE.toFixed(1)}R</text>
+      <text x="${L-5}" y="${y(minE)+4}" fill="#9ca3af" font-size="10" text-anchor="end">${minE.toFixed(1)}R</text>
+      <text x="${L-5}" y="${zero+4}" fill="#6b7280" font-size="10" text-anchor="end">0</text>
+      <text x="${W/2}" y="${H-5}" fill="#6b7280" font-size="10" text-anchor="middle">${curve.length} trades</text>`;
+  } else {
+    document.getElementById('equityChart').innerHTML = '<rect width="800" height="250" fill="#0A0A0A"/><text x="400" y="125" fill="#6b7280" font-size="14" text-anchor="middle">Ajoute ton premier backtest</text>';
+  }
+
+  // List
+  const list = document.getElementById('list');
+  if (n === 0) {
+    list.innerHTML = '<p class="text-gray-500 text-center py-6">Aucun backtest. Commence par ajouter ton premier trade simulé.</p>';
+  } else {
+    list.innerHTML = data.slice().reverse().map(t => {
+      const col = t.r > 0 ? 'text-green-400' : 'text-red-400';
+      return `<div class="flex justify-between items-center bg-dark-700 rounded px-3 py-2">
+        <div class="flex-1 truncate">
+          <span class="text-gray-500 text-xs">${t.date}</span>
+          <span class="text-gold-400 text-xs">· ${t.tf} · ${t.dir.toUpperCase()}</span>
+          ${t.setup ? `<span class="text-gray-400 text-xs">· ${t.setup}</span>` : ''}
+          ${t.checklist ? '<span class="text-green-500 text-xs">· ✅</span>' : ''}
+        </div>
+        <div class="font-bold ${col} mx-3">${t.r>0?'+':''}${t.r}R</div>
+        <button onclick="delBT(${t.id})" class="text-gray-600 hover:text-red-400 text-base px-2 py-1 min-w-[28px] min-h-[28px]">✕</button>
+      </div>`;
+    }).join('');
+  }
+}
+
+document.getElementById('bt_date').value = new Date().toISOString().split('T')[0];
+render();
+</script>
+</body>
+</html>
