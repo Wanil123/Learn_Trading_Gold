@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal de Trading</title>
+<title>Trading Journal</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="bg-dark-900 text-gray-100 min-h-screen">
 
 <header class="border-b border-dark-600 bg-dark-800">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
-    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">&larr; Back</a>
   </div>
 </header>
 
 <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">📓 Journal de Trading</h1>
-  <p class="text-gray-400 mb-6">Sans journal, aucune progression possible. Note chaque trade, les stats se calculent automatiquement.</p>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">📓 Trading Journal</h1>
+  <p class="text-gray-400 mb-6">Without a journal, no progress is possible. Log every trade, and the stats are calculated automatically.</p>
 
   <!-- Stats Dashboard -->
   <div id="statsDash" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-8"></div>
 
   <!-- Add trade form -->
   <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 mb-6">
-    <h2 class="text-xl font-bold text-gold-400 mb-4">➕ Ajouter un trade</h2>
+    <h2 class="text-xl font-bold text-gold-400 mb-4">➕ Add a trade</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-3">
       <div><label>Date</label><input type="date" id="f_date"></div>
-      <div><label>Paire</label><input type="text" id="f_pair" value="XAUUSD"></div>
+      <div><label>Pair</label><input type="text" id="f_pair" value="XAUUSD"></div>
       <div><label>Direction</label><select id="f_dir"><option value="long">Long</option><option value="short">Short</option></select></div>
-      <div><label>Taille (lot)</label><input type="number" id="f_lot" step="0.01" value="0.1"></div>
+      <div><label>Size (lot)</label><input type="number" id="f_lot" step="0.01" value="0.1"></div>
       <div><label>Entry</label><input type="number" id="f_entry" step="0.1"></div>
       <div><label>Stop Loss</label><input type="number" id="f_sl" step="0.1"></div>
-      <div><label>Exit (prix de sortie)</label><input type="number" id="f_exit" step="0.1"></div>
-      <div><label>Résultat (R, ex: 2 ou -1)</label><input type="number" id="f_r" step="0.1"></div>
+      <div><label>Exit (exit price)</label><input type="number" id="f_exit" step="0.1"></div>
+      <div><label>Result (R, e.g. 2 or -1)</label><input type="number" id="f_r" step="0.1"></div>
     </div>
     <div class="grid md:grid-cols-2 gap-3 mb-3">
-      <div><label>Setup / Raison d'entrée</label><input type="text" id="f_setup" placeholder="ex: FVG M15 + liquidity sweep"></div>
-      <div><label>Émotion (1=calme, 10=stressé)</label><input type="number" id="f_emo" min="1" max="10" value="5"></div>
+      <div><label>Setup / Entry reason</label><input type="text" id="f_setup" placeholder="e.g. FVG M15 + liquidity sweep"></div>
+      <div><label>Emotion (1=calm, 10=stressed)</label><input type="number" id="f_emo" min="1" max="10" value="5"></div>
     </div>
-    <div class="mb-3"><label>Notes / leçon (1 phrase)</label><textarea id="f_note" rows="2"></textarea></div>
+    <div class="mb-3"><label>Notes / lesson (1 sentence)</label><textarea id="f_note" rows="2"></textarea></div>
     <div class="flex gap-3">
-      <label class="flex items-center gap-2 text-gray-300"><input type="checkbox" id="f_plan"> Plan respecté</label>
+      <label class="flex items-center gap-2 text-gray-300"><input type="checkbox" id="f_plan"> Plan followed</label>
     </div>
-    <button onclick="addTrade()" class="mt-4 bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full sm:w-auto">Ajouter ce trade</button>
+    <button onclick="addTrade()" class="mt-4 bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full sm:w-auto">Add this trade</button>
   </div>
 
   <!-- Trades list -->
   <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6">
     <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-bold text-gold-400">📋 Historique</h2>
+      <h2 class="text-xl font-bold text-gold-400">📋 History</h2>
       <div class="flex gap-2">
         <button onclick="exportJSON()" class="text-sm bg-dark-600 hover:bg-dark-500 px-3 py-1 rounded">💾 Export</button>
         <button onclick="importJSON()" class="text-sm bg-dark-600 hover:bg-dark-500 px-3 py-1 rounded">📥 Import</button>
-        <button onclick="clearAll()" class="text-sm bg-red-900 hover:bg-red-800 px-3 py-1 rounded">🗑 Tout effacer</button>
+        <button onclick="clearAll()" class="text-sm bg-red-900 hover:bg-red-800 px-3 py-1 rounded">🗑 Clear all</button>
       </div>
     </div>
     <div id="tradesList" class="space-y-2"></div>
@@ -94,13 +94,13 @@ function addTrade() {
 }
 
 function deleteTrade(id) {
-  if (!confirm('Supprimer ce trade?')) return;
+  if (!confirm('Delete this trade?')) return;
   saveTrades(loadTrades().filter(t => t.id !== id));
   render();
 }
 
 function clearAll() {
-  if (!confirm('Effacer TOUT le journal? Action irréversible.')) return;
+  if (!confirm('Delete ALL journal entries? This cannot be undone.')) return;
   saveTrades([]);
   render();
 }
@@ -127,8 +127,8 @@ function importJSON() {
       try {
         const data = JSON.parse(ev.target.result);
         if (Array.isArray(data)) { saveTrades(data); render(); }
-        else alert('Format invalide');
-      } catch(err) { alert('Erreur de lecture: ' + err.message); }
+        else alert('Invalid format');
+      } catch(err) { alert('Read error: ' + err.message); }
     };
     reader.readAsText(file);
   };
@@ -139,7 +139,7 @@ function render() {
   const trades = loadTrades();
   const list = document.getElementById('tradesList');
   if (trades.length === 0) {
-    list.innerHTML = '<p class="text-gray-500 text-center py-6">Aucun trade pour l\'instant. Ajoute ton premier trade au-dessus.</p>';
+    list.innerHTML = '<p class="text-gray-500 text-center py-6">No trades yet. Add your first trade above.</p>';
   } else {
     list.innerHTML = trades.slice().reverse().map(t => {
       const rColor = t.r > 0 ? 'text-green-400' : (t.r < 0 ? 'text-red-400' : 'text-gray-400');
@@ -150,11 +150,11 @@ function render() {
             <div class="text-gray-400 text-xs">Entry ${t.entry} / SL ${t.sl} / Exit ${t.exit}</div>
             ${t.setup ? `<div class="text-gray-300 text-xs mt-1"><strong>Setup:</strong> ${t.setup}</div>` : ''}
             ${t.note  ? `<div class="text-gray-400 text-xs italic">"${t.note}"</div>` : ''}
-            <div class="text-xs text-gray-500 mt-1">Émotion: ${t.emo}/10 · Plan: ${t.plan?'✅':'❌'}</div>
+            <div class="text-xs text-gray-500 mt-1">Emotion: ${t.emo}/10 · Plan: ${t.plan?'✅':'❌'}</div>
           </div>
           <div class="text-right">
             <div class="text-xl font-bold ${rColor}">${t.r>0?'+':''}${t.r}R</div>
-            <button onclick="deleteTrade(${t.id})" class="text-xs text-gray-500 hover:text-red-400 px-2 py-1 min-h-[28px]">supprimer</button>
+            <button onclick="deleteTrade(${t.id})" class="text-xs text-gray-500 hover:text-red-400 px-2 py-1 min-h-[28px]">delete</button>
           </div>
         </div>
       </div>`;
@@ -183,12 +183,12 @@ function render() {
     stat('Winrate', winrate.toFixed(0) + '%', winrate>=50?'text-green-400':'text-yellow-400') +
     stat('Total', (totalR>0?'+':'') + totalR.toFixed(1) + 'R', totalR>=0?'text-green-400':'text-red-400') +
     stat('Expectancy', expectancy.toFixed(2) + 'R', expectancy>0?'text-green-400':'text-red-400') +
-    stat('Plan respecté', planRespected.toFixed(0) + '%', planRespected>=80?'text-green-400':'text-yellow-400');
+    stat('Plan followed', planRespected.toFixed(0) + '%', planRespected>=80?'text-green-400':'text-yellow-400');
 }
 
 document.getElementById('f_date').value = new Date().toISOString().split('T')[0];
 render();
 </script>
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 </body>
 </html>

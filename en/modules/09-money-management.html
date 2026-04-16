@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 9 — Money Management | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">&larr; Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 09</div>
+  <h1>Money Management — The Real Pillar</h1>
+  <p class="subtitle">80% of your profitability comes from here. Not from your strategy. Not from your indicators. From here.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">The truth nobody wants to hear</div>
+    <p>You can have the best strategy in the world: without money management, you will eventually blow up. And you can have a mediocre strategy: with rock-solid money management, you can survive long enough to become good. It is that unfair. Risk management is not "a module in the course" — it IS the course. Everything else is decoration.</p>
+  </div>
+
+  <h2>1. The 1% rule — non-negotiable</h2>
+  <p>The rule is simple: you <strong>never risk more than 1% of your capital on a single trade</strong>. Not 2%, not 3%, not "exceptionally 5% because the setup is incredible." 1%. Why this exact number? Because the math is brutal and does not negotiate.</p>
+  <p>With 1% risk per trade, it would take <strong>100 consecutive losses</strong> to wipe your account. Statistically, if your strategy has even a tiny edge (say 45% Winrate with a 1:1.5 Risk/Reward), the probability of stringing 100 losses together is on the order of 10 to the power of -26. In other words: impossible. You are mathematically protected against ruin.</p>
+  <p>At 2%, it takes 50 consecutive losses. That is acceptable for a confirmed trader who knows their stats down to the decimal. At 3%, you enter the danger zone. Above 3%, ruin is no longer a possibility, it is a certainty on a bad streak. And bad streaks will come. Always.</p>
+
+  <div class="callout callout-ok">
+    <div class="callout-title">Golden rule</div>
+    <p>Until you have 200 documented trades with a positive and stable Expectancy, you risk 0.5% per trade. Period. This is not timidity, it is survival.</p>
+  </div>
+
+  <h2>2. The math of asymmetric recovery</h2>
+  <p>Here is the table that should be tattooed on every trader's arm. When you lose X%, you need far more than X% to get back to breakeven. Because you are calculating the required gain on a <strong>reduced</strong> capital base.</p>
+
+  <table>
+    <thead>
+      <tr><th>Drawdown suffered</th><th>Gain needed to recover</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>-10%</td><td>+11.1%</td><td>Manageable</td></tr>
+      <tr><td>-25%</td><td>+33.3%</td><td>Hard but possible</td></tr>
+      <tr><td>-50%</td><td>+100%</td><td>Very difficult</td></tr>
+      <tr><td>-75%</td><td>+300%</td><td>Nearly impossible</td></tr>
+      <tr><td>-90%</td><td>+900%</td><td>Game over</td></tr>
+    </tbody>
+  </table>
+
+  <p>Look carefully at -50%. If your account is at $10,000 and falls to $5,000, you do not need "another -50%" to get back. You need <strong>+100%</strong>. To double your capital. How many profitable traders make +100% per year? A handful. And you, having just lost half your account, are supposed to do better than them? No. That is why money management is not optional.</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">The asymmetry trap</div>
+    <p>Your brain thinks linearly: "-20% means +20% to recover." Wrong. It is +25%. This asymmetry kills more accounts than anything else. The deeper the Drawdown, the more the recovery becomes mathematically out of reach.</p>
+  </div>
+
+  <h2>3. Risk/Reward — the other mathematical lever</h2>
+  <p>Winrate is overrated. Risk/Reward is underrated. Look:</p>
+  <ul>
+    <li>With a <strong>1:2 Risk/Reward</strong>, a Winrate of 34% is enough to break even (before fees).</li>
+    <li>With a <strong>1:3 Risk/Reward</strong>, 25% Winrate is enough.</li>
+    <li>With a <strong>1:1 Risk/Reward</strong>, you need over 50% to be profitable (fees included).</li>
+  </ul>
+  <p>You want a high Winrate for your ego? Take a 1:1 Risk/Reward. You want to be profitable? Take a minimum 1:2 Risk/Reward and accept losing more often than winning. It is counterintuitive, but this is how pros make money: lots of small losses, a few big wins. <strong>Never</strong> take a trade below 1:1.5 Risk/Reward. If your setup does not allow at least 1:1.5, it is not a setup.</p>
+
+  <h2>4. Expectancy (Van Tharp) — the only number that matters</h2>
+  <p>Expectancy is the average gain you can expect per trade. Formula:</p>
+  <p><code>E = (Winrate x Avg Win) - (Loss rate x Avg Loss)</code></p>
+  <p>Concrete example: 45% Winrate, avg win = 2R, avg loss = 1R.</p>
+  <p><code>E = (0.45 x 2) - (0.55 x 1) = 0.90 - 0.55 = +0.35R per trade</code></p>
+  <p>This means on average, each trade earns you 0.35 times your risk. If you risk $100 per trade, you earn on average $35 per trade. Over 200 trades, +$7,000 in expected value. If your E is negative, no position sizing, no magic will make you profitable. You are losing in slow motion. If E &le; 0 &rarr; losing strategy, period.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">The ultimate test</div>
+    <p>Before every trade, ask yourself: "If I took this setup 1,000 times, would the Expectancy be positive?" If you cannot answer yes with conviction, you are not trading an edge, you are gambling.</p>
+  </div>
+
+  <h2>5. Position sizing — the universal formula</h2>
+  <p>How many lots should you buy? This is not a matter of intuition, it is a formula:</p>
+  <p><code>Size = (Capital x Risk%) / (SL distance x Value per point)</code></p>
+  <p>For <strong>XAUUSD</strong> (1 standard lot = 100 ounces), the formula becomes:</p>
+  <p><code>Lot = Risk_USD / (SL_distance_USD x 100)</code></p>
+  <p><strong>Concrete example</strong>: your account is at $10,000. You risk 1% = $100. Your entry is at 2,050, your SL at 2,040 (distance = $10).</p>
+  <p><code>Lot = 100 / (10 x 100) = 0.1 lot</code></p>
+  <p>You buy 0.1 lot. If SL is hit, you lose exactly $100. Not $150, not $80. $100. You never trade without doing this calculation. Ever. Use <a href="../tools/calculator.html">the built-in calculator</a> to avoid mistakes — a decimal error on XAUUSD means 10x your intended risk.</p>
+
+  <h2>6. Kelly Criterion — powerful and dangerous</h2>
+  <p>The Kelly Criterion gives the optimal fraction of capital to risk in order to maximize long-term growth:</p>
+  <p><code>Kelly% = W - [(1-W) / R]</code> where W = Winrate, R = win/loss ratio</p>
+  <p>Example: 50% Winrate, 2 Risk/Reward &rarr; Kelly = 0.5 - (0.5/2) = 0.25 = <strong>25% of capital per trade</strong>.</p>
+  <p>25%?! Yes. And that is why <strong>nobody uses full Kelly</strong>. Because Kelly assumes you know your W and R perfectly, which is never the case. A 5% estimation error and you blow up. In practice, pros use <strong>Half-Kelly</strong> or <strong>Quarter-Kelly</strong>, which brings you right back to... 1-2% per trade. Full circle. The 1% rule is not an arbitrary convention, it is what the math says.</p>
+
+  <h2>7. Circuit breakers — protect yourself from yourself</h2>
+  <p>Prop firms (FTMO, Topstep, MFF) have strict rules because they know exactly how traders blow up. Copy them:</p>
+  <ul>
+    <li><strong>Max 2-3 losing trades per day</strong> &rarr; you shut down the computer.</li>
+    <li><strong>Max 3-5% daily Drawdown</strong> &rarr; immediate stop.</li>
+    <li><strong>Max 10% total Drawdown</strong> &rarr; one-week pause, back to backtesting.</li>
+    <li><strong>Max 3 trades per day</strong> — beyond that, you are overtrading.</li>
+    <li><strong>No trade within 30 minutes of a loss</strong> — revenge trading kills.</li>
+  </ul>
+  <p>These rules are not negotiable with yourself. Write them on a sticky note on your screen. When you follow them, even a bad day stays manageable. When you break them once, you will break them again.</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Over-risking = ruin</div>
+    <p>Risking 5% per trade? On a 10-loss streak (it happens), you lose 40% of your capital. You will need +67% to recover. You will not recover. The temptation of the "big score" is the first step toward an empty account.</p>
+  </div>
+
+  <h2>8. Drawdown — understand and accept it</h2>
+  <p>A 15-20% Drawdown is <strong>normal</strong>, even for a trader who is profitable over the long term. It is not a failure, it is a characteristic of the game. The best hedge funds on the planet experience 10-15% drawdowns and remain stars. What matters is not the absence of Drawdown (impossible), it is:</p>
+  <ul>
+    <li>The <strong>depth</strong> of the Drawdown vs your long-term Expectancy.</li>
+    <li>The <strong>duration</strong> of the Drawdown (peak-to-trough then recovery).</li>
+    <li>Your ability to <strong>keep trading your plan</strong> during the Drawdown without increasing risk to "catch up."</li>
+  </ul>
+  <p>An amateur trader sees a 10% Drawdown and panics. A professional trader sees a 10% Drawdown and keeps executing. That is the entire difference.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Going further</div>
+    <p>Use <a href="../tools/calculator.html">the position calculator</a> before every trade and <a href="../tools/journal.html">the journal</a> to track your actual Expectancy vs your backtested Expectancy. Without these tools, you are flying blind.</p>
+  </div>
+
+  <h2>9. Brutal summary</h2>
+  <ul>
+    <li>Risk 1% max per trade. 0.5% if you are a beginner.</li>
+    <li>Minimum 1:1.5 Risk/Reward. Ideal 1:2 or 1:3.</li>
+    <li>Calculate your position with the formula. Never "by feel."</li>
+    <li>Positive Expectancy or nothing.</li>
+    <li>Circuit breakers written down and followed.</li>
+    <li>A 15% Drawdown is normal. -50% is game over.</li>
+  </ul>
+  <p>If you apply these six rules for one year, you will already be ahead of 95% of retail traders. Just that.</p>
+
+  <div class="quiz">
+    <h3>🎓 End of module quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="08-strategie-gold.html"><div class="label">&larr; Previous</div><div class="name">Gold Strategy</div></a>
+    <a href="10-sl-tp-be.html"><div class="label">Next &rarr;</div><div class="name">SL/TP/BE</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(9);
+initQuiz('quizContainer', [
+  { q: "What is the recommended maximum risk per trade for a retail trader?", options: ["5% of capital","3% of capital","1% of capital","10% of capital"], correct: 2, explain: "The 1% rule mathematically protects against ruin: it would take 100 consecutive losses to wipe the account." },
+  { q: "After a -50% Drawdown, what gain is needed to get back to breakeven?", options: ["+50%","+75%","+100%","+200%"], correct: 2, explain: "Asymmetric recovery: on a capital cut in half, you need to double it (+100%) to get back to the starting point." },
+  { q: "Your capital is $10,000, risk 1%, SL distance $20 on XAUUSD. What lot size?", options: ["0.01 lot","0.05 lot","0.1 lot","0.5 lot"], correct: 1, explain: "Lot = 100 / (20 x 100) = 0.05 lot. 1 lot XAUUSD = 100 oz." },
+  { q: "With a 1:3 Risk/Reward, what minimum Winrate is needed to break even?", options: ["50%","40%","33%","25%"], correct: 3, explain: "With 1:3 Risk/Reward, 25% Winrate = breakeven. Each win compensates for 3 losses." },
+  { q: "Your Expectancy is -0.1R. What do you do?", options: ["Increase position size","Switch pairs","Stop and go back to backtesting","Wait it out"], correct: 2, explain: "A negative Expectancy means a losing strategy. No position sizing makes a strategy without an edge profitable." },
+  { q: "What is the only effective safeguard against revenge trading?", options: ["Trade bigger to recover","Written circuit breakers set in advance","Switch timeframes","Switch strategies"], correct: 1, explain: "Written and followed rules (max losses/day, forced break) are the only reliable defense." }
+]);
+</script>
+</body>
+</html>

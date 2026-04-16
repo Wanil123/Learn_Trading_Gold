@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simulateur SL/TP — Gold</title>
+<title>SL/TP Simulator — Gold</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="bg-dark-900 text-gray-100 min-h-screen">
 
 <header class="border-b border-dark-600 bg-dark-800">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
-    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+    <a href="../index.html" class="text-xs sm:text-sm text-gray-400 hover:text-gold-400">&larr; Back</a>
   </div>
 </header>
 
 <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">📊 Simulateur SL / TP</h1>
-  <p class="text-gray-400 mb-6">Visualise ton trade sur un graphique. Ajuste Entry, SL, TP1, TP2, TP3 et vois le R:R en temps réel.</p>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">📊 SL / TP Simulator</h1>
+  <p class="text-gray-400 mb-6">Visualize your trade on a chart. Adjust Entry, SL, TP1, TP2, TP3 and see the R:R in real time.</p>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
     <div><label>Direction</label><select id="dir"><option value="long">Long</option><option value="short">Short</option></select></div>
@@ -28,10 +28,10 @@
     <div><label>TP2</label><input type="number" id="tp2" value="2020" step="0.5"></div>
     <div><label>TP3</label><input type="number" id="tp3" value="2030" step="0.5"></div>
     <div><label>Capital (USD)</label><input type="number" id="capital" value="10000" step="100"></div>
-    <div><label>Risque (%)</label><input type="number" id="risk" value="1" step="0.1"></div>
+    <div><label>Risk (%)</label><input type="number" id="risk" value="1" step="0.1"></div>
   </div>
 
-  <button onclick="draw()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full mb-6">Actualiser le simulateur</button>
+  <button onclick="draw()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-4 sm:px-6 py-3 rounded-lg w-full mb-6">Update simulator</button>
 
   <div class="bg-dark-800 border border-dark-600 rounded-lg p-2 sm:p-4 mb-6">
     <svg id="chart" viewBox="0 0 800 450" class="w-full h-auto"></svg>
@@ -40,9 +40,9 @@
   <div id="stats" class="grid md:grid-cols-2 gap-4"></div>
 
   <div class="callout callout-gold mt-8">
-    <div class="callout-title">📚 Comment utiliser</div>
-    <p class="text-sm">Structure recommandée : <strong>TP1 = 1R</strong> (sécurise 33%, passe SL à BE) · <strong>TP2 = 2R</strong> (sécurise 33%) · <strong>TP3 = 3R+</strong> (runner).<br>
-    Le minimum absolu : viser un R:R de <strong>1:2</strong> pour pouvoir absorber les séries de pertes.</p>
+    <div class="callout-title">📚 How to use</div>
+    <p class="text-sm">Recommended structure: <strong>TP1 = 1R</strong> (secure 33%, move SL to BE) · <strong>TP2 = 2R</strong> (secure 33%) · <strong>TP3 = 3R+</strong> (runner).<br>
+    The absolute minimum: aim for a R:R of <strong>1:2</strong> to withstand losing streaks.</p>
   </div>
 </main>
 
@@ -59,10 +59,10 @@ function draw() {
 
   // Validation
   const isLong = dir === 'long';
-  if (isLong && sl >= entry) { alert('Long : SL doit être sous l\'entry.'); return; }
-  if (!isLong && sl <= entry) { alert('Short : SL doit être au-dessus de l\'entry.'); return; }
-  if (isLong && (tp1 <= entry || tp2 <= entry || tp3 <= entry)) { alert('Long : tous les TP doivent être AU-DESSUS de l\'entry.'); return; }
-  if (!isLong && (tp1 >= entry || tp2 >= entry || tp3 >= entry)) { alert('Short : tous les TP doivent être SOUS l\'entry.'); return; }
+  if (isLong && sl >= entry) { alert('Long: SL must be below the entry.'); return; }
+  if (!isLong && sl <= entry) { alert('Short: SL must be above the entry.'); return; }
+  if (isLong && (tp1 <= entry || tp2 <= entry || tp3 <= entry)) { alert('Long: all TPs must be ABOVE the entry.'); return; }
+  if (!isLong && (tp1 >= entry || tp2 >= entry || tp3 >= entry)) { alert('Short: all TPs must be BELOW the entry.'); return; }
 
   // Compute range for display
   const prices = [entry, sl, tp1, tp2, tp3];
@@ -108,7 +108,7 @@ function draw() {
   lines += lineFull(y(tp2),   '#16a34a', 'TP2',   tp2, '5,3');
   lines += lineFull(y(tp3),   '#15803d', 'TP3',   tp3, '5,3');
 
-  // Risk zone shading (entry → SL)
+  // Risk zone shading (entry -> SL)
   const riskRect = `<rect x="${entryX}" y="${Math.min(y(entry), y(sl))}" width="${W-R-entryX}" height="${Math.abs(y(entry)-y(sl))}" fill="rgba(239,68,68,0.15)"/>`;
   const rewardRect = `<rect x="${entryX}" y="${Math.min(y(entry), y(tp3))}" width="${W-R-entryX}" height="${Math.abs(y(entry)-y(tp3))}" fill="rgba(34,197,94,0.10)"/>`;
 
@@ -125,7 +125,7 @@ function draw() {
     ${candles}
     ${lines}
     ${yAxis}
-    <text x="${W/2}" y="${H-8}" fill="#6b7280" font-size="11" text-anchor="middle">Temps →</text>
+    <text x="${W/2}" y="${H-8}" fill="#6b7280" font-size="11" text-anchor="middle">Time &rarr;</text>
   `;
   document.getElementById('chart').innerHTML = svg;
 
@@ -146,9 +146,9 @@ function draw() {
     <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
       <h3 class="text-gold-400 font-bold mb-3">Position</h3>
       <div class="text-sm space-y-1">
-        <div class="flex justify-between"><span class="text-gray-400">Taille</span><span class="font-bold">${lot.toFixed(3)} lot</span></div>
-        <div class="flex justify-between"><span class="text-gray-400">Risque max</span><span class="text-red-400">-${riskUSD.toFixed(0)} USD</span></div>
-        <div class="flex justify-between"><span class="text-gray-400">Distance SL</span><span>${slDist.toFixed(2)} USD</span></div>
+        <div class="flex justify-between"><span class="text-gray-400">Size</span><span class="font-bold">${lot.toFixed(3)} lot</span></div>
+        <div class="flex justify-between"><span class="text-gray-400">Max risk</span><span class="text-red-400">-${riskUSD.toFixed(0)} USD</span></div>
+        <div class="flex justify-between"><span class="text-gray-400">SL Distance</span><span>${slDist.toFixed(2)} USD</span></div>
       </div>
     </div>
     <div class="bg-dark-800 border border-dark-600 rounded-lg p-4">
@@ -165,6 +165,6 @@ function draw() {
 }
 window.addEventListener('DOMContentLoaded', draw);
 </script>
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 </body>
 </html>

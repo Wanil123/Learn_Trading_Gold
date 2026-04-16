@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 10 — SL / TP / Break Even | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">&larr; Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 10</div>
+  <h1>Stop Loss, Take Profit, Break Even, Trailing</h1>
+  <p class="subtitle">The art of exiting a trade. Because the entry is 20% of the result. The exit is the other 80.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">The real secret of the pros</div>
+    <p>Amateur traders spend 95% of their time looking for the "best entry." Pros spend 95% of their time managing the exit. An average entry with a brilliant exit beats a brilliant entry with a catastrophic exit ten times over. This module is more important than all the technical analysis modules combined.</p>
+  </div>
+
+  <h2>1. Stop Loss — where to place it logically</h2>
+  <p>Your Stop Loss is not the place where you "feel like" exiting. It is the place where <strong>your trade idea becomes wrong</strong>. If you go long because a swing low is holding, then your SL goes below that swing low. If price breaks below it, your idea is wrong, you exit. That is it. There are four legitimate methods:</p>
+  <ul>
+    <li><strong>Structure</strong>: below the last swing low (long) or above the last swing high (short). This is the go-to method.</li>
+    <li><strong>Order Block</strong>: just beyond the institutional Order Block that created the move.</li>
+    <li><strong>ATR-based</strong>: 1.5x to 2x ATR(14). Adapts to current volatility, not some mythical average.</li>
+    <li><strong>Gold spread volatility</strong>: add a buffer of 20-30 pips ($2-3) to avoid Liquidity wicks.</li>
+  </ul>
+  <p>What you <strong>never</strong> do: set a SL based on "how much I want to risk in dollars." You do not dictate the SL, the market does. If the logical SL means a position too small for you, the solution is not to tighten the SL. The solution is to take a smaller position, or skip the trade entirely.</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">The obvious SL trap</div>
+    <p>If your SL is on a level that <strong>everyone</strong> sees (round number, obvious high, textbook support), institutions will hunt it. Place your SL <em>beyond</em> the obvious level, not right on it. +15 to 30 pips buffer on XAUUSD, always.</p>
+  </div>
+
+  <h2>2. Take Profit — 3-level structure</h2>
+  <p>The method that has proven itself: split the position into three.</p>
+  <ul>
+    <li><strong>TP1 at 1R</strong>: you secure 33% of the position. You move SL to Break Even on the rest. Psychologically, you have locked in a gain, your brain relaxes.</li>
+    <li><strong>TP2 at 2R</strong>: you secure another 33%. You already have a guaranteed net gain (1R on 33% + 2R on 33%).</li>
+    <li><strong>TP3 at 3R+ or trailing</strong>: the runner. This is what makes the big days.</li>
+  </ul>
+  <p>Pro alternative: place TPs on <strong>Liquidity levels</strong> (previous highs/lows, round numbers, imbalance zones) rather than on mathematical R multiples. Because that is where price wants to go.</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" style="max-width:100%;height:auto">
+      <rect width="600" height="320" fill="#0f172a"/>
+      <line x1="50" y1="260" x2="550" y2="260" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="265" fill="#ef4444" font-size="12">SL</text>
+      <line x1="50" y1="220" x2="550" y2="220" stroke="#94a3b8" stroke-width="2"/>
+      <text x="560" y="225" fill="#94a3b8" font-size="12">Entry</text>
+      <line x1="50" y1="180" x2="550" y2="180" stroke="#22c55e" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="185" fill="#22c55e" font-size="12">TP1 1R</text>
+      <line x1="50" y1="140" x2="550" y2="140" stroke="#22c55e" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="145" fill="#22c55e" font-size="12">TP2 2R</text>
+      <line x1="50" y1="80" x2="550" y2="80" stroke="#eab308" stroke-width="2" stroke-dasharray="4"/>
+      <text x="560" y="85" fill="#eab308" font-size="12">TP3 3R+</text>
+      <polyline points="60,250 100,240 140,245 180,220 220,210 260,185 300,190 340,160 380,150 420,120 460,110 500,85" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="100" cy="240" r="5" fill="#fff"/>
+      <text x="105" y="235" fill="#fff" font-size="10">Entry</text>
+    </svg>
+    <div class="schema-caption">Classic long trade structure: SL below structure, TP1/TP2/TP3 staggered, runner left to ride.</div>
+  </div>
+
+  <h2>3. Break Even — the art of not self-destructing</h2>
+  <p>Moving SL to Break Even (BE) means turning a risky trade into a neutral one: worst case, you lose nothing. Sounds great. It is... provided you do not do it too early.</p>
+  <ul>
+    <li><strong>Rule</strong>: no BE before 1R is reached. Ideally after TP1.</li>
+    <li><strong>Structural alternative</strong>: move to BE after a structure break in your favor (new confirmed higher low on a long, for example).</li>
+    <li><strong>The trap</strong>: moving to BE at 0.3R "for safety" turns half your winners into BE exits that would have become +3R. You destroy your Expectancy.</li>
+  </ul>
+  <p>Think of it this way: normal market noise is 0.5 to 1R around your entry. If you set BE within that noise, you get stopped out by noise. Let your trade breathe until it has proven it is genuinely moving in your favor.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Simple rule</div>
+    <p>No BE before 1R. Ever. Even if you are scared. Especially if you are scared. Fear is not a trading signal.</p>
+  </div>
+
+  <h2>4. Trailing Stop — letting winners run</h2>
+  <p>A Trailing Stop follows price and progressively locks in gains. Four well-known methods:</p>
+  <ul>
+    <li><strong>Chandelier Exit (Chuck LeBeau)</strong>: SL = highest high of last N candles - 3 x ATR. Solid for trends.</li>
+    <li><strong>Structural trailing</strong>: below each new higher low (long) / above each new lower high (short). The cleanest method.</li>
+    <li><strong>Parabolic SAR</strong>: visually convenient but noisy, exits too early in ranging markets.</li>
+    <li><strong>EMA 20 / EMA 50</strong>: dynamic SL on the moving average. Effective on big trending moves.</li>
+  </ul>
+  <p>Pick <strong>one</strong> and stick with it. Switching trailing methods mid-trade = emotional decision = self-sabotage.</p>
+
+  <h2>5. Scaling out vs full exit — the debate</h2>
+  <p>Scaling out (exiting in pieces) is popular, but rigorous backtests (Adam Grimes, Curtis Faith) show that for a trend-following strategy, <strong>exiting all at once at the final TP mathematically beats scaling</strong>. You are cutting your upside.</p>
+  <p><strong>But</strong>: scaling is a psychological tool. If exiting all at once makes you cut trades at -0.5R because you panic, then you will destroy your edge through emotions, not math. In that case, scaling saves your Expectancy by protecting it from <em>you</em>.</p>
+  <p><strong>Recommendation</strong>: scale out if it helps you hold your trades. Full exit if you can stay disciplined. Be honest with yourself.</p>
+
+  <h2>6. Classic mistakes — the top 5 account killers</h2>
+  <ol>
+    <li><strong>Widening the Stop Loss</strong> — account destroyer number one. You turn a controlled loss into an uncontrolled disaster. This single mistake has liquidated more accounts than all others combined.</li>
+    <li><strong>Cutting winners too early</strong> — "I'm securing profits." You cut at +0.8R what was going to be +3R. Do that 20 times and your Expectancy is dead.</li>
+    <li><strong>Trading without a Stop Loss</strong> — "I'm watching it." No. You are not watching it. You are hoping. And hope is a strategy for ruin.</li>
+    <li><strong>Placing SL on an obvious level</strong> — everyone sees it, so it gets hunted. 20-30 pip buffer, always.</li>
+    <li><strong>Changing the plan mid-trade</strong> — "I'll hold a bit longer." If you had not planned this scenario beforehand, you are improvising. And improvising in trading is called gambling.</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">The most important rule in this module</div>
+    <p>You NEVER move a Stop Loss in the wrong direction (widening it). Never. Not once. Not "just this time." This is THE rule whose violation blows accounts. You can tighten a SL, never widen it.</p>
+  </div>
+
+  <h2>7. Complete exit workflow</h2>
+  <ol>
+    <li>Before entry: I define structural SL, TP1, TP2, TP3.</li>
+    <li>I calculate the size with <a href="../tools/calculator.html">the calculator</a>.</li>
+    <li>I enter with SL and TP1/TP2/TP3 already placed as orders.</li>
+    <li>When TP1 is hit &rarr; SL to BE, automatic.</li>
+    <li>When TP2 is hit &rarr; I start trailing on the runner.</li>
+    <li>I do not touch anything else. I let the plan execute.</li>
+  </ol>
+  <p>Practice this execution on <a href="../tools/simulator.html">the simulator</a> before doing it live. Cold execution is practiced, not improvised.</p>
+
+  <div class="callout callout-ok">
+    <div class="callout-title">Summary</div>
+    <p>SL where the idea is wrong. TP at 3 levels. BE after 1R. Trailing on a single method. No modifications mid-trade. Simple. Ruthless. It works.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 End of module quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="09-money-management.html"><div class="label">&larr; Previous</div><div class="name">Money Management</div></a>
+    <a href="11-psychologie.html"><div class="label">Next &rarr;</div><div class="name">Psychology</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(10);
+initQuiz('quizContainer', [
+  { q: "Where should you logically place a Stop Loss on a long trade?", options: ["At an arbitrary number of pips","Below the last swing low","At the entry price","Where I want to risk $50"], correct: 1, explain: "The SL must be where the trade idea becomes wrong — below the structure that justifies the entry." },
+  { q: "When should you move SL to Break Even?", options: ["At 0.3R","Immediately","After 1R is reached","Never"], correct: 2, explain: "Before 1R, you are within normal market noise and will get stopped out for nothing." },
+  { q: "What is the worst mistake in trade management?", options: ["Exiting too early","Widening the Stop Loss","Taking a small profit","Setting 3 TPs"], correct: 1, explain: "Widening a SL turns a controlled loss into a disaster — the number one cause of liquidated accounts." },
+  { q: "For a trend-follower, scaling out is...", options: ["Mathematically optimal","Sub-optimal but psychologically useful","Forbidden","No effect"], correct: 1, explain: "Backtests (Grimes) show that full exit beats scaling, but scaling helps traders hold their positions." },
+  { q: "Which trailing method is the cleanest technically?", options: ["Parabolic SAR","Trailing below each higher low","Fixed 50 pips","None"], correct: 1, explain: "Structural trailing follows the real mechanics of the market without arbitrary noise." },
+  { q: "Your SL is right on an obvious round number (2050.00). What do you do?", options: ["Perfect, leave it","Add 20-30 pips buffer beyond it","Remove the SL","Double the size"], correct: 1, explain: "Obvious levels are hunted by institutions. Always add a buffer beyond the level." }
+]);
+</script>
+</body>
+</html>

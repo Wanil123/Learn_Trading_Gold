@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — Chart Reading | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 03</div>
+  <h1>Chart Reading</h1>
+  <p class="subtitle">Japanese candlesticks, timeframes, structure, patterns. Learning to see what the market is doing without making up stories.</p>
+
+  <h2>The three chart types — and why only one matters</h2>
+  <p>When you open your platform, you can display price in three main ways:</p>
+  <ul>
+    <li><strong>Line chart</strong> — simply connects closing prices. Readable but you're missing 75% of the information (open, high, low).</li>
+    <li><strong>Bar chart (OHLC)</strong> — shows all 4 key prices with vertical bars. Complete but visually hard to read quickly.</li>
+    <li><strong>Candlestick (Japanese candles)</strong> — same info as the bar chart but visually encoded with a colored body. Invented by the Japanese rice trader Munehisa Homma in the 18th century.</li>
+  </ul>
+  <p>Candlesticks win hands down: at a glance, they give you the open, high, low, close, the direction of the period, the magnitude of the move, and the conviction of buyers/sellers. It's the official language of modern technical analysis. <strong>Use only candlesticks</strong>.</p>
+
+  <h2>Anatomy of a candle</h2>
+  <p>Each candle represents a <em>period</em> (1 minute, 1 hour, 1 day...). It contains 4 pieces of information:</p>
+  <ul>
+    <li><strong>Open</strong> — price at the start of the period</li>
+    <li><strong>High</strong> — highest price reached</li>
+    <li><strong>Low</strong> — lowest price reached</li>
+    <li><strong>Close</strong> — price at the end of the period</li>
+  </ul>
+  <p>Visually, the <strong>body</strong> (rectangle) runs from open to close. The <strong>wicks</strong> (or shadows) extend from the body to the high and down to the low. If close &gt; open, the candle is bullish (traditionally green or white). If close &lt; open, it's bearish (red or black).</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- Bullish candle -->
+      <line x1="130" y1="30" x2="130" y2="220" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="110" y="80" width="40" height="110" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+      <text x="130" y="245" fill="#bbf7d0" font-size="12" text-anchor="middle" font-weight="bold">Bullish</text>
+      <text x="165" y="35" fill="#94a3b8" font-size="11">High</text>
+      <line x1="155" y1="32" x2="160" y2="32" stroke="#94a3b8"/>
+      <text x="165" y="85" fill="#94a3b8" font-size="11">Close</text>
+      <text x="165" y="195" fill="#94a3b8" font-size="11">Open</text>
+      <text x="165" y="225" fill="#94a3b8" font-size="11">Low</text>
+      <text x="60" y="135" fill="#94a3b8" font-size="11">Body</text>
+      <line x1="85" y1="132" x2="108" y2="132" stroke="#94a3b8"/>
+      <text x="50" y="55" fill="#94a3b8" font-size="11">Wick</text>
+      <line x1="85" y1="52" x2="128" y2="52" stroke="#94a3b8"/>
+
+      <!-- Bearish candle -->
+      <line x1="370" y1="40" x2="370" y2="230" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="350" y="70" width="40" height="120" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+      <text x="370" y="250" fill="#fecaca" font-size="12" text-anchor="middle" font-weight="bold">Bearish</text>
+      <text x="405" y="45" fill="#94a3b8" font-size="11">High</text>
+      <text x="405" y="75" fill="#94a3b8" font-size="11">Open</text>
+      <text x="405" y="195" fill="#94a3b8" font-size="11">Close</text>
+      <text x="405" y="235" fill="#94a3b8" font-size="11">Low</text>
+    </svg>
+    <div class="schema-caption">Full anatomy of a bullish and bearish Japanese candlestick</div>
+  </div>
+
+  <h2>Reading a candle: body and wicks tell a story</h2>
+  <p>A candle is a miniature battle between buyers and sellers over a given period. The visual result tells you who won and with how much conviction:</p>
+  <ul>
+    <li><strong>Large body, small wicks</strong> = one side dominated decisively, strong directional move. High conviction.</li>
+    <li><strong>Small body, large wicks</strong> = indecisive battle, both sides pushed but neither won. Caution.</li>
+    <li><strong>Long wick on one side only</strong> = rejection. Price went one way then was violently pushed back. Potential reversal signal.</li>
+    <li><strong>Tiny candle</strong> = compression, often precedes an explosive move.</li>
+  </ul>
+
+  <h2>Essential patterns to know</h2>
+  <p>There are hundreds of cataloged candle patterns. You only need 6 for 95% of situations:</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- Doji -->
+      <line x1="50" y1="30" x2="50" y2="140" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="42" y="83" width="16" height="4" fill="#e2e8f0"/>
+      <text x="50" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Doji</text>
+
+      <!-- Hammer -->
+      <line x1="150" y1="60" x2="150" y2="145" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="138" y="60" width="24" height="30" fill="#22c55e"/>
+      <text x="150" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Hammer</text>
+
+      <!-- Shooting star -->
+      <line x1="250" y1="30" x2="250" y2="115" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="238" y="85" width="24" height="30" fill="#ef4444"/>
+      <text x="250" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Shooting Star</text>
+
+      <!-- Bullish engulfing -->
+      <line x1="340" y1="45" x2="340" y2="115" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="332" y="60" width="16" height="40" fill="#ef4444"/>
+      <line x1="370" y1="35" x2="370" y2="130" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="358" y="50" width="24" height="65" fill="#22c55e"/>
+      <text x="360" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Engulfing</text>
+
+      <!-- Inside bar -->
+      <line x1="460" y1="30" x2="460" y2="130" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="448" y="45" width="24" height="70" fill="#22c55e"/>
+      <line x1="495" y1="60" x2="495" y2="105" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="487" y="70" width="16" height="25" fill="#ef4444"/>
+      <text x="480" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Inside Bar</text>
+
+      <!-- Pin bar -->
+      <line x1="560" y1="30" x2="560" y2="140" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="552" y="30" width="16" height="22" fill="#ef4444"/>
+      <text x="560" y="160" fill="#cbd5e1" font-size="11" text-anchor="middle">Pin Bar</text>
+    </svg>
+    <div class="schema-caption">The 6 essential patterns to identify instantly</div>
+  </div>
+
+  <ul>
+    <li><strong>Doji</strong> — open = close (or nearly). Almost no body, wicks on both sides. Total indecision. Powerful if it appears at a key level.</li>
+    <li><strong>Hammer</strong> — small body at the top, long wick below. Sellers pushed then got pushed back. Bullish signal at the end of a decline.</li>
+    <li><strong>Shooting star</strong> — small body at the bottom, long wick above. The inverse of the hammer. Bearish signal at the end of a rise.</li>
+    <li><strong>Engulfing</strong> — a candle whose body completely "engulfs" the previous one in the opposite direction. Strong reversal signal.</li>
+    <li><strong>Inside bar</strong> — candle entirely contained (high and low) within the previous one. Compression, often precedes a breakout.</li>
+    <li><strong>Pin bar</strong> — candle with a very long wick (at least 2x the body) on one side. Pure rejection of a level.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Beware of pattern fetishism</div>
+    <p>An isolated hammer in the middle of nowhere means nothing. A hammer on a major support, after a decline, with confirmation on the next candle: that carries weight. <strong>Context</strong> matters ten times more than the pattern itself. A pattern without context is noise.</p>
+  </div>
+
+  <h2>Timeframes and top-down analysis</h2>
+  <p>A Gold chart can be displayed in M1 (1 minute), M5, M15, M30, H1, H4, D (daily), W (weekly), MN (monthly). Each timeframe tells a different part of the same story. The classic beginner trap: staring at M1 and forgetting that H4 is in a downtrend.</p>
+  <p>The professional method: <strong>top-down analysis</strong>. You start from the top and work your way down:</p>
+  <ol>
+    <li><strong>D1 (daily)</strong> — what's the overall trend? Bullish, bearish, range? Where are the major support/resistance levels?</li>
+    <li><strong>H4</strong> — where is price within the D1 structure? Is it approaching a level? Refine your bias.</li>
+    <li><strong>H1 / M15</strong> — execution zone. You look for the precise setup that aligns with the bias from higher timeframes.</li>
+    <li><strong>M5 / M1</strong> — only for refining the entry (timing). Never for deciding direction.</li>
+  </ol>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">The higher timeframe always wins</div>
+    <p>If D1 is bullish and you see a "short signal" on M5, you DO NOT SHORT. You wait for M5 to align with D1. This rule alone will save you from 70% of bad trades. The higher timeframe dictates direction, the lower timeframe dictates timing.</p>
+  </div>
+
+  <h2>Market structure: trends and ranges</h2>
+  <p>Visually, a market does one of only three things:</p>
+  <ul>
+    <li><strong>Uptrend</strong> — a succession of Higher Highs (HH) and Higher Lows (HL). You see a staircase going up.</li>
+    <li><strong>Downtrend</strong> — a succession of Lower Lows (LL) and Lower Highs (LH). Staircase going down.</li>
+    <li><strong>Range</strong> — price oscillates between a horizontal support and a horizontal resistance. No direction.</li>
+  </ul>
+  <p>A change in structure is the most important signal: when an uptrend breaks a previous Higher Low, it's a potential reversal (<em>Break of Structure</em> bearish). Train your eye to spot these points without any indicator.</p>
+
+  <h2>Volume on XAUUSD</h2>
+  <p>On pure forex, the volume displayed by your broker is only its own internal volume (tick volume), not the real global volume. On XAUUSD it's slightly better because CME Gold Futures provide a visible reference. Volume can help you confirm a breakout (high volume = conviction) or detect a trap (breakout without volume = often false). But don't build your strategy around it: treat it as a confirmation indicator, not a decision-making one.</p>
+
+  <h2>Drawing a trendline correctly</h2>
+  <p>A trendline requires a <strong>minimum of 2 contact points</strong> to exist, and only becomes valid at the 3rd touch which confirms it. The eternal debate: should you draw it on wicks or on candle bodies?</p>
+  <ul>
+    <li><strong>On wicks</strong> — the classic tradition. Respects the truth of extreme prices reached.</li>
+    <li><strong>On bodies</strong> — a more "pure price action" approach (Al Brooks). The body reflects conviction; wicks are noise/stop hunting.</li>
+  </ul>
+  <p>The real answer: pick a method and be consistent. A poorly drawn trendline predicts nothing. A trendline drawn rigorously, with 3+ touches, remains a powerful visual tool for seeing momentum.</p>
+
+  <h2>Visual support and resistance</h2>
+  <p>A support is a horizontal level where price has bounced upward multiple times. A resistance is where it has been pushed down multiple times. Practical rules:</p>
+  <ul>
+    <li>The more a level has been tested, the more significant it is</li>
+    <li>A broken support often becomes a resistance (and vice versa)</li>
+    <li>Round psychological levels (2000, 2050, 2100 on Gold) are often self-fulfilling</li>
+    <li>A D1 level beats an H1 level. Always.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">Mental traps of chart reading</div>
+    <ul>
+      <li><strong>Hindsight bias</strong> — looking at the past, everything seems obvious ("I should have seen that reversal!"). In real-time, it's blurry. Never judge your trading with the rearview mirror.</li>
+      <li><strong>Overfitting</strong> — drawing patterns everywhere, connecting dots that have nothing to do with each other, seeing "figures" in noise. If you need 12 lines to justify a trade, there is no trade.</li>
+      <li><strong>Pattern shopping</strong> — looking for the pattern that confirms your bias instead of reading what the market is actually saying.</li>
+    </ul>
+  </div>
+
+  <h2>What you should take away</h2>
+  <p>Use only candlesticks. Learn their anatomy by heart. Master 6 patterns, not 60. Always do top-down: D1 → H4 → H1 → M15. Context trumps pattern. Structure (HH/HL vs LH/LL) tells you where you are in the story. And remember: a chart predicts nothing — it tells you what happened. Your job is to identify zones where the probability of continuation or reversal is statistically favorable — nothing more, nothing less.</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <h3>🎓 End of Module Quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="02-marches-gold.html"><div class="label">← Previous</div><div class="name">Markets & Gold</div></a>
+    <a href="04-price-action.html"><div class="label">Next →</div><div class="name">Price Action</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(3);
+initQuiz('quizContainer', [
+  {
+    q: "On a candle, what does the 'body' represent?",
+    options: ["The distance between the high and the low", "The distance between the open and the close", "Only the bullish part", "The volume of the period"],
+    correct: 1,
+    explain: "The body goes from open to close. The wicks (shadows) then extend to the high and the low. The body represents the directional conviction of the period."
+  },
+  {
+    q: "You observe a candle with a small red body at the top and a very long wick downward. What pattern is this?",
+    options: ["Shooting star", "Doji", "Hammer", "Inside bar"],
+    correct: 2,
+    explain: "It's a hammer: sellers pushed the price hard downward, but buyers brought everything back up. A potential bullish reversal signal, especially if it appears on a support after a decline."
+  },
+  {
+    q: "In a top-down analysis, which timeframe should you start with?",
+    options: ["M1 to see the detail", "M15 to find a setup", "H1 for timing", "D1/H4 to define the overall bias"],
+    correct: 3,
+    explain: "Top-down = start from the top. D1 gives the trend and major levels, H4 refines, H1/M15 is for finding the setup, M5/M1 is only for refining the entry. The higher timeframe dictates direction."
+  },
+  {
+    q: "An uptrend is characterized by...",
+    options: ["A succession of Lower Highs and Lower Lows", "A succession of Higher Highs and Higher Lows", "A price that doesn't move", "High volume only"],
+    correct: 1,
+    explain: "Uptrend = staircase going up = each peak and each trough is higher than the previous one (HH/HL). The reverse for a downtrend (LH/LL). A range has neither."
+  },
+  {
+    q: "What is the correct rule regarding trendlines?",
+    options: ["A single touch is enough", "You need at least 2 points, and the 3rd touch confirms validity", "They must always be drawn on wicks", "They predict the future with certainty"],
+    correct: 1,
+    explain: "A trendline requires minimum 2 points to exist. The 3rd touch confirms validity. The wick vs body choice is a matter of personal method as long as you're consistent. And no trendline 'predicts' — it visualizes momentum."
+  }
+]);
+</script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tracker de Discipline — Gold Trading Academy</title>
+<title>Discipline Tracker — Gold Trading Academy</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 <style>
   @media (max-width: 640px) {
     #calendar { grid-template-columns: repeat(10, minmax(0,1fr)) !important; }
@@ -17,68 +17,68 @@
 <header class="border-b border-dark-600 bg-dark-800">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
-    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Back</a>
   </div>
 </header>
 
 <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">🔥 Tracker de Discipline</h1>
-  <p class="text-gray-400 mb-6">Chaque jour, note si tu as respecté tes règles. Construis ta série. La discipline se mesure, elle ne se raconte pas.</p>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">🔥 Discipline Tracker</h1>
+  <p class="text-gray-400 mb-6">Every day, note whether you followed your rules. Build your streak. Discipline is measured, not told.</p>
 
   <!-- Streak display -->
   <div class="grid md:grid-cols-3 gap-4 mb-8">
     <div class="bg-dark-800 border border-gold-500 rounded-lg p-4 sm:p-6 text-center">
-      <div class="text-xs text-gray-500 uppercase">Streak actuel</div>
+      <div class="text-xs text-gray-500 uppercase">Current streak</div>
       <div id="streak" class="text-5xl sm:text-6xl font-bold text-gold-400 mt-2">0</div>
-      <div class="text-sm text-gray-400 mt-1">jours parfaits d'affilée</div>
+      <div class="text-sm text-gray-400 mt-1">perfect days in a row</div>
     </div>
     <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 text-center">
-      <div class="text-xs text-gray-500 uppercase">Meilleur streak</div>
+      <div class="text-xs text-gray-500 uppercase">Best streak</div>
       <div id="best" class="text-5xl sm:text-6xl font-bold text-green-400 mt-2">0</div>
-      <div class="text-sm text-gray-400 mt-1">record à battre</div>
+      <div class="text-sm text-gray-400 mt-1">record to beat</div>
     </div>
     <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 text-center">
-      <div class="text-xs text-gray-500 uppercase">Taux de discipline</div>
+      <div class="text-xs text-gray-500 uppercase">Discipline rate</div>
       <div id="rate" class="text-5xl sm:text-6xl font-bold text-gold-400 mt-2">—</div>
-      <div class="text-sm text-gray-400 mt-1">sur les 30 derniers jours</div>
+      <div class="text-sm text-gray-400 mt-1">over the last 30 days</div>
     </div>
   </div>
 
   <!-- Today's check-in -->
   <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 mb-6">
-    <h2 class="text-lg sm:text-xl font-bold text-gold-400 mb-1">📅 Check-in du jour</h2>
+    <h2 class="text-lg sm:text-xl font-bold text-gold-400 mb-1">📅 Today's check-in</h2>
     <p class="text-xs text-gray-500 mb-4" id="todayDate"></p>
     <div id="rulesList" class="space-y-2 mb-4"></div>
-    <button onclick="saveDay()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-6 py-3 rounded-lg w-full">💾 Enregistrer le jour</button>
+    <button onclick="saveDay()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-6 py-3 rounded-lg w-full">💾 Save today</button>
   </div>
 
   <!-- Calendar heatmap -->
   <div class="bg-dark-800 border border-dark-600 rounded-lg p-4 sm:p-6 mb-6">
-    <h2 class="text-lg sm:text-xl font-bold text-gold-400 mb-4">🗓️ Les 90 derniers jours</h2>
+    <h2 class="text-lg sm:text-xl font-bold text-gold-400 mb-4">🗓️ Last 90 days</h2>
     <div id="calendar" class="grid gap-1" style="grid-template-columns: repeat(15, minmax(0, 1fr));"></div>
     <div class="flex flex-wrap gap-2 sm:gap-4 mt-4 text-xs text-gray-400">
-      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-dark-600"></span> Non rempli</span>
-      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-red-500"></span> Règle brisée</span>
-      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-yellow-500"></span> Partiel</span>
-      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-green-500"></span> Parfait</span>
+      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-dark-600"></span> Not filled</span>
+      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-red-500"></span> Rule broken</span>
+      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-yellow-500"></span> Partial</span>
+      <span class="flex items-center gap-1"><span class="inline-block w-3 h-3 bg-green-500"></span> Perfect</span>
     </div>
   </div>
 
   <div class="callout callout-gold">
-    <div class="callout-title">💡 Pourquoi ça marche</div>
-    <p class="text-sm">Ce qui ne se mesure pas ne s'améliore pas. Tracker ta discipline t'oblige à être honnête avec toi-même. Perdre un streak de 30 jours fait BEAUCOUP plus mal qu'une simple règle écrite. C'est le principe des habitudes (James Clear, <em>Atomic Habits</em>).</p>
+    <div class="callout-title">💡 Why it works</div>
+    <p class="text-sm">What doesn't get measured doesn't get improved. Tracking your discipline forces you to be honest with yourself. Losing a 30-day streak hurts FAR more than a simple written rule. This is the power of habits (James Clear, <em>Atomic Habits</em>).</p>
   </div>
 </main>
 
 <script>
 const RULES = [
-  "Je n'ai pris QUE des trades de ma checklist",
-  "J'ai respecté ma taille de position (max 1% risque)",
-  "Je n'ai PAS déplacé un SL",
-  "Je n'ai PAS fait de revenge trading",
-  "J'ai rempli mon journal pour chaque trade",
-  "Je n'ai PAS dépassé ma limite de trades/jour",
-  "Je me suis arrêté après 2 pertes consécutives (si applicable)"
+  "I only took trades from my checklist",
+  "I respected my position size (max 1% risk)",
+  "I did NOT move a Stop Loss",
+  "I did NOT revenge trade",
+  "I filled in my journal for every trade",
+  "I did NOT exceed my daily trade limit",
+  "I stopped after 2 consecutive losses (if applicable)"
 ];
 
 function load() { try { return JSON.parse(localStorage.getItem('gta_discipline') || '{}'); } catch(e) { return {}; } }
@@ -89,7 +89,7 @@ function todayKey() { return new Date().toISOString().split('T')[0]; }
 function renderRules() {
   const data = load();
   const today = data[todayKey()] || {};
-  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('fr-FR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
   document.getElementById('rulesList').innerHTML = RULES.map((r, i) => {
     const checked = today['r' + i] ? 'checked' : '';
     return `<label class="flex items-center gap-3 bg-dark-700 p-3 rounded cursor-pointer hover:bg-dark-600">
@@ -107,7 +107,7 @@ function saveDay() {
   save(data);
   renderCalendar();
   renderStats();
-  alert('Jour enregistré ✅');
+  alert('Day saved ✅');
 }
 
 function dayScore(day) {
@@ -143,10 +143,10 @@ function renderStats() {
     d.setDate(d.getDate() - i);
     const k = d.toISOString().split('T')[0];
     if (dayScore(data[k]) === 2) streak++;
-    else if (i === 0 && !data[k]) continue; // today not yet filled : start counting from yesterday
+    else if (i === 0 && !data[k]) continue; // today not yet filled: start counting from yesterday
     else break;
   }
-  // Best streak : iterate day-by-day from the earliest filled date to today so that gaps
+  // Best streak: iterate day-by-day from the earliest filled date to today so that gaps
   // (missing days between two entries) correctly reset the counter.
   let best = 0, cur = 0;
   const keys = Object.keys(data).sort();
@@ -178,6 +178,6 @@ renderRules();
 renderCalendar();
 renderStats();
 </script>
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7 — Smart Money Concepts (SMC / ICT) | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">&larr; Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 07</div>
+  <h1>Smart Money Concepts (SMC / ICT)</h1>
+  <p class="subtitle">The "smart money" vocabulary — useful, but not magic</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Read this BEFORE diving into SMC</div>
+    <p>Smart Money Concepts (SMC), derived from ICT's (Michael Huddleston) work, has become a massive trend in the retail trading community. Let's be honest from the start:</p>
+    <ul>
+      <li><strong>No independent quantitative study</strong> proves that SMC generates a statistical edge superior to chance on rigorous, reproducible backtests.</li>
+      <li><strong>Massive hindsight bias</strong>: identifying an Order Block or a Fair Value Gap (FVG) after the fact is trivial. In real time, on the candle currently forming, it is radically harder.</li>
+      <li><strong>The ecosystem is polluted</strong> by "gurus" selling courses for $1,500-$3,000 by recycling ICT content available for free on YouTube.</li>
+      <li><strong>ICT himself is controversial</strong> (personality, past promises), but his free educational content remains generally solid technically.</li>
+    </ul>
+    <p><strong>Honest conclusion:</strong> use SMC as a <em>structured vocabulary</em> to read the market, not as a magic system. It is a reading tool, not a crystal ball. This module teaches you the concepts seriously — it is up to you to test and statistically validate them before committing capital.</p>
+  </div>
+
+  <h2>1. Liquidity: the fuel of the market</h2>
+  <p>The central notion of SMC/ICT is that the market is not driven by mathematical indicators, but by the <strong>hunt for Liquidity</strong>. Liquidity refers to zones where pending orders accumulate — mainly Stop Loss orders from other traders. Large players (banks, market makers) need counterparty to fill their massive positions: they therefore push price toward these zones to trigger stops.</p>
+
+  <ul>
+    <li><strong>Buy-side Liquidity</strong>: located above swing highs. This is where the Stop Loss orders of sellers (shorts) and the buy stops of breakout buyers sit. When price breaks these highs, a cascade of buy orders triggers.</li>
+    <li><strong>Sell-side Liquidity</strong>: located below swing lows. This is where the stops of buyers (longs) and the sell stops of breakout sellers sit.</li>
+    <li><strong>Equal highs / equal lows</strong>: two or three highs (or lows) at the same level = <em>obvious</em> Liquidity, therefore a priority target for a sweep.</li>
+  </ul>
+
+  <p>The key concept: "smart money" <strong>hunts these stops</strong> before reversing. This is the <em>liquidity sweep</em> (or stop hunt): a rapid move that pierces the level, triggers stops, then immediately comes back. If you have ever been stopped out just before price went in your original direction — congratulations, you were the Liquidity.</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <rect width="600" height="260" fill="#0f172a"/>
+      <line x1="40" y1="80" x2="560" y2="80" stroke="#f59e0b" stroke-dasharray="4 4"/>
+      <text x="50" y="72" fill="#f59e0b" font-size="12">Swing High = Buy-side Liquidity</text>
+      <polyline points="60,180 100,140 140,160 180,110 220,130 260,85 300,100 340,60 380,110 420,150 460,130 500,170" fill="none" stroke="#10b981" stroke-width="2"/>
+      <circle cx="340" cy="60" r="6" fill="#ef4444"/>
+      <text x="350" y="55" fill="#ef4444" font-size="11">Sweep then rejection</text>
+      <line x1="40" y1="200" x2="560" y2="200" stroke="#f59e0b" stroke-dasharray="4 4"/>
+      <text x="50" y="220" fill="#f59e0b" font-size="12">Swing Low = Sell-side Liquidity</text>
+    </svg>
+    <div class="schema-caption">Diagram: buy-side Liquidity above the swing high. The sweep briefly pierces through, then price rejects.</div>
+  </div>
+
+  <h2>2. Order Block (OB)</h2>
+  <p>An <strong>Order Block</strong> is the last candle opposite to the impulsive move that follows, just before that move breaks structure.</p>
+  <ul>
+    <li><strong>Bullish OB</strong>: the last <em>bearish</em> candle before a bullish rally that produces a bullish Break of Structure.</li>
+    <li><strong>Bearish OB</strong>: the last <em>bullish</em> candle before a bearish drop that breaks a swing low.</li>
+  </ul>
+  <p>A valid OB meets 3 strict criteria:</p>
+  <ol>
+    <li>The move that follows must be <strong>impulsive</strong> (large candles, few opposing wicks).</li>
+    <li>The displacement must create a <strong>Fair Value Gap (FVG)</strong> (visible imbalance).</li>
+    <li>The OB is ideally aligned with a <strong>prior liquidity grab</strong> (sweep of a high/low).</li>
+  </ol>
+  <p>The <strong>Breaker Block</strong> is an OB that was invalidated (price passed through it), then retested from the other side. A broken bearish OB becomes a bullish breaker.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">💡 How to distinguish a real OB from a fake one?</div>
+    <p>Simple rule: if you draw an OB and there is <em>no FVG</em> in the following candles, it is not a real OB. The "displacement" is the key. Without impulse, without imbalance, without a BOS behind it — it is just another candle.</p>
+  </div>
+
+  <h2>3. Fair Value Gap (FVG) / Imbalance</h2>
+  <p>A Fair Value Gap (FVG) is a price <strong>inefficiency</strong> visible on a 3-consecutive-candle pattern. The technical definition:</p>
+  <ul>
+    <li><strong>Bullish FVG</strong>: the <em>high</em> of candle 1 does not touch the <em>low</em> of candle 3. The space between is the gap.</li>
+    <li><strong>Bearish FVG</strong>: the <em>low</em> of candle 1 does not touch the <em>high</em> of candle 3.</li>
+  </ul>
+  <p>The SMC hypothesis: the market tends to come back and <strong>"fill"</strong> these gaps, because they represent an imbalance between buyers and sellers. In practice, many FVGs get filled, many never do — it is a tendency, not a law.</p>
+
+  <div class="schema">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <rect width="600" height="260" fill="#0f172a"/>
+      <rect x="150" y="160" width="30" height="60" fill="#10b981"/>
+      <line x1="165" y1="140" x2="165" y2="230" stroke="#10b981" stroke-width="2"/>
+      <rect x="250" y="80" width="30" height="100" fill="#10b981"/>
+      <line x1="265" y1="60" x2="265" y2="190" stroke="#10b981" stroke-width="2"/>
+      <rect x="350" y="40" width="30" height="70" fill="#10b981"/>
+      <line x1="365" y1="20" x2="365" y2="120" stroke="#10b981" stroke-width="2"/>
+      <rect x="140" y="110" width="250" height="30" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-dasharray="3 3"/>
+      <text x="410" y="130" fill="#f59e0b" font-size="12">Bullish FVG</text>
+      <text x="150" y="250" fill="#94a3b8" font-size="10">Candle 1</text>
+      <text x="250" y="250" fill="#94a3b8" font-size="10">Candle 2</text>
+      <text x="350" y="250" fill="#94a3b8" font-size="10">Candle 3</text>
+    </svg>
+    <div class="schema-caption">Diagram: Bullish FVG — the high of candle 1 is below the low of candle 3. The orange zone is the imbalance.</div>
+  </div>
+
+  <h2>4. BOS and CHoCH — recap</h2>
+  <p>Recap from module 6: <strong>Break of Structure (BOS)</strong> = continuation (one more HH in an uptrend). <strong>Change of Character (CHoCH)</strong> = first sign of reversal (an LL in an uptrend).</p>
+  <p><strong>Market Structure Shift (MSS)</strong> is a stricter version of CHoCH: it requires an <em>impulsive displacement</em> (with FVG) to validate the reversal. A soft CHoCH without impulse is often a trap.</p>
+
+  <h2>5. Premium / Discount — the equilibrium</h2>
+  <p>Divide a range (or an impulsive leg) in two at the 50% level. This 50% is the <strong>equilibrium</strong>.</p>
+  <ul>
+    <li><strong>Premium</strong> (above 50%) = sell zone if bearish bias.</li>
+    <li><strong>Discount</strong> (below 50%) = buy zone if bullish bias.</li>
+  </ul>
+  <p>This is directly derived from Fibonacci. The idea: you never buy in Premium and you never sell in Discount. Simple but disciplined.</p>
+
+  <h2>6. Optimal Trade Entry (OTE)</h2>
+  <p>The OTE is the Fibonacci <strong>61.8% – 79%</strong> zone of an impulsive leg. Combined with an OB and/or an FVG in the Discount zone (for a long) or Premium zone (for a short), it defines an entry point with reduced risk and high reward.</p>
+
+  <h2>7. Inducement (IDM)</h2>
+  <p><strong>Inducement</strong> is an intermediate "fake" Liquidity, placed intentionally (in the SMC narrative) to trap impatient traders. Concretely: a mini-swing taken <em>just before</em> the main OB. If you enter on the first pullback, you get trapped; the real move starts after the IDM is taken.</p>
+
+  <h2>8. Killzones — ICT time windows</h2>
+  <p>ICT asserts that the market moves primarily within certain windows. For Gold, these Killzones are particularly relevant because they coincide with high-volume sessions:</p>
+  <ul>
+    <li><strong>London Killzone</strong>: 02:00–05:00 New York time (07:00–10:00 UTC).</li>
+    <li><strong>NY Killzone</strong>: 08:30–11:00 NY (13:30–16:00 UTC).</li>
+    <li><strong>Silver Bullet</strong>: 10:00–11:00 NY (15:00–16:00 UTC) — a one-hour window closely watched by ICT traders.</li>
+  </ul>
+
+  <h2>9. Legitimate criticisms — be honest with yourself</h2>
+  <div class="callout callout-warn">
+    <div class="callout-title">🔍 What course sellers will never tell you</div>
+    <ul>
+      <li><strong>Non-falsifiability</strong>: if an SMC trade fails, you will always be told "that was not the real OB" or "the correct POI was a bit lower." A concept that can never be invalidated is not scientific.</li>
+      <li><strong>Subjectivity</strong>: you can draw 5 "valid" OBs on any chart looking in hindsight. Two SMC traders will rarely see the same setup.</li>
+      <li><strong>No quantitative proof</strong>: no robust independent backtest shows an SMC edge above chance after transaction costs.</li>
+      <li><strong>But</strong>: as a structured reading framework, it is useful. It forces you to look at Liquidity, structure, and context rather than lagging indicators.</li>
+    </ul>
+  </div>
+
+  <h2>10. How to use it CORRECTLY</h2>
+  <ol>
+    <li>Always combine with <strong>market structure</strong> (module 6).</li>
+    <li>Always combine with <strong>strict money management</strong> (module 9).</li>
+    <li><strong>Backtest on 200+ trades</strong> before risking a single real dollar.</li>
+    <li>Keep a <strong>trading journal</strong> to identify what <em>ACTUALLY</em> works for YOU — not what some YouTuber says.</li>
+    <li>Never pay $2,000 for an SMC course. Everything is free on the official ICT channel.</li>
+  </ol>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">🥇 Key takeaway</div>
+    <p>SMC is a <strong>vocabulary</strong>, not a system. Liquidity, Order Block, Fair Value Gap (FVG), CHoCH, Optimal Trade Entry (OTE) — these are market-reading concepts that, combined with rigorous discipline, can structure your analysis. But without backtesting and money management, it is just decoration on a chart.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 End of module quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="06-structure-marche.html"><div class="label">&larr; Previous</div><div class="name">Market Structure</div></a>
+    <a href="08-strategie-gold.html"><div class="label">Next &rarr;</div><div class="name">Gold Strategy</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(7);
+initQuiz('quizContainer', [
+  { q: "What is a liquidity sweep?", options: ["A volume indicator", "A rapid break of a high/low that triggers stops then rejects", "A type of moving average", "An economic news event"], correct: 1, explain: "A sweep is a rapid move that pierces a Liquidity level to trigger stops, then immediately reverses." },
+  { q: "What distinguishes a REAL Order Block from a fake one?", options: ["Its color", "The impulsive displacement with FVG and BOS behind it", "Its size in pips", "The time it forms"], correct: 1, explain: "A real OB is followed by an impulsive move creating an FVG and breaking structure. Without displacement, it is not an OB." },
+  { q: "A bullish Fair Value Gap (FVG) forms when:", options: ["Price gaps at the open", "The high of candle 1 does not touch the low of candle 3", "Three bearish candles line up", "Volume doubles"], correct: 1, explain: "A bullish FVG is the empty space between the high of candle 1 and the low of candle 3, on 3 consecutive candles." },
+  { q: "In a bullish bias, you look for entries in the:", options: ["Premium zone (above 50%)", "Discount zone (below 50%)", "Does not matter", "Always at 50%"], correct: 1, explain: "In a bullish bias, you buy in Discount (below equilibrium) to maximize the Risk/Reward." },
+  { q: "The ICT Silver Bullet occurs at:", options: ["07:00–10:00 UTC", "15:00–16:00 UTC", "00:00–01:00 UTC", "20:00–21:00 UTC"], correct: 1, explain: "The Silver Bullet is the 10:00–11:00 NY time window, which is 15:00–16:00 UTC." },
+  { q: "What is the most fundamental criticism of SMC?", options: ["It is too complicated", "It does not use indicators", "Non-falsifiability and subjectivity: a failure is always explained by 'that was not the right OB'", "It only works on forex"], correct: 2, explain: "The epistemological problem with SMC is that it is never truly falsifiable: any failure can be rationalized after the fact." }
+]);
+</script>
+</body>
+</html>

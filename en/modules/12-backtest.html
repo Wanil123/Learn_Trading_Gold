@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 12 — Backtest & Forward test | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 12</div>
+  <h1>Backtest & Forward test</h1>
+  <p class="subtitle">Without this, you don't know if your strategy has an edge. You believe. And believing in trading means going broke.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">The test that separates gamblers from pros</div>
+    <p>Ask a retail trader for their stats: winrate, expectancy, profit factor, max drawdown. 9 times out of 10, they don't know. They "feel like it works". Ask a pro: they pull out a spreadsheet with 500+ categorized trades. That's the whole difference. Without rigorous backtesting, you're not trading a strategy, you're trading an <em>impression</em>. And impressions are free. Losses are not.</p>
+  </div>
+
+  <h2>1. Manual vs automated backtest</h2>
+  <p>Two approaches, two philosophies.</p>
+  <ul>
+    <li><strong>Manual backtest</strong> (TradingView Bar Replay): you advance candle by candle, making decisions as if live. Slower, but infinitely more realistic. You feel the fear, the hesitation, the doubt. It's the test closest to real trading. <strong>Recommended for discretionary strategies.</strong></li>
+    <li><strong>Automated backtest</strong> (MT5 Strategy Tester, Forex Tester 5, Python + backtrader): you code the rules and run it. Fast, massive (1000+ trades in seconds), but doesn't capture the human dimension. <strong>Mandatory for mechanical strategies.</strong></li>
+  </ul>
+  <p>If you trade discretionarily, start with manual. At least 100 trades, forced, bar by bar, without cheating (and it's hard not to cheat — we'll come back to that).</p>
+
+  <h2>2. Sample size — the law of large numbers</h2>
+  <p>A backtest on 20 trades is worthless. Zero. It's statistical noise. Here are the thresholds:</p>
+  <ul>
+    <li><strong>Less than 30 trades</strong>: pure noise, no conclusion possible.</li>
+    <li><strong>30-100 trades</strong>: visible trend but huge confidence interval.</li>
+    <li><strong>100-200 trades</strong>: rough usable estimate.</li>
+    <li><strong>200-300 trades</strong>: real statistical confidence.</li>
+    <li><strong>500+ trades</strong>: pro level, tight confidence intervals.</li>
+  </ul>
+  <p>Yes, 200 manually backtested trades takes a long time. That's the point. Trading is not a weekend hobby.</p>
+
+  <h2>3. Mandatory metrics</h2>
+  <p>You know these numbers by heart for your strategy, or you don't have a strategy.</p>
+  <ul>
+    <li><strong>Winrate</strong> (%): % of winning trades.</li>
+    <li><strong>Avg Win / Avg Loss</strong> (in R): average size of wins and losses, expressed as multiples of R (initial risk).</li>
+    <li><strong>Expectancy</strong>: E = (Winrate x Avg Win) - (Loss rate x Avg Loss). Must be > 0. Period.</li>
+    <li><strong>Profit Factor</strong>: sum of gains / sum of losses. > 1.5 = good, > 2 = excellent.</li>
+    <li><strong>Max Drawdown</strong>: peak-to-trough in % and duration. How long did your worst drawdown last before recovery?</li>
+    <li><strong>Max consecutive losses</strong>: to size your mental resilience. If your worst streak is 7 losses, know that it will happen again.</li>
+    <li><strong>Sharpe / Sortino</strong> (optional): risk-adjusted return.</li>
+  </ul>
+
+  <h2>4. Reference table — target metrics</h2>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Minimum viable</th><th>Good</th><th>Excellent</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Winrate</td><td>40%</td><td>50%</td><td>60%+</td></tr>
+      <tr><td>Profit Factor</td><td>1.3</td><td>1.8</td><td>2.5+</td></tr>
+      <tr><td>Expectancy</td><td>+0.1R</td><td>+0.3R</td><td>+0.5R+</td></tr>
+      <tr><td>Max Drawdown</td><td>< 20%</td><td>< 15%</td><td>< 10%</td></tr>
+      <tr><td>Avg RR</td><td>1.5</td><td>2.0</td><td>2.5+</td></tr>
+      <tr><td>Backtest trades</td><td>100</td><td>200</td><td>500+</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <div class="callout-title">Reading the table</div>
+    <p>A strategy can be viable even with a 40% winrate, as long as the average RR is 2+. A strategy with 60% winrate but RR 1 is worse than a 45% with RR 2. Winrate without context means nothing.</p>
+  </div>
+
+  <h2>5. Rigorous methodology — without it, the backtest lies</h2>
+  <ol>
+    <li><strong>Define the EXACT rules before starting.</strong> No interpretation, no "based on feeling". If a rule can't be defined in one mechanical sentence, it doesn't exist.</li>
+    <li><strong>Separate in-sample and out-of-sample.</strong> Develop on 2022-2023, validate on 2024. If it doesn't hold on the out-of-sample period, your strategy is overfitted.</li>
+    <li><strong>Include spread and fees.</strong> On XAUUSD, the average spread is 20-40 pips ($2-4). Add 2x spread per trade (entry + exit) in your calculations. Otherwise you're backtesting fiction.</li>
+    <li><strong>Categorize market conditions.</strong> Trend / range / high volatility / low vol / news. Your strategy may only work in a bullish trend — good to know before trading it in a range.</li>
+    <li><strong>Never look at the next candle</strong> before making the decision. This is the mortal sin of backtesting.</li>
+  </ol>
+
+  <h2>6. Backtesting pitfalls</h2>
+  <ul>
+    <li><strong>Overfitting</strong>: you adjust your strategy to perfectly fit the past. It blows up live. Rule: fewer than 5 adjustable parameters, simplicity = robustness.</li>
+    <li><strong>Curve fitting</strong>: you optimize parameters (EMA 13 instead of 12, RSI 14 instead of 15) to maximize past stats. It's intellectual fraud.</li>
+    <li><strong>Survivorship bias</strong>: you only backtest on pairs/periods that still exist.</li>
+    <li><strong>Hindsight bias</strong>: "it was obvious, I would have taken it live". No. Live, you were hesitating, scared, doubting. This "obvious" setup in backtest, you would never have taken it in real conditions.</li>
+    <li><strong>Cherry picking</strong>: you only record the "good" trades. Only a complete journal without exception has value.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">The honesty test</div>
+    <p>If your backtest shows 70% winrate and profit factor 3.5, you've probably cheated somewhere. Real profitable strategies run at 45-55% winrate with a profit factor of 1.5-2.2. Beyond that, suspect overfitting or hindsight bias.</p>
+  </div>
+
+  <h2>7. Forward test — the serious demo</h2>
+  <p>Backtest validated? You're not ready for live. You move to <strong>forward test demo</strong>: minimum 2 to 3 months, impeccable execution, as if it were real money.</p>
+  <p>Goal: reproduce backtest stats within <strong>20%</strong>. If your backtest shows +0.4R expectancy and your demo shows -0.1R, it's not the demo that's lying. It's you: either your execution is different, or your backtest was biased (probably hindsight).</p>
+  <p>The cold truth: <strong>if you're not profitable in demo, you won't be in live</strong>. You'll be worse. The stress of real money always degrades performance. Many find it unfair: "but in demo I don't focus the same way". That's exactly the problem. If you don't focus in demo, you won't focus on a small live account either.</p>
+
+  <h2>8. Going live — micro account mandatory</h2>
+  <ol>
+    <li>Open the <strong>smallest account possible</strong>. $500-1000. No more. The goal isn't to make money, it's to validate that you can handle the emotional shock of real money.</li>
+    <li>Risk <strong>0.25% per trade</strong> for the first 50 trades. Yes, tiny. That's intentional.</li>
+    <li>If stats hold over 50 trades → increase to 0.5%.</li>
+    <li>If it still holds over 100 trades → 1%.</li>
+    <li>Never above 1% until you have 200 real trades with positive expectancy.</li>
+  </ol>
+  <p>This ramp-up is the difference between those who last and those who blow up within 3 months.</p>
+
+  <h2>9. Free tools (and sufficient)</h2>
+  <ul>
+    <li><strong>TradingView Bar Replay</strong>: free (with ads on free plan), perfect for manual discretionary backtesting.</li>
+    <li><strong>MT4 / MT5 Strategy Tester</strong>: free, very powerful for automated backtesting.</li>
+    <li><strong>Forex Tester 5 Lite</strong>: free limited version but usable for manual testing.</li>
+    <li><strong>Myfxbook</strong>: track your demos and live accounts with pro analytics, free.</li>
+    <li><strong>Python + backtrader / vectorbt</strong>: for coders. Free, infinitely powerful.</li>
+    <li><strong><a href="../tools/journal.html">This app's built-in journal</a></strong>: to track your trades in real time and generate your stats.</li>
+  </ul>
+
+  <div class="callout callout-ok">
+    <div class="callout-title">Concrete action plan — 6 months</div>
+    <p>Months 1-2: manual backtest of 200 trades on TradingView. Month 3: analyze stats, minimal adjustments. Months 4-5: forward test demo, daily journal. Month 6: micro live account at 0.25%. If your stats hold at each stage, you progress. If they don't hold, you go back to the previous stage. No shortcuts.</p>
+  </div>
+
+  <h2>10. The final truth</h2>
+  <div class="callout callout-gold">
+    <div class="callout-title">The truth test</div>
+    <p>If after 200 rigorously backtested trades + 3 months of forward test in demo, your expectancy is positive and you followed your plan 90%+ of the time, then you have a real chance of becoming profitable. You don't have a guarantee — nobody does. But you mathematically have an edge and you've proven you can execute it.<br><br>If any of these conditions is not met, you're not ready for live. Period. Go back to module 1, work on your strategy, work on your mindset, start over. There's no shame in not being ready. There's shame in trading when you're not.</p>
+  </div>
+
+  <p>Welcome to the 1% that does the real work. This is where trading truly begins.</p>
+
+  <div class="quiz">
+    <h3>🎓 End of module quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="11-psychologie.html"><div class="label">← Previous</div><div class="name">Psychology</div></a>
+    <a href="13-plan-12-mois.html"><div class="label">Next →</div><div class="name">12-month plan</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(12);
+initQuiz('quizContainer', [
+  { q: "What is the minimum number of trades for a serious statistical estimate?", options: ["20","50","100","500"], correct: 2, explain: "Minimum 100 trades for a rough estimate, 200-300 for real confidence. Less than 30 = pure noise." },
+  { q: "What is overfitting?", options: ["Trading too much","Adjusting the strategy to fit the past","A type of SL","A TP technique"], correct: 1, explain: "Overfitting means adjusting the strategy to the past to the point where it no longer works live." },
+  { q: "A profit factor of 1.8 corresponds to what level?", options: ["Minimum viable","Good","Excellent","Bad"], correct: 1, explain: "PF > 1.5 = minimum viable, > 1.8 = good, > 2.5 = excellent." },
+  { q: "How long minimum in forward test demo before going live?", options: ["1 week","1 month","2-3 months","1 year"], correct: 2, explain: "2-3 months minimum to get a significant sample and verify execution stability." },
+  { q: "You launch a micro live account after backtest + demo. What risk per trade for the first 50 trades?", options: ["1%","0.25%","2%","0.5%"], correct: 1, explain: "0.25% for the first 50 real trades: emotional validation before progressive increase to 1%." },
+  { q: "Your backtest shows 75% winrate and PF of 4. What's your reaction?", options: ["Perfect, I go live","I suspect overfitting or hindsight bias","I double the risk","I add more indicators"], correct: 1, explain: "Stats that good are almost always a sign of backtest bias. Real strategies run at 45-55% WR, PF 1.5-2.2." }
+]);
+</script>
+</body>
+</html>

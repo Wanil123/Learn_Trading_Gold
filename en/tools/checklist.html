@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checklist pré-trade — Gold Trading Academy</title>
+<title>Pre-trade Checklist — Gold Trading Academy</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 <style>
   @media print {
     body { background: white !important; color: black !important; }
@@ -47,63 +47,63 @@
 <header class="border-b border-dark-600 bg-dark-800 no-print">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
-    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Retour</a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">← Back</a>
   </div>
 </header>
 
 <main class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
-  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">✅ Checklist pré-trade</h1>
-  <p class="text-gray-400 mb-4">À remplir AVANT chaque trade. Si une seule case n'est pas cochée → pas de trade.</p>
+  <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold-400 mb-2">✅ Pre-trade Checklist</h1>
+  <p class="text-gray-400 mb-4">Fill in BEFORE each trade. If a single box is unchecked → no trade.</p>
 
   <div class="flex flex-wrap gap-2 sm:gap-3 mb-6 no-print">
-    <button onclick="window.print()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-5 py-2 rounded-lg">🖨 Imprimer</button>
-    <button onclick="resetAll()" class="bg-dark-700 hover:bg-dark-600 text-gray-300 px-5 py-2 rounded-lg">🔄 Réinitialiser</button>
+    <button onclick="window.print()" class="bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold px-5 py-2 rounded-lg">🖨 Print</button>
+    <button onclick="resetAll()" class="bg-dark-700 hover:bg-dark-600 text-gray-300 px-5 py-2 rounded-lg">🔄 Reset</button>
     <div id="progress" class="w-full sm:w-auto sm:ml-auto self-center text-left sm:text-right text-gold-400 font-bold"></div>
   </div>
 
-  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3">📊 Contexte & bias</h2>
+  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3">📊 Context & bias</h2>
   <div id="s1"></div>
 
-  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🎯 Setup d'entrée</h2>
+  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🎯 Entry setup</h2>
   <div id="s2"></div>
 
-  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🛡️ Gestion du risque</h2>
+  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🛡️ Risk management</h2>
   <div id="s3"></div>
 
-  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🧠 État mental</h2>
+  <h2 class="text-lg sm:text-xl text-gold-400 font-bold mb-3 mt-6">🧠 Mental state</h2>
   <div id="s4"></div>
 
   <div class="callout callout-warn mt-8 no-print">
-    <div class="callout-title">Rappel</div>
-    <p>Si ne serait-ce qu'UNE case n'est pas cochée, ce n'est PAS un trade A+. Attends le prochain. Les setups parfaits sont rares — c'est normal.</p>
+    <div class="callout-title">Reminder</div>
+    <p>If even ONE box is unchecked, this is NOT an A+ trade. Wait for the next one. Perfect setups are rare — that's normal.</p>
   </div>
 </main>
 
 <script>
 const sections = {
   s1: [
-    { l: "Bias H4 identifié (uptrend/downtrend/range)", h: "HH/HL ou LH/LL clair sur H4" },
-    { l: "DXY + US10Y cohérents avec ma direction", h: "Corrélation négative respectée (DXY/taux baissiers si long Gold)" },
-    { l: "Aucune news à fort impact dans les 2 prochaines heures", h: "Check ForexFactory : FOMC, CPI, NFP, PCE" },
-    { l: "Killzone active (London 07-10 UTC ou NY 13:30-16 UTC)", h: "Liquidité suffisante pour un bon R:R" }
+    { l: "H4 bias identified (uptrend/downtrend/range)", h: "Clear HH/HL or LH/LL on H4" },
+    { l: "DXY + US10Y consistent with my direction", h: "Negative correlation respected (DXY/rates falling if long Gold)" },
+    { l: "No high-impact news in the next 2 hours", h: "Check ForexFactory: FOMC, CPI, NFP, PCE" },
+    { l: "Active killzone (London 07-10 UTC or NY 13:30-16 UTC)", h: "Sufficient liquidity for a good R:R" }
   ],
   s2: [
-    { l: "Zone de liquidité évidente identifiée", h: "Equal highs/lows, swing points visibles" },
-    { l: "Liquidity sweep confirmé (cassure + rejet)", h: "Le prix a pris la liquidité puis renversé" },
-    { l: "CHoCH / MSS confirmé sur timeframe d'entrée", h: "M5 ou M1 pour entrée précise" },
-    { l: "FVG ou Order Block identifié dans l'OTE (61-79% fib)", h: "Zone Premium pour short, Discount pour long" }
+    { l: "Obvious liquidity zone identified", h: "Equal highs/lows, visible swing points" },
+    { l: "Liquidity sweep confirmed (break + rejection)", h: "Price took liquidity then reversed" },
+    { l: "CHoCH / MSS confirmed on entry timeframe", h: "M5 or M1 for precise entry" },
+    { l: "FVG or Order Block identified in OTE (61-79% fib)", h: "Premium zone for short, Discount for long" }
   ],
   s3: [
-    { l: "Stop Loss placé de façon logique (sous swing + buffer spread)", h: "JAMAIS basé sur 'combien je veux risquer'" },
-    { l: "R:R minimum 1:2 sur TP1", h: "En dessous de 1:2, pas de trade" },
-    { l: "Taille de position calculée (max 1% du capital)", h: "Utilise le calculateur si besoin" },
-    { l: "TP1, TP2, TP3 définis avant l'entrée", h: "Niveaux de liquidité / R multiples" }
+    { l: "Stop Loss placed logically (below swing + spread buffer)", h: "NEVER based on 'how much I want to risk'" },
+    { l: "Minimum 1:2 R:R on TP1", h: "Below 1:2, no trade" },
+    { l: "Position size calculated (max 1% of capital)", h: "Use the calculator if needed" },
+    { l: "TP1, TP2, TP3 defined before entry", h: "Liquidity levels / R-multiples" }
   ],
   s4: [
-    { l: "Je ne suis pas en revenge trading après une perte", h: "Si oui → pause 30 min minimum" },
-    { l: "Je n'ai pas eu 2 pertes consécutives aujourd'hui", h: "Si oui → stop de la journée" },
-    { l: "Je ne ressens aucun FOMO sur ce setup", h: "Si j'hésite ou je 'veux absolument' → red flag" },
-    { l: "Je suis reposé, calme, pas sous stress externe", h: "Jamais trader fatigué ou énervé" }
+    { l: "I am not revenge trading after a loss", h: "If yes → pause for at least 30 min" },
+    { l: "I have not had 2 consecutive losses today", h: "If yes → done for the day" },
+    { l: "I feel no FOMO on this setup", h: "If I hesitate or 'really want it' → red flag" },
+    { l: "I am rested, calm, not under external stress", h: "Never trade when tired or upset" }
   ]
 };
 
@@ -149,6 +149,6 @@ function resetAll() {
 
 render();
 </script>
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 </body>
 </html>

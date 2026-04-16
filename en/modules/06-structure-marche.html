@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 — Market Structure | Gold Trading Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen">
+<header class="border-b border-dark-600 bg-dark-800 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-3"><span class="text-xl sm:text-2xl">🥇</span><span class="font-bold text-gold-400 text-sm sm:text-base">Gold Trading Academy</span></a>
+    <a href="../index.html" class="text-sm text-gray-400 hover:text-gold-400">&larr; Home</a>
+  </div>
+</header>
+<main class="module-content">
+  <div class="text-xs text-gold-400 font-bold tracking-widest">MODULE 06</div>
+  <h1>Market Structure</h1>
+  <p class="subtitle">The skeleton that holds everything else together</p>
+
+  <h2>Why structure is everything</h2>
+  <p>If you had to strip <em>everything</em> off your charts except one single thing, keep <strong>market structure</strong>. Not indicators, not exotic candlestick patterns, not EMAs. Structure. Because structure is what price <em>actually does</em> — its highs, its lows, its direction. Everything else is just interpretation.</p>
+  <p>Understanding structure means always knowing: "the market is going up, going down, or going sideways — and to what extent." From there, you know whether to look for longs, shorts, or to stay flat. It is the foundation for everything that comes next (SMC, ICT, Order Blocks, Liquidity, etc.).</p>
+
+  <h2>The 3 structural states</h2>
+  <h3>Uptrend: HH + HL</h3>
+  <p>A bullish market makes <strong>Higher Highs (HH)</strong> and <strong>Higher Lows (HL)</strong>. Each new peak is higher than the previous one, and each intermediate dip is also higher than the previous one. As long as this sequence continues, you are in an uptrend. Period.</p>
+
+  <h3>Downtrend: LH + LL</h3>
+  <p>A bearish market makes <strong>Lower Highs (LH)</strong> and <strong>Lower Lows (LL)</strong>. The mirror image of an uptrend. Each peak is lower, each dip is lower.</p>
+
+  <h3>Range</h3>
+  <p>When you see neither clear HH/HL nor clear LH/LL — price oscillates between two boundaries — you are in a range. Range is the <strong>default state</strong> of the market. About 70-80% of the time. Most traders who lose do so because they try to "trade a trend" when they are actually in a range.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">💡 Bias rule</div>
+    In an uptrend, you only take <strong>longs</strong>. In a downtrend, only <strong>shorts</strong>. In a range, either trade the extremes (fade), or wait for the breakout. This discipline alone eliminates half your losses. No more "I feel it's going to drop" in the middle of a D1 uptrend.
+  </div>
+
+  <h2>Swing points: how to identify them</h2>
+  <p>A <strong>swing high</strong> is a candle whose high is higher than the N candles to its left and the N candles to its right. Same logic for a swing low.</p>
+  <ul>
+    <li><strong>3-candle pivot</strong> (fractal): N=1. Fast but noisy.</li>
+    <li><strong>5-candle pivot</strong>: N=2. Standard. Good balance between reactivity and reliability.</li>
+    <li><strong>7+ candle pivot</strong>: for identifying major swings, the "macro" of the market.</li>
+  </ul>
+  <p>Practical tip: on your trading timeframe, use a 5-candle pivot for short-term swings and a 7-9 candle pivot to map the major structure that defines your bias.</p>
+
+  <h2>BOS — Break of Structure</h2>
+  <p><strong>Break of Structure (BOS)</strong> is when price breaks the last swing high (in an uptrend) or the last swing low (in a downtrend). It is a <strong>continuation</strong> signal for the current trend.</p>
+  <p><strong>Important criterion:</strong> a candle close above (or below), not just a wick poking through. This is an eternal debate in the SMC community — but statistically, the close filters out fake breakouts much better. Always prioritize the <strong>close</strong>.</p>
+
+  <h2>CHoCH — Change of Character</h2>
+  <p><strong>Change of Character (CHoCH)</strong> is the opposite signal of BOS: it is when, in an uptrend, price breaks below the previous <strong>Higher Low</strong> for the first time. It is the <em>first</em> sign that a reversal may be developing.</p>
+  <p>Mental schema: <strong>HH &rarr; HL &rarr; HH &rarr; HL &rarr; (break of an HL = bearish CHoCH) &rarr; LH &rarr; LL (= confirmed bearish BOS)</strong></p>
+  <p>A CHoCH alone is not enough to validate a reversal. But it is a first red flag telling you: "watch out, the trend is in danger, stop taking aggressive longs, wait for BOS confirmation."</p>
+
+  <h2>Schema: HH-HL-HH-HL-CHoCH-LH-LL</h2>
+  <div class="schema">
+    <svg viewBox="0 0 650 300" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <rect width="650" height="300" fill="#0f1419"/>
+      <!-- Zigzag structure -->
+      <polyline points="40,230 90,160 140,190 200,100 260,140 320,50 380,95 440,140 500,180 560,220 610,260"
+                fill="none" stroke="#9ca3af" stroke-width="2"/>
+      <!-- Points + labels -->
+      <circle cx="90" cy="160" r="4" fill="#22c55e"/>
+      <text x="70" y="150" fill="#22c55e" font-size="10">HH1</text>
+      <circle cx="140" cy="190" r="4" fill="#22c55e"/>
+      <text x="125" y="210" fill="#22c55e" font-size="10">HL1</text>
+      <circle cx="200" cy="100" r="4" fill="#22c55e"/>
+      <text x="185" y="90" fill="#22c55e" font-size="10">HH2</text>
+      <circle cx="260" cy="140" r="4" fill="#22c55e"/>
+      <text x="245" y="160" fill="#22c55e" font-size="10">HL2</text>
+      <circle cx="320" cy="50" r="4" fill="#22c55e"/>
+      <text x="305" y="40" fill="#22c55e" font-size="10">HH3</text>
+      <circle cx="380" cy="95" r="4" fill="#22c55e"/>
+      <text x="365" y="115" fill="#22c55e" font-size="10">HL3</text>
+
+      <!-- CHoCH: break of HL2 at 140 -->
+      <line x1="260" y1="140" x2="610" y2="140" stroke="#fbbf24" stroke-dasharray="3,3"/>
+      <text x="450" y="135" fill="#fbbf24" font-size="10">HL2 level</text>
+      <circle cx="440" cy="140" r="5" fill="#fbbf24"/>
+      <text x="430" y="125" fill="#fbbf24" font-size="11" font-weight="bold">CHoCH</text>
+
+      <!-- LH -->
+      <circle cx="440" cy="140" r="4" fill="#ef4444"/>
+      <circle cx="500" cy="180" r="4" fill="#ef4444"/>
+      <text x="490" y="200" fill="#ef4444" font-size="10">LH</text>
+      <circle cx="560" cy="220" r="4" fill="#ef4444"/>
+
+      <!-- Bearish BOS: break of last HL low (190) -->
+      <line x1="140" y1="190" x2="610" y2="190" stroke="#ef4444" stroke-dasharray="3,3"/>
+      <circle cx="560" cy="220" r="5" fill="#ef4444"/>
+      <text x="565" y="215" fill="#ef4444" font-size="11" font-weight="bold">Bearish BOS</text>
+      <circle cx="610" cy="260" r="4" fill="#ef4444"/>
+      <text x="595" y="280" fill="#ef4444" font-size="10">LL</text>
+
+      <text x="30" y="290" fill="#888" font-size="10">Uptrend (HH/HL) &rarr; CHoCH &rarr; Reversal (LH/LL)</text>
+    </svg>
+  </div>
+  <div class="schema-caption">Full sequence: three HH/HL in uptrend, then break of a prior HL (CHoCH), formation of an LH, then bearish BOS confirming the reversal.</div>
+
+  <h2>Internal vs External structure</h2>
+  <p>On an H1 chart, you have two layers of structure:</p>
+  <ul>
+    <li><strong>External structure</strong>: the major swings, the ones that also appear when you zoom out to H4 or D1. This is your "macro" structure.</li>
+    <li><strong>Internal structure</strong>: the smaller swings between two major swings. This is the "micro" structure that exists within each leg of the macro move.</li>
+  </ul>
+  <p>Internal structure is for timing your entry; external structure gives you your bias. You <em>never</em> trade against external structure without a very good reason.</p>
+
+  <h2>Equal highs / equal lows: where Liquidity appears</h2>
+  <p>When you see two swing highs (or more) at the same level, it is a sign that stops are accumulated just above. Traders placed their Stop Loss just above the last high. Everyone did it, and institutions <em>know</em> everyone did it.</p>
+  <p>Consequence: price will very often <strong>sweep those stops</strong> (liquidity grab / stop hunt) before reversing. This is the gateway to module 7 on Smart Money Concepts.</p>
+
+  <h2>Multi-timeframe analysis: the order</h2>
+  <p>The right method, the one that works:</p>
+  <ol>
+    <li><strong>D1</strong>: define the macro bias (uptrend, downtrend, range). Non-negotiable. If D1 is ranging, you trade small or not at all.</li>
+    <li><strong>H4</strong>: confirm the structure and locate key zones (major swings, S/R).</li>
+    <li><strong>H1</strong>: look for setups aligned with H4 and D1. This is often where a pullback forms.</li>
+    <li><strong>M15</strong>: look for an intraday CHoCH in the direction of the bias, pinpointing the entry.</li>
+    <li><strong>M5 / M1</strong>: precise entry timing (optional).</li>
+  </ol>
+  <p>Concrete example: D1 XAUUSD in a clear uptrend (HH/HL). H4 pulls back to a former resistance turned support. H1 consolidates. M15 prints a bullish CHoCH. You enter long, stop below the last M15 LL, TP at the last H4 HH. There you go. No indicator needed, just structure.</p>
+
+  <div class="callout callout-gold">
+    <div class="callout-title">🏆 Structure is the foundation of SMC</div>
+    Everything you will learn in module 7 (Smart Money Concepts, ICT, Order Blocks, Fair Value Gap, liquidity pools) relies <strong>100%</strong> on structure. If you are not comfortable with HH/HL, BOS, CHoCH, SMC will feel incomprehensible. Take your time here — it will save you 3 months of confusion later.
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ The "plastic" structure trap</div>
+    Many traders adjust their swing definitions until the structure "fits" their directional bias. That is mental cheating. Fix your method (for example: 5-candle pivot, close required to validate a BOS) and <strong>apply it mechanically</strong>. If the structure says range, you do not take trend-following trades. Period.
+  </div>
+
+  <div class="quiz">
+    <h3>🎓 End of module quiz</h3>
+    <div id="quizContainer"></div>
+  </div>
+
+  <div class="text-center mt-8">
+    <button id="markDoneBtn" class="mark-done">Mark as completed</button>
+  </div>
+
+  <div class="module-nav">
+    <a href="05-support-resistance.html"><div class="label">&larr; Previous</div><div class="name">Module 5 — Support / Resistance</div></a>
+    <a href="07-smc-ict.html"><div class="label">Next &rarr;</div><div class="name">Module 7 — Smart Money Concepts</div></a>
+  </div>
+</main>
+<script src="../../js/app.js"></script>
+<script>
+initMarkDone(6);
+initQuiz('quizContainer', [
+  { q: "Which sequence defines an uptrend?", options: ["LH + LL","HH + HL","HH + LL","Equal highs"], correct: 1, explain: "An uptrend = Higher Highs + Higher Lows. Each peak higher, each dip higher." },
+  { q: "What is a BOS (Break of Structure)?", options: ["An oscillation indicator","A candle close beyond the last significant swing in the direction of the trend","A doji candle","A reversal pattern"], correct: 1, explain: "BOS confirms trend continuation: close above the last swing high (uptrend) or below the last swing low (downtrend)." },
+  { q: "What is the difference between BOS and CHoCH?", options: ["Nothing, they are the same","BOS = continuation, CHoCH = first sign of reversal","BOS = reversal, CHoCH = continuation","CHoCH is a type of candle"], correct: 1, explain: "BOS confirms the trend. CHoCH is the first signal that it may be changing (break of the first HL in an uptrend or LH in a downtrend)." },
+  { q: "Price on D1: you see HH-HL-HH-HL-HH. What is the market state?", options: ["Downtrend","Uptrend","Range","Bearish breakout"], correct: 1, explain: "Repeated HH/HL sequence = clear uptrend. You only look for longs in this context." },
+  { q: "Why are equal highs important?", options: ["They form a nice chart pattern","They indicate accumulated stops (Liquidity) likely to be swept","They are banned by the SEC","They cancel the trend"], correct: 1, explain: "Equal highs = stops accumulated just above. Institutions often target these zones for a liquidity grab before reversing." }
+]);
+</script>
+</body>
+</html>
